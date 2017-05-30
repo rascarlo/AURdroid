@@ -1,0 +1,78 @@
+<resources>
+    <string name="app_name" translatable="false">AURdroid</string>
+    <string name="search">Search</string>
+    <string name="sort">Sort</string>
+    <string name="package_name">Package name</string>
+    <string name="votes">Votes</string>
+    <string name="popularity">Popularity</string>
+    <string name="maintainer">Maintainer</string>
+    <string name="last_updated">Last updated</string>
+    <string name="first_submitted">First submitted</string>
+    <string name="last_submitted">Last submitted</string>
+    <string name="version">Version</string>
+    <string name="search_by_name_description">Name, description</string>
+    <string name="search_by_name">Name</string>
+    <string name="search_by">Search by</string>
+    <string name="formatted_version">Version: %s</string>
+    <string name="formatted_maintainer">Maintainer: %s</string>
+    <string name="formatted_votes">Votes: %d</string>
+    <string name="formatted_popularity">Popularity: %f</string>
+    <string name="formatted_first_submitted">First submitted: %s</string>
+    <string name="formatted_last_updated">Last updated: %s</string>
+    <string name="formatted_flagged_out_of_date">Flagged out-of-date: %s</string>
+    <string name="formatted_provides">Provides [%d]</string>
+    <string name="formatted_keyword_field">[keyword]\n%1$s\n\n[field]\n%2$s</string>
+    <plurals name="plurals_formatted_depends">
+        <item quantity="one">Dependency [%d]</item>
+        <item quantity="other">Dependencies [%d]</item>
+    </plurals>
+    <plurals name="plurals_formatted_make_depends">
+        <item quantity="one">Make dependency [%d]</item>
+        <item quantity="other">Make dependencies [%d]</item>
+    </plurals>
+    <plurals name="plurals_formatted_optional_depends">
+        <item quantity="one">Optional dependency [%d]</item>
+        <item quantity="other">Optional dependencies [%d]</item>
+    </plurals>
+    <plurals name="plurals_formatted_conflicts">
+        <item quantity="one">Conflict [%d]</item>
+        <item quantity="other">Conflicts [%d]</item>
+    </plurals>
+    <plurals name="plurals_formatted_packages_found">
+        <item quantity="one">Package found [%d}</item>
+        <item quantity="other">Packages found [%d]</item>
+    </plurals>
+    <string name="not_available">Not available</string>
+    <string name="orphan">Orphan</string>
+    <string name="key_night_mode" translatable="false">key_night_mode</string>
+    <string name="night_mode">Night mode</string>
+    <string name="night_mode_auto">Auto</string>
+    <string name="night_mode_night">Night</string>
+    <string name="night_mode_day">Day</string>
+    <string name="search_by_maintainer">Maintainer</string>
+    <!--https://en.wikipedia.org/wiki/List_of_XML_and_HTML_character_entity_references-->
+    <string name="char_bullet_point" translatable="false">&#8226;</string>
+    <string name="char_whitespace" translatable="false">&#160;</string>
+    <string name="something_went_wrong">Something went wrong. Please try again</string>
+    <string name="no_packages_found">No package found</string>
+    <string name="response_not_successful">Response not successful</string>
+    <string name="no_internet_connection">No internet connection</string>
+    <string name="multiinfo" translatable="false">multiinfo</string>
+    <string name="license">License</string>
+    <string name="upstream_url">Upstream URL</string>
+    <string name="flagged_out_of_date">Flagged out-of-date</string>
+    <string name="search_tips">Package searches can be performed by issuing requests of the form:
+        \nsearch&amp;by=field&amp;arg=keywords
+        \nwhere keywords is the search argument and field is one of the following values:
+        \n&#8226; name [search by package name only]
+        \n&#8226; name-desc [search by package name and description]
+        \n&#8226; maintainer [search by package maintainer]</string>
+    <string name="aur_json_orphans_search">If a maintainer search is performed and the search argument is left empty, a list of orphan packages is returned.</string>
+    <string name="error">Error</string>
+    <string name="open_in_browser">Open in browser</string>
+    <string name="share">Share</string>
+    <string name="rate">Rate</string>
+    <string name="source">Source</string>
+    <string name="aur_json_wiki_link" translatable="false">https://wiki.archlinux.org/index.php/AurJson</string>
+    <string name="github_link" translatable="false">https://github.com/rascarlo/AURdroid</string>
+</resources>

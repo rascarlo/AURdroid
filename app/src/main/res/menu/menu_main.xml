@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <item
+        android:id="@+id/menu_main_night_mode_group_items"
+        android:orderInCategory="100"
+        android:title="@string/night_mode"
+        app:showAsAction="never">
+        <menu>
+            <group android:checkableBehavior="single">
+                <item
+                    android:id="@+id/menu_main_action_night_mode_auto"
+                    android:title="@string/night_mode_auto" />
+                <item
+                    android:id="@+id/menu_main_action_night_mode_night"
+                    android:title="@string/night_mode_night" />
+                <item
+                    android:id="@+id/menu_main_action_night_mode_day"
+                    android:title="@string/night_mode_day" />
+            </group>
+        </menu>
+    </item>
+
+    <item
+        android:id="@+id/menu_main_app_group"
+        android:orderInCategory="101"
+        android:title="@string/app_name"
+        app:showAsAction="never">
+        <menu>
+            <group>
+                <item
+                    android:id="@+id/menu_main_app_source"
+                    android:title="@string/source" />
+                <item
+                    android:id="@+id/menu_main_app_share"
+                    android:title="@string/share" />
+                <item
+                    android:id="@+id/menu_main_app_rate"
+                    android:title="@string/rate" />
+            </group>
+        </menu>
+    </item>
+</menu>

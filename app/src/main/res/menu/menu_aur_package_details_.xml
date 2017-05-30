@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <item
+        android:id="@+id/menu_aur_package_details_browse_maintainer"
+        android:title="@string/maintainer"
+        app:showAsAction="never" />
+
+    <item
+        android:id="@+id/menu_aur_package_details_open_in_browser"
+        android:title="@string/open_in_browser"
+        app:showAsAction="never" />
+
+    <item
+        android:id="@+id/menu_aur_package_details_share"
+        android:title="@string/share"
+        app:showAsAction="never" />
+
+</menu>

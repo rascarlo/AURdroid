@@ -1,0 +1,5 @@
+<resources>
+    <dimen name="cardview_corner_radius">2dp</dimen>
+    <dimen name="cardview_card_elevation">2dp</dimen>
+    <dimen name="cardview_card_max_elevation">4dp</dimen>
+</resources>
