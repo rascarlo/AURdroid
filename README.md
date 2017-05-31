@@ -1,6 +1,8 @@
 # AURdroid
 Android app on Google Play https://play.google.com/store/apps/details?id=com.rascarlo.aurdroid
+
 Simple AUR packages browser.
+
 Based on v5 of the RPC Interface API, as released with AUR v4.2.0 on February 15, 2016.
 
 ___
