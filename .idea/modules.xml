@@ -2,8 +2,8 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
+      <module fileurl="file://$PROJECT_DIR$/AURdroid.iml" filepath="$PROJECT_DIR$/AURdroid.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
-      <module fileurl="file://$PROJECT_DIR$/aurdroid.iml" filepath="$PROJECT_DIR$/aurdroid.iml" />
     </modules>
   </component>
 </project>
