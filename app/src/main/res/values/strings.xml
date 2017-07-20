@@ -70,6 +70,8 @@
     <string name="aur_json_orphans_search">If a maintainer search is performed and the search argument is left empty, a list of orphan packages is returned.</string>
     <string name="error">Error</string>
     <string name="open_in_browser">Open in browser</string>
+    <string name="view_pkgbuild">View PKGBUILD</string>
+    <string name="view_changes">View changes</string>
     <string name="share">Share</string>
     <string name="rate">Rate</string>
     <string name="source">Source</string>

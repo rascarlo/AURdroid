@@ -40,6 +40,8 @@ public class AurPackageDetailsFragment extends Fragment implements Callback<AurI
     private static final String LOG_TAG = AurPackageDetailsFragment.class.getSimpleName();
     private static final String BUNDLE_AUR_PACKAGE_NAME = "bundle_aur_package_name";
     private static final String AUR_WEB_PACKAGES_BASE_URL = "https://aur.archlinux.org/packages/";
+    private static final String AUR_PACKAGE_PKGBUILD_BASE_URL = "https://aur.archlinux.org/cgit/aur.git/tree/PKGBUILD";
+    private static final String AUR_PACKAGE_LOG_BASE_URL = "https://aur.archlinux.org/cgit/aur.git/log/";
     private String bundleAurPackageName;
 
     private AurPackageDetailsFragmentCallback aurPackageDetailsFragmentCallback;
@@ -53,9 +55,6 @@ public class AurPackageDetailsFragment extends Fragment implements Callback<AurI
     // retrofit
     private Call<AurInfoObject> call;
     private AurInfoResult responseAurInfoResult;
-    // parsed data
-    private Uri responseAurInfoResultUri;
-    private String responseAurInfoResultMaintainer;
 
     public AurPackageDetailsFragment() {
         // Required empty public constructor
@@ -146,24 +145,43 @@ public class AurPackageDetailsFragment extends Fragment implements Callback<AurI
 
     @Override
     public void onPrepareOptionsMenu(Menu menu) {
+        // view PKGBUILD
+        MenuItem viewPkgbuild = menu.findItem(R.id.menu_aur_package_details_view_pkgbuild);
+        viewPkgbuild.setEnabled(getResponseAurInfoResultPkgbuildUri() != null);
+        // view changes
+        MenuItem viewChanges = menu.findItem(R.id.menu_aur_package_details_view_changes);
+        viewChanges.setEnabled(getResponseAurInfoResultLogUri() != null);
         // browse maintainer
         MenuItem browseMaintainer = menu.findItem(R.id.menu_aur_package_details_browse_maintainer);
-        browseMaintainer.setEnabled(responseAurInfoResultMaintainer != null && !TextUtils.isEmpty(responseAurInfoResultMaintainer));
+        browseMaintainer.setEnabled(responseAurInfoResult!=null && responseAurInfoResult.maintainer != null && !TextUtils.isEmpty(responseAurInfoResult.maintainer));
         // open in browser
         MenuItem openInBrowser = menu.findItem(R.id.menu_aur_package_details_open_in_browser);
-        openInBrowser.setEnabled(responseAurInfoResultUri != null && !TextUtils.isEmpty(responseAurInfoResultUri.toString()));
+        openInBrowser.setEnabled(getResponseAurInfoResultUri() != null);
         // share
         MenuItem shareItem = menu.findItem(R.id.menu_aur_package_details_share);
-        shareItem.setEnabled(responseAurInfoResultUri != null && !TextUtils.isEmpty(responseAurInfoResultUri.toString()));
+        shareItem.setEnabled(getResponseAurInfoResultUri() != null);
         super.onPrepareOptionsMenu(menu);
     }
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         int i = item.getItemId();
+        // view PKGBUILD
+        if (i == R.id.menu_aur_package_details_view_pkgbuild) {
+            if (getResponseAurInfoResultPkgbuildUri() != null) {
+                startIntentViewUri(getResponseAurInfoResultPkgbuildUri());
+                return true;
+            }
+            // view changes
+        } else if (i == R.id.menu_aur_package_details_view_changes) {
+            if (getResponseAurInfoResultLogUri() != null) {
+                startIntentViewUri(getResponseAurInfoResultLogUri());
+                return true;
+            }
+        }
         // browse maintainer
         // check for valid string
-        if (responseAurInfoResult.maintainer != null && !TextUtils.isEmpty(responseAurInfoResult.maintainer)) {
+        if (responseAurInfoResult!=null && responseAurInfoResult.maintainer != null && !TextUtils.isEmpty(responseAurInfoResult.maintainer)) {
             if (i == R.id.menu_aur_package_details_browse_maintainer) {
                 if (aurPackageDetailsFragmentCallback != null) {
                     aurPackageDetailsFragmentCallback.onAurPackageDetailsFragmentBrowseMaintainer(responseAurInfoResult.maintainer);
@@ -173,22 +191,16 @@ public class AurPackageDetailsFragment extends Fragment implements Callback<AurI
         }
         // open in browser and check
         // they depend on responseAurInfoResultUri
-        if (responseAurInfoResultUri != null && !TextUtils.isEmpty(responseAurInfoResultUri.toString())) {
+        if (getResponseAurInfoResultUri()!=null) {
             // open in browser
             if (i == R.id.menu_aur_package_details_open_in_browser) {
-                Intent intent = new Intent(Intent.ACTION_VIEW, responseAurInfoResultUri);
-                try {
-                    context.startActivity(intent);
-                } catch (Exception e) {
-                    e.printStackTrace();
-                    Toast.makeText(context, resources.getString(R.string.something_went_wrong), Toast.LENGTH_SHORT).show();
-                }
+                startIntentViewUri(getResponseAurInfoResultUri());
                 return true;
                 // share
             } else if (i == R.id.menu_aur_package_details_share) {
                 Intent intent = new Intent();
                 intent.setAction(Intent.ACTION_SEND);
-                intent.putExtra(Intent.EXTRA_TEXT, responseAurInfoResultUri.toString());
+                intent.putExtra(Intent.EXTRA_TEXT, getResponseAurInfoResultUri().toString());
                 intent.setType("text/plain");
                 try {
                     context.startActivity(intent);
@@ -204,12 +216,17 @@ public class AurPackageDetailsFragment extends Fragment implements Callback<AurI
         return super.onOptionsItemSelected(item);
     }
 
+    private void startIntentViewUri(Uri uri) {
+        Intent intent = new Intent(Intent.ACTION_VIEW, uri);
+        try {
+            context.startActivity(intent);
+        } catch (Exception e) {
+            e.printStackTrace();
+            Toast.makeText(context, resources.getString(R.string.something_went_wrong), Toast.LENGTH_SHORT).show();
+        }
+    }
+
     private void processResponseAurInfoResult() {
-        // parse the uri
-        responseAurInfoResultUri = Uri.parse(AUR_WEB_PACKAGES_BASE_URL)
-                .buildUpon()
-                .appendPath(responseAurInfoResult.name)
-                .build();
         // package name
         TextView packageNameTextView = (TextView) rootView.findViewById(R.id.aur_package_details_package_name_text_view);
         packageNameTextView.setText(responseAurInfoResult.name);
@@ -406,7 +423,6 @@ public class AurPackageDetailsFragment extends Fragment implements Callback<AurI
                         && !aurInfoObject.aurInfoResults.isEmpty()
                         && aurInfoObject.aurInfoResults.size() > 0) {
                     responseAurInfoResult = aurInfoObject.aurInfoResults.get(0);
-                    responseAurInfoResultMaintainer = responseAurInfoResult.maintainer;
                     processResponseAurInfoResult();
                 } else {
                     Log.e(LOG_TAG, "onResponse: onResponse EMPTY successful.");
@@ -432,6 +448,45 @@ public class AurPackageDetailsFragment extends Fragment implements Callback<AurI
     public void onFailure(@NonNull Call<AurInfoObject> call, @NonNull Throwable t) {
         if (aurPackageDetailsFragmentCallback != null) {
             aurPackageDetailsFragmentCallback.onAurPackageDetailsFragmentOnResponseOnFailure(bundleAurPackageName, t.getMessage());
+        }
+    }
+
+    private Uri getResponseAurInfoResultUri() {
+        if (responseAurInfoResult != null
+                && responseAurInfoResult.name != null
+                && !TextUtils.isEmpty(responseAurInfoResult.name)) {
+            return Uri.parse(AUR_WEB_PACKAGES_BASE_URL)
+                    .buildUpon()
+                    .appendPath(responseAurInfoResult.name)
+                    .build();
+        } else {
+            return null;
+        }
+    }
+
+    private Uri getResponseAurInfoResultPkgbuildUri() {
+        if (responseAurInfoResult != null
+                && responseAurInfoResult.packageBase != null
+                && !TextUtils.isEmpty(responseAurInfoResult.packageBase)) {
+            return Uri.parse(AUR_PACKAGE_PKGBUILD_BASE_URL)
+                    .buildUpon()
+                    .appendQueryParameter("h", responseAurInfoResult.packageBase)
+                    .build();
+        } else {
+            return null;
+        }
+    }
+
+    private Uri getResponseAurInfoResultLogUri() {
+        if (responseAurInfoResult != null
+                && responseAurInfoResult.packageBase != null
+                && !TextUtils.isEmpty(responseAurInfoResult.packageBase)) {
+            return Uri.parse(AUR_PACKAGE_LOG_BASE_URL)
+                    .buildUpon()
+                    .appendQueryParameter("h", responseAurInfoResult.packageBase)
+                    .build();
+        } else {
+            return null;
         }
     }
 

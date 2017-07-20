@@ -2,6 +2,16 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto">
     <item
+        android:id="@+id/menu_aur_package_details_view_pkgbuild"
+        android:title="@string/view_pkgbuild"
+        app:showAsAction="never" />
+
+    <item
+        android:id="@+id/menu_aur_package_details_view_changes"
+        android:title="@string/view_changes"
+        app:showAsAction="never" />
+
+    <item
         android:id="@+id/menu_aur_package_details_browse_maintainer"
         android:title="@string/maintainer"
         app:showAsAction="never" />
