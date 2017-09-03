@@ -43,9 +43,9 @@ public class AurDroidDialogFragment extends DialogFragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         View rootView = inflater.inflate(R.layout.fragment_aur_droid_dialog_fragment, container, false);
-        TextView titleTextView = (TextView) rootView.findViewById(R.id.fragment_aur_droid_dialog_fragment_title_text_view);
+        TextView titleTextView = rootView.findViewById(R.id.fragment_aur_droid_dialog_fragment_title_text_view);
         titleTextView.setText(bundleTitle);
-        TextView messageTextView = (TextView) rootView.findViewById(R.id.fragment_aur_droid_dialog_fragment_message_text_view);
+        TextView messageTextView = rootView.findViewById(R.id.fragment_aur_droid_dialog_fragment_message_text_view);
         messageTextView.setText(bundleMessage);
         return rootView;
     }

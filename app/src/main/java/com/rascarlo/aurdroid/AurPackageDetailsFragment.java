@@ -97,7 +97,7 @@ public class AurPackageDetailsFragment extends Fragment implements Callback<AurI
         call = aurRpcApi.infoByPackageName(bundleAurPackageName);
         // views
         rootView = inflater.inflate(R.layout.fragment_aur_package_details, container, false);
-        progressBar = (ProgressBar) rootView.findViewById(R.id.fragment_aur_package_details_progress_bar);
+        progressBar = rootView.findViewById(R.id.fragment_aur_package_details_progress_bar);
         rulerView = rootView.findViewById(R.id.fragment_aur_package_details_ruler);
         return rootView;
     }
@@ -228,13 +228,13 @@ public class AurPackageDetailsFragment extends Fragment implements Callback<AurI
 
     private void processResponseAurInfoResult() {
         // package name
-        TextView packageNameTextView = (TextView) rootView.findViewById(R.id.aur_package_details_package_name_text_view);
+        TextView packageNameTextView = rootView.findViewById(R.id.aur_package_details_package_name_text_view);
         packageNameTextView.setText(responseAurInfoResult.name);
         // package version
-        TextView packageVersionTextView = (TextView) rootView.findViewById(R.id.aur_package_details_package_version_text_view);
+        TextView packageVersionTextView = rootView.findViewById(R.id.aur_package_details_package_version_text_view);
         packageVersionTextView.setText(responseAurInfoResult.version);
         // package description
-        TextView packageDescriptionTextView = (TextView) rootView.findViewById(R.id.aur_package_details_package_description_text_view);
+        TextView packageDescriptionTextView = rootView.findViewById(R.id.aur_package_details_package_description_text_view);
         packageDescriptionTextView.setText(responseAurInfoResult.description);
         // community
         setUpCommunity();
@@ -263,10 +263,10 @@ public class AurPackageDetailsFragment extends Fragment implements Callback<AurI
     }
 
     private void setUpCommunity() {
-        CardView cardView = (CardView) rootView.findViewById(R.id.aur_package_details_community_card_view);
+        CardView cardView = rootView.findViewById(R.id.aur_package_details_community_card_view);
         cardView.setVisibility(View.VISIBLE);
-        TextView votesTextView = (TextView) rootView.findViewById(R.id.aur_package_details_votes_text_view);
-        TextView popularityTextView = (TextView) rootView.findViewById(R.id.aur_package_details_popularity_text_view);
+        TextView votesTextView = rootView.findViewById(R.id.aur_package_details_votes_text_view);
+        TextView popularityTextView = rootView.findViewById(R.id.aur_package_details_popularity_text_view);
         // votes
         if (responseAurInfoResult.numVotes != null) {
             votesTextView.setText(String.format(Locale.getDefault(), "%d", responseAurInfoResult.numVotes));
@@ -278,12 +278,12 @@ public class AurPackageDetailsFragment extends Fragment implements Callback<AurI
     }
 
     private void setUpTimestamps() {
-        CardView cardView = (CardView) rootView.findViewById(R.id.aur_package_details_timestamps_card_view);
+        CardView cardView = rootView.findViewById(R.id.aur_package_details_timestamps_card_view);
         cardView.setVisibility(View.VISIBLE);
-        TextView lastUpdatedTextView = (TextView) rootView.findViewById(R.id.aur_package_details_last_updated_text_view);
-        TextView firstSubmittedTextView = (TextView) rootView.findViewById(R.id.aur_package_details_first_submitted_text_view);
-        TextView flaggedOutOfDateTextView = (TextView) rootView.findViewById(R.id.aur_package_details_flagged_out_of_date_text_view);
-        TextView flaggedOutOfDateLabelTextView = (TextView) rootView.findViewById(R.id.aur_package_details_flagged_out_of_date_label_text_view);
+        TextView lastUpdatedTextView = rootView.findViewById(R.id.aur_package_details_last_updated_text_view);
+        TextView firstSubmittedTextView = rootView.findViewById(R.id.aur_package_details_first_submitted_text_view);
+        TextView flaggedOutOfDateTextView = rootView.findViewById(R.id.aur_package_details_flagged_out_of_date_text_view);
+        TextView flaggedOutOfDateLabelTextView = rootView.findViewById(R.id.aur_package_details_flagged_out_of_date_label_text_view);
         // last updated
         lastUpdatedTextView.setText(String.format("%s", responseAurInfoResult.lastModified == null ?
                 resources.getString(R.string.not_available)
@@ -305,12 +305,12 @@ public class AurPackageDetailsFragment extends Fragment implements Callback<AurI
     }
 
     private void setUpMaintainer() {
-        CardView cardView = (CardView) rootView.findViewById(R.id.aur_package_details_maintainer_card_view);
+        CardView cardView = rootView.findViewById(R.id.aur_package_details_maintainer_card_view);
         cardView.setVisibility(View.VISIBLE);
-        TextView maintainerLabelTextView = (TextView) rootView.findViewById(R.id.aur_package_details_maintainer_label_text_view);
-        TextView maintainerTextView = (TextView) rootView.findViewById(R.id.aur_package_details_maintainer_text_view);
-        TextView licenseTextView = (TextView) rootView.findViewById(R.id.aur_package_details_license_text_view);
-        TextView upstreamUrlTextView = (TextView) rootView.findViewById(R.id.aur_package_details_upstream_url_text_view);
+        TextView maintainerLabelTextView = rootView.findViewById(R.id.aur_package_details_maintainer_label_text_view);
+        TextView maintainerTextView = rootView.findViewById(R.id.aur_package_details_maintainer_text_view);
+        TextView licenseTextView = rootView.findViewById(R.id.aur_package_details_license_text_view);
+        TextView upstreamUrlTextView = rootView.findViewById(R.id.aur_package_details_upstream_url_text_view);
         // responseAurInfoResultMaintainer
         if (responseAurInfoResult.maintainer != null) {
             if (responseAurInfoResult.maintainer.isEmpty()) {
@@ -340,9 +340,9 @@ public class AurPackageDetailsFragment extends Fragment implements Callback<AurI
     }
 
     private void setUpDepends() {
-        CardView dependsCardView = (CardView) rootView.findViewById(R.id.aur_package_details_depends_card_view);
-        TextView dependsLabelTextView = (TextView) rootView.findViewById(R.id.aur_package_details_depends_label_text_view);
-        TextView dependsTextView = (TextView) rootView.findViewById(R.id.aur_package_details_depends_text_view);
+        CardView dependsCardView = rootView.findViewById(R.id.aur_package_details_depends_card_view);
+        TextView dependsLabelTextView = rootView.findViewById(R.id.aur_package_details_depends_label_text_view);
+        TextView dependsTextView = rootView.findViewById(R.id.aur_package_details_depends_text_view);
         if (responseAurInfoResult.depends != null && !responseAurInfoResult.depends.isEmpty()) {
             dependsCardView.setVisibility(View.VISIBLE);
             dependsLabelTextView.setText(resources.getQuantityString(R.plurals.plurals_formatted_depends,
@@ -355,9 +355,9 @@ public class AurPackageDetailsFragment extends Fragment implements Callback<AurI
     }
 
     private void setUpMakeDepends() {
-        CardView makeDependsCardView = (CardView) rootView.findViewById(R.id.aur_package_details_make_depends_card_view);
-        TextView makeDependsLabelTextView = (TextView) rootView.findViewById(R.id.aur_package_details_make_depends_label_text_view);
-        TextView makeDependsTextView = (TextView) rootView.findViewById(R.id.aur_package_details_make_depends_text_view);
+        CardView makeDependsCardView = rootView.findViewById(R.id.aur_package_details_make_depends_card_view);
+        TextView makeDependsLabelTextView = rootView.findViewById(R.id.aur_package_details_make_depends_label_text_view);
+        TextView makeDependsTextView = rootView.findViewById(R.id.aur_package_details_make_depends_text_view);
         if (responseAurInfoResult.makeDepends != null && !responseAurInfoResult.makeDepends.isEmpty()) {
             makeDependsCardView.setVisibility(View.VISIBLE);
             makeDependsLabelTextView.setText(resources.getQuantityString(R.plurals.plurals_formatted_make_depends,
@@ -370,9 +370,9 @@ public class AurPackageDetailsFragment extends Fragment implements Callback<AurI
     }
 
     private void setUpOptionalDepends() {
-        CardView optionalDependsCardView = (CardView) rootView.findViewById(R.id.aur_package_details_optional_depends_card_view);
-        TextView optionalDependsLabelTextView = (TextView) rootView.findViewById(R.id.aur_package_details_optional_depends_label_text_view);
-        TextView optionalDependsTextView = (TextView) rootView.findViewById(R.id.aur_package_details_optional_depends_text_view);
+        CardView optionalDependsCardView = rootView.findViewById(R.id.aur_package_details_optional_depends_card_view);
+        TextView optionalDependsLabelTextView = rootView.findViewById(R.id.aur_package_details_optional_depends_label_text_view);
+        TextView optionalDependsTextView = rootView.findViewById(R.id.aur_package_details_optional_depends_text_view);
         if (responseAurInfoResult.optDepends != null && !responseAurInfoResult.optDepends.isEmpty()) {
             optionalDependsCardView.setVisibility(View.VISIBLE);
             optionalDependsLabelTextView.setText(resources.getQuantityString(R.plurals.plurals_formatted_optional_depends,
@@ -385,9 +385,9 @@ public class AurPackageDetailsFragment extends Fragment implements Callback<AurI
     }
 
     private void setUpProvides() {
-        CardView providesCardView = (CardView) rootView.findViewById(R.id.aur_package_details_provides_card_view);
-        TextView providesLabelTextView = (TextView) rootView.findViewById(R.id.aur_package_details_provides_label_text_view);
-        TextView providesTextView = (TextView) rootView.findViewById(R.id.aur_package_details_provides_text_view);
+        CardView providesCardView = rootView.findViewById(R.id.aur_package_details_provides_card_view);
+        TextView providesLabelTextView = rootView.findViewById(R.id.aur_package_details_provides_label_text_view);
+        TextView providesTextView = rootView.findViewById(R.id.aur_package_details_provides_text_view);
         if (responseAurInfoResult.provides != null && !responseAurInfoResult.provides.isEmpty()) {
             providesCardView.setVisibility(View.VISIBLE);
             providesLabelTextView.setText(resources.getString(R.string.formatted_provides,
@@ -399,9 +399,9 @@ public class AurPackageDetailsFragment extends Fragment implements Callback<AurI
     }
 
     private void setUpConflicts() {
-        CardView conflictsCardView = (CardView) rootView.findViewById(R.id.aur_package_details_conflicts_card_view);
-        TextView conflictsLabelTextView = (TextView) rootView.findViewById(R.id.aur_package_details_conflicts_label_text_view);
-        TextView conflictsTextView = (TextView) rootView.findViewById(R.id.aur_package_details_conflicts_text_view);
+        CardView conflictsCardView = rootView.findViewById(R.id.aur_package_details_conflicts_card_view);
+        TextView conflictsLabelTextView = rootView.findViewById(R.id.aur_package_details_conflicts_label_text_view);
+        TextView conflictsTextView = rootView.findViewById(R.id.aur_package_details_conflicts_text_view);
         if (responseAurInfoResult.conflicts != null && !responseAurInfoResult.conflicts.isEmpty()) {
             conflictsCardView.setVisibility(View.VISIBLE);
             conflictsLabelTextView.setText(resources.getQuantityString(R.plurals.plurals_formatted_conflicts,

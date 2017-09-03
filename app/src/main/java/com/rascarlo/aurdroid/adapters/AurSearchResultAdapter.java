@@ -168,16 +168,16 @@ public class AurSearchResultAdapter extends RecyclerView.Adapter<AurSearchResult
 
         ViewHolder(View itemView) {
             super(itemView);
-            mainContainer = (LinearLayout) itemView.findViewById(R.id.aur_search_result_view_holder_main_container);
-            packageName = (TextView) itemView.findViewById(R.id.aur_search_result_view_holder_package_name_text_view);
-            packageDescription = (TextView) itemView.findViewById(R.id.aur_search_result_view_holder_package_description_text_view);
-            packageVersion = (TextView) itemView.findViewById(R.id.aur_search_result_view_holder_package_version_text_view);
-            packageMaintainer = (TextView) itemView.findViewById(R.id.aur_search_result_view_holder_package_maintainer_text_view);
-            packageVotes = (TextView) itemView.findViewById(R.id.aur_search_result_view_holder_package_votes_text_view);
-            packagePopularity = (TextView) itemView.findViewById(R.id.aur_search_result_view_holder_package_popularity_text_view);
-            packageLastUpdated = (TextView) itemView.findViewById(R.id.aur_search_result_view_holder_package_last_updated_text_view);
-            packageFirstSubmitted = (TextView) itemView.findViewById(R.id.aur_search_result_view_holder_package_first_submitted_text_view);
-            packageFlaggedOutOfDate = (TextView) itemView.findViewById(R.id.aur_search_result_view_holder_package_flagged_out_of_date_text_view);
+            mainContainer = itemView.findViewById(R.id.aur_search_result_view_holder_main_container);
+            packageName = itemView.findViewById(R.id.aur_search_result_view_holder_package_name_text_view);
+            packageDescription = itemView.findViewById(R.id.aur_search_result_view_holder_package_description_text_view);
+            packageVersion = itemView.findViewById(R.id.aur_search_result_view_holder_package_version_text_view);
+            packageMaintainer = itemView.findViewById(R.id.aur_search_result_view_holder_package_maintainer_text_view);
+            packageVotes = itemView.findViewById(R.id.aur_search_result_view_holder_package_votes_text_view);
+            packagePopularity = itemView.findViewById(R.id.aur_search_result_view_holder_package_popularity_text_view);
+            packageLastUpdated = itemView.findViewById(R.id.aur_search_result_view_holder_package_last_updated_text_view);
+            packageFirstSubmitted = itemView.findViewById(R.id.aur_search_result_view_holder_package_first_submitted_text_view);
+            packageFlaggedOutOfDate = itemView.findViewById(R.id.aur_search_result_view_holder_package_flagged_out_of_date_text_view);
         }
     }
 

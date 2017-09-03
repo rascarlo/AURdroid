@@ -114,10 +114,10 @@ public class SearchFragment extends Fragment implements Callback<AurSearchObject
         aurRpcApi = AurRpcService.getAurRpcApi();
         aurDroidUtils = new AurDroidUtils(context);
         View rootView = inflater.inflate(R.layout.fragment_search, container, false);
-        progressBar = (ProgressBar) rootView.findViewById(R.id.fragment_search_progress_bar);
-        recyclerView = (RecyclerView) rootView.findViewById(R.id.fragment_search_recycler_view);
-        footerTextView = (TextView) rootView.findViewById(R.id.fragment_search_footer);
-        wikiLinearLayout = (ScrollView) rootView.findViewById(R.id.fragment_search_wiki_main_container);
+        progressBar = rootView.findViewById(R.id.fragment_search_progress_bar);
+        recyclerView = rootView.findViewById(R.id.fragment_search_recycler_view);
+        footerTextView = rootView.findViewById(R.id.fragment_search_footer);
+        wikiLinearLayout = rootView.findViewById(R.id.fragment_search_wiki_main_container);
         linearLayoutManager = new LinearLayoutManager(context, LinearLayoutManager.VERTICAL, false);
         recyclerView.setLayoutManager(linearLayoutManager);
         recyclerView.setHasFixedSize(true);
