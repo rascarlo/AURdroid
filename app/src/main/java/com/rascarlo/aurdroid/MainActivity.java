@@ -151,6 +151,10 @@ public class MainActivity extends AppCompatActivity
     private void inflateDetailsFragment(String packageName) {
         AurPackageDetailsFragment aurPackageDetailsFragment = AurPackageDetailsFragment.newInstance(packageName);
         FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+        fragmentTransaction.setCustomAnimations(R.anim.fragment_enter,
+                R.anim.fragment_exit,
+                R.anim.fragment_pop_enter,
+                R.anim.fragment_pop_exit);
         fragmentTransaction.replace(R.id.main_fragment_container, aurPackageDetailsFragment, AUR_PACKAGE_DETAILS_FRAGMENT_TAG);
         fragmentTransaction.addToBackStack(null);
         fragmentTransaction.commit();
@@ -158,6 +162,10 @@ public class MainActivity extends AppCompatActivity
 
     private void inflateDialogFragment(String title, String message) {
         FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+        fragmentTransaction.setCustomAnimations(R.anim.fragment_enter,
+                R.anim.fragment_exit,
+                R.anim.fragment_pop_enter,
+                R.anim.fragment_pop_exit);
         Fragment fragmentByTag = fragmentManager.findFragmentByTag(AUR_DIALOG_FRAGMENT_TAG);
         if (fragmentByTag != null) {
             fragmentTransaction.remove(fragmentByTag);
@@ -226,7 +234,10 @@ public class MainActivity extends AppCompatActivity
     public void onAurPackageDetailsFragmentBrowseMaintainer(String aurPackageMaintainer) {
         SearchFragment searchFragment = SearchFragment.newInstanceSearchByMaintainer(aurPackageMaintainer);
         FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
-        fragmentTransaction.setCustomAnimations(android.R.anim.slide_in_left, android.R.anim.slide_out_right);
+        fragmentTransaction.setCustomAnimations(R.anim.fragment_enter,
+                R.anim.fragment_exit,
+                R.anim.fragment_pop_enter,
+                R.anim.fragment_pop_exit);
         fragmentTransaction.replace(R.id.main_fragment_container, searchFragment);
         fragmentTransaction.addToBackStack(null);
         fragmentTransaction.commit();
