@@ -29,3 +29,9 @@ ___
 <img src="https://github.com/rascarlo/AURdroid/blob/master/art/002.png" width="180" height="320" /> <img src="https://github.com/rascarlo/AURdroid/blob/master/art/003.png" width="180" height="320" />
 <img src="https://github.com/rascarlo/AURdroid/blob/master/art/004.png" width="180" height="320" /> <img src="https://github.com/rascarlo/AURdroid/blob/master/art/005.png" width="180" height="320" />
 <img src="https://github.com/rascarlo/AURdroid/blob/master/art/006.png" width="180" height="320" /> <img src="https://github.com/rascarlo/AURdroid/blob/master/art/007.png" width="180" height="320" />
+
+___
+### Libraries
+- **Retrofit:** https://github.com/square/retrofit
+
+*Type-safe HTTP client for Android and Java by Square, Inc. http://square.github.io/retrofit/*
