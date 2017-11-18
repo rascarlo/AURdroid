@@ -106,7 +106,7 @@ public class SearchFragment extends Fragment implements Callback<AurSearchObject
     }
 
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+    public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         setRetainInstance(true);
         setHasOptionsMenu(true);
         Context context = getActivity();
@@ -175,7 +175,7 @@ public class SearchFragment extends Fragment implements Callback<AurSearchObject
     }
 
     @Override
-    public void onSaveInstanceState(Bundle outState) {
+    public void onSaveInstanceState(@NonNull Bundle outState) {
         outState.putParcelable(SAVED_INSTANCE_LINEAR_LAYOUT_MANAGER_STATE, linearLayoutManager.onSaveInstanceState());
         outState.putString(SAVED_INSTANCE_SEARCH_KEYWORD, searchQueryKeyword);
         super.onSaveInstanceState(outState);

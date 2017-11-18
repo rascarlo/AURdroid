@@ -84,7 +84,7 @@ public class AurPackageDetailsFragment extends Fragment implements Callback<AurI
     }
 
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
+    public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         setHasOptionsMenu(true);
         setRetainInstance(true);

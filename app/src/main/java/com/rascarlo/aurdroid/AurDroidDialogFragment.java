@@ -1,6 +1,7 @@
 package com.rascarlo.aurdroid;
 
 import android.os.Bundle;
+import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.annotation.StyleRes;
 import android.support.v4.app.DialogFragment;
@@ -40,7 +41,7 @@ public class AurDroidDialogFragment extends DialogFragment {
     }
 
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
+    public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         View rootView = inflater.inflate(R.layout.fragment_aur_droid_dialog_fragment, container, false);
         TextView titleTextView = rootView.findViewById(R.id.fragment_aur_droid_dialog_fragment_title_text_view);
