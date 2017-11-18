@@ -19,8 +19,8 @@ ___
 
 ___
 ### Permissions
-- **android.permission.INTERNET:** pull json
-- **android.permission.ACCESS_NETWORK_STATE:** check for active network to execute query
+- **android.permission.INTERNET:** pull json (https://developer.android.com/reference/android/Manifest.permission.html#INTERNET)
+- **android.permission.ACCESS_NETWORK_STATE:** check for active network to execute query (https://developer.android.com/reference/android/Manifest.permission.html#ACCESS_NETWORK_STATE)
 
 
 ___
