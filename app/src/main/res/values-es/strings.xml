@@ -1,0 +1,56 @@
+<resources>
+    <string name="search">Buscar</string>
+    <string name="sort">Filtrar</string>
+    <string name="package_name">Nombre del paquete</string>
+    <string name="votes">Votos</string>
+    <string name="popularity">Popularidad</string>
+    <string name="maintainer">Mantenedor</string>
+    <string name="last_updated">Última actualización</string>
+    <string name="first_submitted">Fecha de publicación</string>
+    <string name="last_submitted">Última contribución</string>
+    <string name="version">Versión</string>
+    <string name="search_by_name_description">Nombre, descripción</string>
+    <string name="search_by_name">Nombre</string>
+    <string name="search_by">Buscar por</string>
+    <string name="formatted_version">Versión: %s</string>
+    <string name="formatted_maintainer">Mantenedor: %s</string>
+    <string name="formatted_votes">Votos: %d</string>
+    <string name="formatted_popularity">Popularidad %f</string>
+    <string name="formatted_first_submitted">Fecha de publicación: %s</string>
+    <string name="formatted_last_updated">Última actualización: %s</string>
+    <string name="formatted_flagged_out_of_date">Marcado como desactualizado en: %s</string>
+    <string name="formatted_provides">Prrovee [%d]</string>
+    <string name="formatted_keyword_field">[keyword]\n
+ %1$s\n
+ \n
+ [field]\n
+ %2$s</string>
+    <string name="not_available">No disponible</string>
+    <string name="orphan">Huérfano</string>
+    <string name="night_mode">Modo Noche</string>
+    <string name="night_mode_auto">Auto</string>
+    <string name="night_mode_night">Noche</string>
+    <string name="night_mode_day">Dia</string>
+    <string name="search_by_maintainer">Mantenedor</string>
+    <!--https://en.wikipedia.org/wiki/List_of_XML_and_HTML_character_entity_references-->
+    <string name="something_went_wrong">Algo salió mal. Por favor inténtalo de nuevo.</string>
+    <string name="no_packages_found">No se encontraron paquetes</string>
+    <string name="response_not_successful">Respuesta no exitosa</string>
+    <string name="no_internet_connection">No hay conexión a Internet</string>
+    <string name="license">Licencia</string>
+    <string name="upstream_url">Upstream URL</string>
+    <string name="flagged_out_of_date">Marcado como desactualizado</string>
+    <string name="search_tips">Se pueden realizar búsquedas de paquetes haciendo requests con la forma:         \n
+ search&amp;by=field&amp;arg=keywords         \n
+ Donde keywords es el argumento de búsqueda y field es uno de los siguientes valores:         \n
+ • name [buscar sólo por nombre de paquete]         \n
+ • name-desc [buscar por nombre de paquete y descripción]         \n
+ • maintainer [buscar por mantenedor]</string>
+    <string name="aur_json_orphans_search">Si se realiza una búsqueda de mantenimiento y no hay argumentos de búsqueda, se obtendrá una lista de paquetes huérfanos.</string>
+    <string name="error">Error</string>
+    <string name="open_in_browser">Abrir en un navegador</string>
+    <string name="view_changes">Ver cambios</string>
+    <string name="share">Compartir</string>
+    <string name="rate">Calificación</string>
+    <string name="source">Fuente</string>
+</resources>
