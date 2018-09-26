@@ -153,7 +153,7 @@ public class AurPackageDetailsFragment extends Fragment implements Callback<AurI
         viewChanges.setEnabled(getResponseAurInfoResultLogUri() != null);
         // browse maintainer
         MenuItem browseMaintainer = menu.findItem(R.id.menu_aur_package_details_browse_maintainer);
-        browseMaintainer.setEnabled(responseAurInfoResult!=null && responseAurInfoResult.maintainer != null && !TextUtils.isEmpty(responseAurInfoResult.maintainer));
+        browseMaintainer.setEnabled(responseAurInfoResult != null && responseAurInfoResult.maintainer != null && !TextUtils.isEmpty(responseAurInfoResult.maintainer));
         // open in browser
         MenuItem openInBrowser = menu.findItem(R.id.menu_aur_package_details_open_in_browser);
         openInBrowser.setEnabled(getResponseAurInfoResultUri() != null);
@@ -181,7 +181,7 @@ public class AurPackageDetailsFragment extends Fragment implements Callback<AurI
         }
         // browse maintainer
         // check for valid string
-        if (responseAurInfoResult!=null && responseAurInfoResult.maintainer != null && !TextUtils.isEmpty(responseAurInfoResult.maintainer)) {
+        if (responseAurInfoResult != null && responseAurInfoResult.maintainer != null && !TextUtils.isEmpty(responseAurInfoResult.maintainer)) {
             if (i == R.id.menu_aur_package_details_browse_maintainer) {
                 if (aurPackageDetailsFragmentCallback != null) {
                     aurPackageDetailsFragmentCallback.onAurPackageDetailsFragmentBrowseMaintainer(responseAurInfoResult.maintainer);
@@ -191,7 +191,7 @@ public class AurPackageDetailsFragment extends Fragment implements Callback<AurI
         }
         // open in browser and check
         // they depend on responseAurInfoResultUri
-        if (getResponseAurInfoResultUri()!=null) {
+        if (getResponseAurInfoResultUri() != null) {
             // open in browser
             if (i == R.id.menu_aur_package_details_open_in_browser) {
                 startIntentViewUri(getResponseAurInfoResultUri());
@@ -420,8 +420,7 @@ public class AurPackageDetailsFragment extends Fragment implements Callback<AurI
             if (aurInfoObject != null) {
                 if (aurInfoObject.aurInfoResults != null
                         && TextUtils.equals(aurInfoObject.type, resources.getString(R.string.multiinfo).toLowerCase())
-                        && !aurInfoObject.aurInfoResults.isEmpty()
-                        && aurInfoObject.aurInfoResults.size() > 0) {
+                        && !aurInfoObject.aurInfoResults.isEmpty()) {
                     responseAurInfoResult = aurInfoObject.aurInfoResults.get(0);
                     processResponseAurInfoResult();
                 } else {
