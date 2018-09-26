@@ -2,6 +2,7 @@ package com.rascarlo.aurdroid.adapters;
 
 import android.content.Context;
 import android.content.res.Resources;
+import android.support.annotation.NonNull;
 import android.support.v4.content.ContextCompat;
 import android.support.v7.widget.RecyclerView;
 import android.text.TextUtils;
@@ -31,7 +32,7 @@ public class AurSearchResultAdapter extends RecyclerView.Adapter<AurSearchResult
     }
 
     @Override
-    public AurSearchResultAdapter.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
+    public AurSearchResultAdapter.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         context = parent.getContext();
         resources = context.getResources();
         aurDroidUtils = new AurDroidUtils(context);
@@ -40,7 +41,7 @@ public class AurSearchResultAdapter extends RecyclerView.Adapter<AurSearchResult
     }
 
     @Override
-    public void onBindViewHolder(AurSearchResultAdapter.ViewHolder holder, int position) {
+    public void onBindViewHolder(@NonNull AurSearchResultAdapter.ViewHolder holder, int position) {
         final AurSearchResult aurSearchResult = aurSearchResultList.get(position);
         // name
         holder.packageName.setText(aurSearchResult.name == null | TextUtils.isEmpty(aurSearchResult.name) ?
