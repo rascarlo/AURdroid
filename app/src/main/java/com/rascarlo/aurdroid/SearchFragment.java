@@ -123,7 +123,7 @@ public class SearchFragment extends Fragment implements Callback<AurSearchObject
         recyclerView.setHasFixedSize(true);
         recyclerView.addItemDecoration(new RecyclerView.ItemDecoration() {
             @Override
-            public void getItemOffsets(Rect outRect, View view, RecyclerView parent, RecyclerView.State state) {
+            public void getItemOffsets(@NonNull Rect outRect, @NonNull View view, @NonNull RecyclerView parent, @NonNull RecyclerView.State state) {
                 if (parent.getChildAdapterPosition(view) != parent.getAdapter().getItemCount() - 1) {
                     outRect.bottom = (int) (16 * Resources.getSystem().getDisplayMetrics().density);
                 }
