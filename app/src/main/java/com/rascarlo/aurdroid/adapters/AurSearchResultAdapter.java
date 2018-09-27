@@ -31,6 +31,7 @@ public class AurSearchResultAdapter extends RecyclerView.Adapter<AurSearchResult
         this.aurSearchResultAdapterCallback = aurSearchResultAdapterCallback;
     }
 
+    @NonNull
     @Override
     public AurSearchResultAdapter.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         context = parent.getContext();
