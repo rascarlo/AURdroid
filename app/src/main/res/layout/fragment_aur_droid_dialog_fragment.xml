@@ -25,7 +25,7 @@
             android:layout_alignParentTop="true"
             android:background="?attr/colorPrimary"
             android:padding="24dp"
-            android:src="@mipmap/ic_launcher" />
+            app:srcCompat="@mipmap/ic_launcher" />
 
         <LinearLayout
             android:layout_width="match_parent"
