@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
+    android:layout_height="wrap_content"
     android:orientation="vertical"
     app:cardCornerRadius="@dimen/cardview_corner_radius"
     app:cardElevation="@dimen/cardview_card_elevation"
@@ -18,14 +18,14 @@
             android:id="@+id/fragment_aur_droid_dialog_fragment_image_view"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_alignParentEnd="true"
-            android:layout_alignParentLeft="true"
-            android:layout_alignParentRight="true"
             android:layout_alignParentStart="true"
+            android:layout_alignParentLeft="true"
             android:layout_alignParentTop="true"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentRight="true"
             android:background="?attr/colorPrimary"
             android:padding="24dp"
-            app:srcCompat="@mipmap/ic_launcher" />
+            app:srcCompat="@drawable/web_hi_res_256" />
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -46,8 +46,8 @@
             <TextView
                 android:id="@+id/fragment_aur_droid_dialog_fragment_message_text_view"
                 android:layout_width="match_parent"
-                android:layout_marginTop="16dp"
                 android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
                 android:textAppearance="@style/TextAppearance.AppCompat.Body1"
                 tools:text="@string/no_packages_found" />
 

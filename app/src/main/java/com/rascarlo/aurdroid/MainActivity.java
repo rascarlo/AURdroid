@@ -161,17 +161,8 @@ public class MainActivity extends AppCompatActivity
     }
 
     private void inflateDialogFragment(String title, String message) {
-        FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
-        fragmentTransaction.setCustomAnimations(R.anim.fragment_enter,
-                R.anim.fragment_exit,
-                R.anim.fragment_pop_enter,
-                R.anim.fragment_pop_exit);
-        Fragment fragmentByTag = fragmentManager.findFragmentByTag(AUR_DIALOG_FRAGMENT_TAG);
-        if (fragmentByTag != null) {
-            fragmentTransaction.remove(fragmentByTag);
-        }
-        fragmentTransaction.addToBackStack(null);
         AurDroidDialogFragment aurDroidDialogFragment = AurDroidDialogFragment.newInstance(title, message);
+        FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
         aurDroidDialogFragment.show(fragmentTransaction, AUR_DIALOG_FRAGMENT_TAG);
     }
 
