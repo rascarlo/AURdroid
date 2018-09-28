@@ -15,7 +15,6 @@
         android:padding="16dp">
 
         <ImageView
-            android:id="@+id/fragment_aur_droid_dialog_fragment_image_view"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:padding="24dp"
@@ -24,6 +23,7 @@
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
             android:lineSpacingMultiplier="1.3"
             android:text="@string/search_tips"
             android:textAppearance="@style/TextAppearance.AppCompat.Body2" />
