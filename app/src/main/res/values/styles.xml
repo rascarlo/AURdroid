@@ -7,7 +7,6 @@
         <item name="colorAccent">@color/colorAccent</item>
         <item name="colorControlHighlight">@color/colorControlHighlight</item>
         <item name="colorControlActivated">@color/colorControlActivated</item>
-        <item name="android:textColorSecondary">@color/text_secondary_day_night</item>
         <item name="android:textColorHint">@color/colorTextColorHint</item>
         <item name="fontFamily">monospace</item>
         <item name="android:typeface">monospace</item>

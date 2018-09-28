@@ -95,9 +95,8 @@ public class AurSearchResultAdapter extends RecyclerView.Adapter<AurSearchResult
                         : aurSearchResult.maintainer);
         holder.packageMaintainer.setText(aurDroidUtils.getSpannableBoldStyleText(string,
                 resources.getString(R.string.formatted_maintainer).length() - 3));
-        holder.packageMaintainer.setTextColor(aurSearchResult.maintainer == null | TextUtils.isEmpty(aurSearchResult.maintainer) ?
-                ContextCompat.getColor(context, R.color.text_alert_red)
-                : ContextCompat.getColor(context, R.color.text_secondary_day_night));
+        if (aurSearchResult.maintainer == null | TextUtils.isEmpty(aurSearchResult.maintainer))
+            holder.packageMaintainer.setTextColor(ContextCompat.getColor(context, R.color.text_alert_red));
     }
 
     private void setUpVotes(AurSearchResultAdapter.ViewHolder holder, AurSearchResult aurSearchResult) {
