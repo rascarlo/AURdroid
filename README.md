@@ -5,18 +5,6 @@
 
 F-Droid wiki page: https://f-droid.org/wiki/page/com.rascarlo.aurdroid
 
-___
-### APK
-- **Google Play:** https://play.google.com/store/apps/details?id=com.rascarlo.aurdroid
-- **F-Droid:** https://f-droid.org/repository/browse/?fdid=com.rascarlo.aurdroid
-
-
-___
-### Links
-- **Arch Linux User repository:** https://aur.archlinux.org/
-- **AUR packages:** https://aur.archlinux.org/packages/
-- **AurJson wiki:** https://wiki.archlinux.org/index.php/AurJson
-
 
 ___
 ### Permissions
@@ -36,3 +24,17 @@ ___
 - **Retrofit:** https://github.com/square/retrofit
 
 *Type-safe HTTP client for Android and Java by Square, Inc. http://square.github.io/retrofit/*
+
+
+___
+### APK
+
+- **Google Play:** https://play.google.com/store/apps/details?id=com.rascarlo.aurdroid
+- **F-Droid:** https://f-droid.org/repository/browse/?fdid=com.rascarlo.aurdroid
+
+
+___
+### Links
+- **Arch Linux User repository:** https://aur.archlinux.org/
+- **AUR packages:** https://aur.archlinux.org/packages/
+- **AurJson wiki:** https://wiki.archlinux.org/index.php/AurJson
