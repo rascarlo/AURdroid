@@ -21,6 +21,7 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.net.Uri;
 import android.os.Bundle;
+import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.AppCompatActivity;
@@ -135,32 +136,20 @@ public class MainActivity extends AppCompatActivity
     public void onSearchFragmentCallbackOnFabClicked(int field, int sort, String query) {
         if (query != null && !TextUtils.isEmpty(query)) {
             SearchResultFragment searchResultFragment = SearchResultFragment.newInstance(field, sort, query);
-            FragmentManager fragmentManager = getSupportFragmentManager();
-            FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
-            fragmentTransaction.add(R.id.content_main_frame_container, searchResultFragment);
-            fragmentTransaction.addToBackStack(null);
-            fragmentTransaction.commit();
+            replaceFragment(searchResultFragment);
         }
     }
 
     @Override
     public void onSearchFragmentCallbackOnMenuSettingsClicked() {
         SettingsFragment settingsFragment = new SettingsFragment();
-        FragmentManager fragmentManager = getSupportFragmentManager();
-        FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
-        fragmentTransaction.replace(R.id.content_main_frame_container, settingsFragment);
-        fragmentTransaction.addToBackStack(null);
-        fragmentTransaction.commit();
+        replaceFragment(settingsFragment);
     }
 
     @Override
     public void onSearchResultFragmentCallbackOnResultClicked(String pkgname) {
-        FragmentManager fragmentManager = getSupportFragmentManager();
-        FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
         InfoResultFragment detailsFragment = InfoResultFragment.newInstance(pkgname);
-        fragmentTransaction.replace(R.id.content_main_frame_container, detailsFragment);
-        fragmentTransaction.addToBackStack(null);
-        fragmentTransaction.commit();
+        replaceFragment(detailsFragment);
     }
 
     @Override
@@ -191,6 +180,14 @@ public class MainActivity extends AppCompatActivity
                 Toast.makeText(MainActivity.this, getString(R.string.something_went_wrong), Toast.LENGTH_SHORT).show();
             }
         }
+    }
+
+    private void replaceFragment(Fragment fragment) {
+        FragmentManager fragmentManager = getSupportFragmentManager();
+        FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+        fragmentTransaction.replace(R.id.content_main_frame_container, fragment);
+        fragmentTransaction.addToBackStack(null);
+        fragmentTransaction.commit();
     }
 
     private void startIntentViewUri(Uri uri) {
