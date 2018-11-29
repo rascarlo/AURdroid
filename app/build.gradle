@@ -26,7 +26,7 @@ android {
         versionCode 10
         versionName "4.1.5"
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
-        resConfig "en"
+        resConfigs "en"
         vectorDrawables.useSupportLibrary = true
     }
     buildTypes {

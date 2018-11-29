@@ -69,6 +69,17 @@
     <string name="theme_black">Black</string>
     <string name="theme_light">Light</string>
 
+    <string name="i_use_arch_btw">I use Arch BTW</string>
+    <string name="links">Links</string>
+    <string name="source_link" translatable="false">https://github.com/rascarlo/AURdroid</string>
+    <string name="source">Source</string>
+    <string name="api_wiki_link" translatable="false">https://wiki.archlinux.org/index.php/Aurweb_RPC_interface</string>
+    <string name="api_wiki">API wiki</string>
+    <string name="arch_linux_link" translatable="false">https://www.archlinux.org/</string>
+    <string name="arch_linux">Arch Linux</string>
+    <string name="aur_link" translatable="false">https://aur.archlinux.org/</string>
+    <string name="aur">AUR</string>
+
     <!--theme keys-->
     <string name="key_theme" translatable="false">key_theme</string>
     <string name="key_theme_default_value" translatable="false">@string/key_theme_dark</string>

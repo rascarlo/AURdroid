@@ -18,6 +18,11 @@
 <PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools">
 
+    <Preference
+        android:icon="@mipmap/ic_launcher"
+        android:selectable="false"
+        android:title="@string/i_use_arch_btw" />
+
     <PreferenceCategory android:title="@string/design">
 
         <ListPreference
@@ -53,4 +58,40 @@
             android:title="@string/sort"
             tools:summary="@string/package_name" />
     </PreferenceCategory>
+
+    <PreferenceCategory android:title="@string/links">
+        <Preference
+            android:summary="@string/source_link"
+            android:title="@string/source">
+            <intent
+                android:action="android.intent.action.VIEW"
+                android:data="@string/source_link" />
+        </Preference>
+
+        <Preference
+            android:summary="@string/api_wiki_link"
+            android:title="@string/api_wiki">
+            <intent
+                android:action="android.intent.action.VIEW"
+                android:data="@string/api_wiki_link" />
+        </Preference>
+
+        <Preference
+            android:summary="@string/arch_linux_link"
+            android:title="@string/arch_linux">
+            <intent
+                android:action="android.intent.action.VIEW"
+                android:data="@string/arch_linux_link" />
+        </Preference>
+
+        <Preference
+            android:summary="@string/aur_link"
+            android:title="@string/aur">
+            <intent
+                android:action="android.intent.action.VIEW"
+                android:data="@string/aur_link" />
+        </Preference>
+
+    </PreferenceCategory>
+
 </PreferenceScreen>
