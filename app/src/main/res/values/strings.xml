@@ -1,80 +1,99 @@
+<!--
+  ~     Copyright (C) rascarlo  rascarlo@gmail.com
+  ~
+  ~     This program is free software: you can redistribute it and/or modify
+  ~     it under the terms of the GNU General Public License as published by
+  ~     the Free Software Foundation, either version 3 of the License, or
+  ~     (at your option) any later version.
+  ~
+  ~     This program is distributed in the hope that it will be useful,
+  ~     but WITHOUT ANY WARRANTY; without even the implied warranty of
+  ~     MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+  ~     GNU General Public License for more details.
+  ~
+  ~     You should have received a copy of the GNU General Public License
+  ~     along with this program.  If not, see <https://www.gnu.org/licenses/>.
+  -->
+
 <resources>
-    <string name="app_name" translatable="false">AURdroid</string>
+    <string name="app_name">AURdroid</string>
+    <string name="unicode_dir">\u002F</string>
+    <string name="unicode_comma_whitespace">,\u0020</string>
+    <string name="settings">Settings</string>
+    <string name="not_available">Not available</string>
+    <string name="something_went_wrong">Something went wrong. Please try again.</string>
+
+    <string name="keywords">Keywords</string>
+    <string name="keywords_hint">The API rate is limited to a maximum of 4000 requests per day per IP.</string>
+    <string name="package_search">Package search</string>
     <string name="search">Search</string>
+    <string name="name_or_description">Name or description</string>
+    <string name="name">Name</string>
+    <string name="dependencies">Dependencies</string>
+    <string name="depends">Depends</string>
+    <string name="make_depends">Make depends</string>
+    <string name="opt_depends">Opt depends</string>
+    <string name="check_depends">Check depends</string>
     <string name="sort">Sort</string>
     <string name="package_name">Package name</string>
+    <string name="last_updated">Last updated</string>
     <string name="votes">Votes</string>
     <string name="popularity">Popularity</string>
-    <string name="maintainer">Maintainer</string>
-    <string name="last_updated">Last updated</string>
     <string name="first_submitted">First submitted</string>
-    <string name="last_submitted">Last submitted</string>
-    <string name="version">Version</string>
-    <string name="search_by_name_description">Name, description</string>
-    <string name="search_by_name">Name</string>
-    <string name="search_by">Search by</string>
+
     <string name="formatted_version">Version: %s</string>
-    <string name="formatted_maintainer">Maintainer: %s</string>
+    <string name="formatted_last_updated">Last updated: %s</string>
+    <string name="formatted_last_update">Last updated: %s</string>
+    <string name="formatted_first_submitted">First submitted: %s</string>
+    <string name="formatted_out_of_date">Flagged-out-of-date: %s</string>
     <string name="formatted_votes">Votes: %d</string>
     <string name="formatted_popularity">Popularity: %f</string>
-    <string name="formatted_first_submitted">First submitted: %s</string>
-    <string name="formatted_last_updated">Last updated: %s</string>
-    <string name="formatted_flagged_out_of_date">Flagged out-of-date: %s</string>
-    <string name="formatted_provides">Provides [%d]</string>
-    <string name="formatted_keyword_field">[keyword]\n%1$s\n\n[field]\n%2$s</string>
-    <plurals name="plurals_formatted_depends">
-        <item quantity="one">Dependency [%d]</item>
-        <item quantity="other">Dependencies [%d]</item>
-    </plurals>
-    <plurals name="plurals_formatted_make_depends">
-        <item quantity="one">Make dependency [%d]</item>
-        <item quantity="other">Make dependencies [%d]</item>
-    </plurals>
-    <plurals name="plurals_formatted_optional_depends">
-        <item quantity="one">Optional dependency [%d]</item>
-        <item quantity="other">Optional dependencies [%d]</item>
-    </plurals>
-    <plurals name="plurals_formatted_conflicts">
-        <item quantity="one">Conflict [%d]</item>
-        <item quantity="other">Conflicts [%d]</item>
-    </plurals>
-    <plurals name="plurals_formatted_packages_found">
-        <item quantity="one">Package found [%d}</item>
-        <item quantity="other">Packages found [%d]</item>
-    </plurals>
-    <string name="not_available">Not available</string>
-    <string name="orphan">Orphan</string>
-    <string name="key_night_mode" translatable="false">key_night_mode</string>
-    <string name="night_mode">Night mode</string>
-    <string name="night_mode_auto">Auto</string>
-    <string name="night_mode_night">Night</string>
-    <string name="night_mode_day">Day</string>
-    <string name="search_by_maintainer">Maintainer</string>
-    <!--https://en.wikipedia.org/wiki/List_of_XML_and_HTML_character_entity_references-->
-    <string name="char_bullet_point" translatable="false">&#8226;</string>
-    <string name="char_whitespace" translatable="false">&#160;</string>
-    <string name="something_went_wrong">Something went wrong. Please try again</string>
-    <string name="no_packages_found">No package found</string>
-    <string name="response_not_successful">Response not successful</string>
-    <string name="no_internet_connection">No internet connection</string>
-    <string name="multiinfo" translatable="false">multiinfo</string>
-    <string name="license">License</string>
-    <string name="upstream_url">Upstream URL</string>
-    <string name="flagged_out_of_date">Flagged out-of-date</string>
-    <string name="search_tips">Package searches can be performed by issuing requests of the form:
-        \nsearch&amp;by=field&amp;arg=keywords
-        \nwhere keywords is the search argument and field is one of the following values:
-        \n&#8226; name [search by package name only]
-        \n&#8226; name-desc [search by package name and description]
-        \n&#8226; maintainer [search by package maintainer]</string>
-    <string name="aur_json_orphans_search">If a maintainer search is performed and the search argument is left empty, a list of orphan packages is returned.</string>
-    <string name="error">Error</string>
-    <string name="open_in_browser">Open in browser</string>
-    <string name="view_pkgbuild" translatable="false">View PKGBUILD</string>
+    <string name="formatted_maintainer">Maintainer: %s</string>
+    <string name="formatted_upstream_url">Upstream URL: %1$s</string>
+    <string name="formatted_license">License: %1$s</string>
+    <string name="formatted_dependencies">Dependencies (%1$d)</string>
+    <string name="formatted_opt_dependencies">Optional dependencies (%1$d)</string>
+    <string name="formatted_make_dependencies">Make dependencies (%1$d)</string>
+    <string name="formatted_conflicts">Conflicts (%1$d)</string>
+    <string name="formatted_provides">Provides (%1$d)</string>
+
+    <string name="view_pkgbuild">View PKGBUILD</string>
     <string name="view_changes">View changes</string>
+    <string name="maintainer">Maintainer</string>
+    <string name="open_in_browser">Open in browser</string>
     <string name="share">Share</string>
-    <string name="rate">Rate</string>
-    <string name="source">Source</string>
-    <string name="aur_json_wiki_link" translatable="false">https://wiki.archlinux.org/index.php/AurJson</string>
-    <string name="github_link" translatable="false">https://github.com/rascarlo/AURdroid</string>
+
+    <string name="design">Design</string>
+    <string name="theme">Theme</string>
+    <string name="theme_dark">Dark</string>
+    <string name="theme_black">Black</string>
+    <string name="theme_light">Light</string>
+
+    <!--theme keys-->
+    <string name="key_theme" translatable="false">key_theme</string>
+    <string name="key_theme_default_value" translatable="false">@string/key_theme_dark</string>
+    <string name="key_theme_dark" translatable="false">key_theme_dark</string>
+    <string name="key_theme_black">key_theme_black</string>
+    <string name="key_theme_light" translatable="false">key_theme_light</string>
+
+    <!--search field keys-->
+    <string name="key_search_field" translatable="false">key_search_field</string>
+    <string name="key_search_field_default_value" translatable="false">key_search_field_name_or_description</string>
+    <string name="key_search_field_name_or_description" translatable="false">key_search_field_name_or_description</string>
+    <string name="key_search_field_name" translatable="false">key_search_field_name</string>
+    <string name="key_search_field_maintainer" translatable="false">key_search_field_maintainer</string>
+    <string name="key_search_field_depends" translatable="false">key_search_field_depends</string>
+    <string name="key_search_field_make_depends" translatable="false">key_search_field_make_depends</string>
+    <string name="key_search_field_opt_depends" translatable="false">key_search_field_opt_depends</string>
+    <string name="key_search_field_check_depends" translatable="false">key_search_field_check_depends</string>
+
+    <!--sort keys-->
+    <string name="key_sort" translatable="false">key_sort</string>
+    <string name="key_sort_default_value" translatable="false">key_sort_by_package_name</string>
+    <string name="key_sort_by_package_name" translatable="false">key_sort_by_package_name</string>
+    <string name="key_sort_by_votes" translatable="false">key_sort_by_votes</string>
+    <string name="key_sort_by_popularity" translatable="false">key_sort_by_popularity</string>
+    <string name="key_sort_by_last_updated" translatable="false">key_sort_by_last_updated</string>
+    <string name="key_sort_by_first_submitted" translatable="false">key_sort_by_first_submitted</string>
+
 </resources>

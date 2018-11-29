@@ -1,83 +1,78 @@
+/*
+ *     Copyright (C) rascarlo  rascarlo@gmail.com
+ *
+ *     This program is free software: you can redistribute it and/or modify
+ *     it under the terms of the GNU General Public License as published by
+ *     the Free Software Foundation, either version 3 of the License, or
+ *     (at your option) any later version.
+ *
+ *     This program is distributed in the hope that it will be useful,
+ *     but WITHOUT ANY WARRANTY; without even the implied warranty of
+ *     MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ *     GNU General Public License for more details.
+ *
+ *     You should have received a copy of the GNU General Public License
+ *     along with this program.  If not, see <https://www.gnu.org/licenses/>.
+ */
+
 package com.rascarlo.aurdroid;
 
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.net.Uri;
 import android.os.Bundle;
-import android.preference.PreferenceManager;
-import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.AppCompatActivity;
-import android.support.v7.app.AppCompatDelegate;
+import android.support.v7.preference.PreferenceManager;
 import android.support.v7.widget.Toolbar;
 import android.text.TextUtils;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.Toast;
 
-public class MainActivity extends AppCompatActivity
-        implements SearchFragment.SearchFragmentCallback, AurPackageDetailsFragment.AurPackageDetailsFragmentCallback {
+import com.rascarlo.aurdroid.callbacks.InfoResultFragmentCallback;
+import com.rascarlo.aurdroid.callbacks.SearchFragmentCallback;
+import com.rascarlo.aurdroid.callbacks.SearchResultFragmentCallback;
+import com.rascarlo.aurdroid.ui.InfoResultFragment;
+import com.rascarlo.aurdroid.ui.SearchFragment;
+import com.rascarlo.aurdroid.ui.SearchResultFragment;
+import com.rascarlo.aurdroid.ui.SettingsFragment;
+import com.rascarlo.aurdroid.util.AurdroidSharedPreferences;
 
-    private static final String AUR_DIALOG_FRAGMENT_TAG = "aur_dialog_fragment_tag";
-    private static final String AUR_PACKAGE_DETAILS_FRAGMENT_TAG = "aur_package_details_fragment_tag";
-    private FragmentManager fragmentManager;
-    private SharedPreferences sharedPreferences;
+public class MainActivity extends AppCompatActivity
+        implements SearchFragmentCallback,
+        SearchResultFragmentCallback,
+        InfoResultFragmentCallback,
+        SharedPreferences.OnSharedPreferenceChangeListener {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-        fragmentManager = getSupportFragmentManager();
-        sharedPreferences = PreferenceManager.getDefaultSharedPreferences(this);
-        int nightMode = sharedPreferences.getInt(getResources().getString(R.string.key_night_mode),
-                AppCompatDelegate.MODE_NIGHT_YES);
-        AppCompatDelegate.setDefaultNightMode(nightMode);
-        setTheme(R.style.AppTheme_NoActionBar);
+        setAppTheme(false);
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-        if (findViewById(R.id.main_fragment_container) != null) {
-            if (savedInstanceState != null) {
-                return;
-            }
-            SearchFragment searchFragment = new SearchFragment();
-            fragmentManager.beginTransaction()
-                    .add(R.id.main_fragment_container, searchFragment)
-                    .commit();
+        if (savedInstanceState != null) {
+            return;
         }
+        SearchFragment searchFragment = new SearchFragment();
+        FragmentManager fragmentManager = getSupportFragmentManager();
+        FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+        fragmentTransaction.add(R.id.content_main_frame_container, searchFragment);
+        fragmentTransaction.commit();
     }
 
     @Override
-    public void onBackPressed() {
-        if (getSupportFragmentManager().getBackStackEntryCount() > 0) {
-            getSupportFragmentManager().popBackStack();
-        } else {
-            super.onBackPressed();
-        }
+    protected void onResume() {
+        super.onResume();
+        PreferenceManager.getDefaultSharedPreferences(MainActivity.this).registerOnSharedPreferenceChangeListener(this);
     }
 
     @Override
-    public boolean onPrepareOptionsMenu(Menu menu) {
-        /*
-          app share and rate group
-          hide on AurPackageDetailsFragment
-         */
-        MenuItem menuItem = menu.findItem(R.id.menu_main_app_group);
-        Fragment fragmentByTag = fragmentManager.findFragmentByTag(AUR_PACKAGE_DETAILS_FRAGMENT_TAG);
-        menuItem.setVisible(fragmentByTag == null);
-        // night mode
-        switch (AppCompatDelegate.getDefaultNightMode()) {
-            case AppCompatDelegate.MODE_NIGHT_AUTO:
-                menu.findItem(R.id.menu_main_action_night_mode_auto).setChecked(true);
-                break;
-            case AppCompatDelegate.MODE_NIGHT_YES:
-                menu.findItem(R.id.menu_main_action_night_mode_night).setChecked(true);
-                break;
-            case AppCompatDelegate.MODE_NIGHT_NO:
-                menu.findItem(R.id.menu_main_action_night_mode_day).setChecked(true);
-                break;
-        }
-        return true;
+    protected void onPause() {
+        super.onPause();
+        PreferenceManager.getDefaultSharedPreferences(MainActivity.this).unregisterOnSharedPreferenceChangeListener(this);
     }
 
     @Override
@@ -87,150 +82,143 @@ public class MainActivity extends AppCompatActivity
     }
 
     @Override
+    public boolean onPrepareOptionsMenu(Menu menu) {
+        switch (getAppTheme()) {
+            case R.style.AppThemeDark:
+                menu.findItem(R.id.menu_main_action_theme_dark).setChecked(true);
+                break;
+            case R.style.AppThemeBlack:
+                menu.findItem(R.id.menu_main_action_theme_black).setChecked(true);
+                break;
+            case R.style.AppThemeLight:
+                menu.findItem(R.id.menu_main_action_theme_light).setChecked(true);
+                break;
+            default:
+                menu.findItem(R.id.menu_main_action_theme_dark).setChecked(true);
+                break;
+        }
+        return super.onPrepareOptionsMenu(menu);
+    }
+
+    @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
-            // night mode auto
-            case R.id.menu_main_action_night_mode_auto:
-                storeApplyNightMode(AppCompatDelegate.MODE_NIGHT_AUTO);
+            case R.id.menu_main_action_theme_dark:
+                AurdroidSharedPreferences.setSharedPreferenceString(MainActivity.this,
+                        getString(R.string.key_theme),
+                        getString(R.string.key_theme_dark));
                 break;
-            // night mode night
-            case R.id.menu_main_action_night_mode_night:
-                storeApplyNightMode(AppCompatDelegate.MODE_NIGHT_YES);
+            case R.id.menu_main_action_theme_black:
+                AurdroidSharedPreferences.setSharedPreferenceString(MainActivity.this,
+                        getString(R.string.key_theme),
+                        getString(R.string.key_theme_black));
                 break;
-            // night mode day
-            case R.id.menu_main_action_night_mode_day:
-                storeApplyNightMode(AppCompatDelegate.MODE_NIGHT_NO);
+            case R.id.menu_main_action_theme_light:
+                AurdroidSharedPreferences.setSharedPreferenceString(MainActivity.this,
+                        getString(R.string.key_theme),
+                        getString(R.string.key_theme_light));
                 break;
-            // app rate
-            case R.id.menu_main_app_rate:
-                Intent intentRate = new Intent(new Intent(Intent.ACTION_VIEW, Uri.parse("market://details?id=" + getPackageName())));
-                try {
-                    startActivity(intentRate);
-                } catch (Exception e) {
-                    e.printStackTrace();
-                    Toast.makeText(this, getString(R.string.something_went_wrong), Toast.LENGTH_SHORT).show();
-                }
-                return true;
-            // app share
-            case R.id.menu_main_app_share:
-                Intent intentShare = new Intent();
-                intentShare.setAction(Intent.ACTION_SEND);
-                intentShare.putExtra(Intent.EXTRA_TEXT, "http://play.google.com/store/apps/details?id=" + getPackageName());
-                intentShare.setType("text/plain");
-                try {
-                    startActivity(intentShare);
-                } catch (Exception e) {
-                    e.printStackTrace();
-                    Toast.makeText(this, getString(R.string.something_went_wrong), Toast.LENGTH_SHORT).show();
-                }
-                return true;
-            // app source
-            case R.id.menu_main_app_source:
-                Intent intentSource = new Intent(new Intent(Intent.ACTION_VIEW, Uri.parse(getResources().getString(R.string.github_link))));
-                try {
-                    startActivity(intentSource);
-                } catch (Exception e) {
-                    e.printStackTrace();
-                    Toast.makeText(this, getString(R.string.something_went_wrong), Toast.LENGTH_SHORT).show();
-                }
-                return true;
         }
         return super.onOptionsItemSelected(item);
     }
 
-    private void storeApplyNightMode(int nightMode) {
-        if (nightMode != AppCompatDelegate.getDefaultNightMode()) {
-            sharedPreferences.edit()
-                    .putInt(getResources().getString(R.string.key_night_mode), nightMode)
-                    .apply();
-            AppCompatDelegate.setDefaultNightMode(nightMode);
-            recreate();
+    @Override
+    public void onSharedPreferenceChanged(SharedPreferences sharedPreferences, String key) {
+        if (key != null && !TextUtils.isEmpty(key)) {
+            if (TextUtils.equals(getString(R.string.key_theme), key)) {
+                setAppTheme(true);
+            }
         }
     }
 
-    private void inflateDetailsFragment(String packageName) {
-        AurPackageDetailsFragment aurPackageDetailsFragment = AurPackageDetailsFragment.newInstance(packageName);
+    @Override
+    public void onSearchFragmentCallbackOnFabClicked(int field, int sort, String query) {
+        if (query != null && !TextUtils.isEmpty(query)) {
+            SearchResultFragment searchResultFragment = SearchResultFragment.newInstance(field, sort, query);
+            FragmentManager fragmentManager = getSupportFragmentManager();
+            FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+            fragmentTransaction.add(R.id.content_main_frame_container, searchResultFragment);
+            fragmentTransaction.addToBackStack(null);
+            fragmentTransaction.commit();
+        }
+    }
+
+    @Override
+    public void onSearchFragmentCallbackOnMenuSettingsClicked() {
+        SettingsFragment settingsFragment = new SettingsFragment();
+        FragmentManager fragmentManager = getSupportFragmentManager();
         FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
-        fragmentTransaction.setCustomAnimations(R.anim.fragment_enter,
-                R.anim.fragment_exit,
-                R.anim.fragment_pop_enter,
-                R.anim.fragment_pop_exit);
-        fragmentTransaction.replace(R.id.main_fragment_container, aurPackageDetailsFragment, AUR_PACKAGE_DETAILS_FRAGMENT_TAG);
+        fragmentTransaction.replace(R.id.content_main_frame_container, settingsFragment);
         fragmentTransaction.addToBackStack(null);
         fragmentTransaction.commit();
     }
 
-    private void inflateDialogFragment(String title, String message) {
-        AurDroidDialogFragment aurDroidDialogFragment = AurDroidDialogFragment.newInstance(title, message);
+    @Override
+    public void onSearchResultFragmentCallbackOnResultClicked(String pkgname) {
+        FragmentManager fragmentManager = getSupportFragmentManager();
         FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
-        aurDroidDialogFragment.show(fragmentTransaction, AUR_DIALOG_FRAGMENT_TAG);
-    }
-
-    // search fragment callbacks
-    @Override
-    public void onSearchFragmentNetworkInfoNotConnected(String searchKeyword, String searchQuerySearchBy) {
-        inflateDialogFragment(getString(R.string.no_internet_connection),
-                String.format(getString(R.string.formatted_keyword_field), searchKeyword, searchQuerySearchBy));
-    }
-
-    @Override
-    public void onSearchFragmentOnItemClicked(String packageName) {
-        inflateDetailsFragment(packageName);
-    }
-
-    @Override
-    public void onSearchFragmentOnResponseNotSuccessful(String searchKeyword, String searchQuerySearchBy) {
-        inflateDialogFragment(getString(R.string.response_not_successful),
-                String.format(getString(R.string.formatted_keyword_field), searchKeyword, searchQuerySearchBy));
-    }
-
-    @Override
-    public void onSearchFragmentOnResponseEmptyResults(String searchKeyword, String searchQuerySearchBy) {
-        inflateDialogFragment(getString(R.string.no_packages_found),
-                String.format(getString(R.string.formatted_keyword_field), searchKeyword, searchQuerySearchBy));
-    }
-
-    @Override
-    public void onSearchFragmentOnResponseOnFailure(String searchKeyword, String searchQuerySearchBy, String message) {
-        inflateDialogFragment(message, String.format(getString(R.string.formatted_keyword_field), searchKeyword, searchQuerySearchBy));
-    }
-
-    @Override
-    public void onSearchFragmentOnResponseError(String searchQueryKeyword, String searchQuerySearchBy, String error) {
-        inflateDialogFragment(TextUtils.equals(error.substring(error.length() - 1), ".") ?
-                        error.substring(0, error.length() - 1)
-                        : error,
-                String.format(getString(R.string.formatted_keyword_field),
-                        searchQueryKeyword,
-                        searchQuerySearchBy));
-    }
-
-    // details fragment callbacks
-    @Override
-    public void onAurPackageDetailsFragmentOnResponseNotSuccessful(String responseAurPackageName) {
-        inflateDialogFragment(getString(R.string.response_not_successful), responseAurPackageName);
-    }
-
-    @Override
-    public void onAurPackageDetailsFragmentOnResponseEmptyResult(String responseAurPackageName) {
-        inflateDialogFragment(getString(R.string.no_packages_found), responseAurPackageName);
-    }
-
-    @Override
-    public void onAurPackageDetailsFragmentOnResponseOnFailure(String responseAurPackageName, String throwableMessage) {
-        inflateDialogFragment(responseAurPackageName, throwableMessage);
-    }
-
-    @Override
-    public void onAurPackageDetailsFragmentBrowseMaintainer(String aurPackageMaintainer) {
-        SearchFragment searchFragment = SearchFragment.newInstanceSearchByMaintainer(aurPackageMaintainer);
-        FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
-        fragmentTransaction.setCustomAnimations(R.anim.fragment_enter,
-                R.anim.fragment_exit,
-                R.anim.fragment_pop_enter,
-                R.anim.fragment_pop_exit);
-        fragmentTransaction.replace(R.id.main_fragment_container, searchFragment);
+        InfoResultFragment detailsFragment = InfoResultFragment.newInstance(pkgname);
+        fragmentTransaction.replace(R.id.content_main_frame_container, detailsFragment);
         fragmentTransaction.addToBackStack(null);
         fragmentTransaction.commit();
+    }
+
+    @Override
+    public void onInfoResultFragmentCallbackViewPkgbuildClicked(Uri viewPkgbuildUri) {
+        if (viewPkgbuildUri != null) startIntentViewUri(viewPkgbuildUri);
+    }
+
+    @Override
+    public void onInfoResultFragmentCallbackViewChangesClicked(Uri viewChangesUri) {
+        if (viewChangesUri != null) startIntentViewUri(viewChangesUri);
+    }
+
+    @Override
+    public void onInfoResultFragmentCallbackOpenInBrowserClicked(Uri infoResultUri) {
+        if (infoResultUri != null) startIntentViewUri(infoResultUri);
+    }
+
+    @Override
+    public void onInfoResultFragmentCallbackShareClicked(Uri infoResultUri) {
+        if (infoResultUri != null && !TextUtils.isEmpty(infoResultUri.toString())) {
+            Intent intent = new Intent();
+            intent.setAction(Intent.ACTION_SEND);
+            intent.putExtra(Intent.EXTRA_TEXT, infoResultUri.toString());
+            intent.setType("text/plain");
+            try {
+                MainActivity.this.startActivity(intent);
+            } catch (Exception e) {
+                Toast.makeText(MainActivity.this, getString(R.string.something_went_wrong), Toast.LENGTH_SHORT).show();
+            }
+        }
+    }
+
+    private void startIntentViewUri(Uri uri) {
+        Intent intent = new Intent(Intent.ACTION_VIEW, uri);
+        try {
+            MainActivity.this.startActivity(intent);
+        } catch (Exception e) {
+            Toast.makeText(MainActivity.this, getString(R.string.something_went_wrong), Toast.LENGTH_SHORT).show();
+        }
+    }
+
+    private void setAppTheme(boolean recreate) {
+        setTheme(getAppTheme());
+        if (recreate) recreate();
+    }
+
+    private int getAppTheme() {
+        String sharedPreferenceTheme = AurdroidSharedPreferences.getSharedPreferenceString(MainActivity.this,
+                getString(R.string.key_theme),
+                getString(R.string.key_theme_default_value));
+        if (TextUtils.equals(getString(R.string.key_theme_dark), sharedPreferenceTheme)) {
+            return R.style.AppThemeDark;
+        } else if (TextUtils.equals(getString(R.string.key_theme_black), sharedPreferenceTheme)) {
+            return R.style.AppThemeBlack;
+        } else if (TextUtils.equals(getString(R.string.key_theme_light), sharedPreferenceTheme)) {
+            return R.style.AppThemeLight;
+        } else {
+            return R.style.AppThemeDark;
+        }
     }
 }
