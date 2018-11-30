@@ -24,7 +24,6 @@ import android.support.annotation.NonNull;
 import com.rascarlo.aurdroid.BuildConfig;
 import com.rascarlo.aurdroid.api.AurService;
 import com.rascarlo.aurdroid.api.model.Info;
-import com.rascarlo.aurdroid.api.model.Search;
 import com.rascarlo.aurdroid.util.AurdroidConstants;
 
 import java.util.concurrent.TimeUnit;
@@ -61,62 +60,15 @@ public class AurRepository {
         aurService = retrofit.create(AurService.class);
     }
 
-    public synchronized static AurRepository getArchPackagesRepositoryInstance() {
+    public synchronized static AurRepository getAurRepositoryInstance() {
         if (aurRepository == null) {
             aurRepository = new AurRepository();
         }
         return aurRepository;
     }
 
-    AurService getAurService() {
+    public AurService getAurService() {
         return aurService;
-    }
-
-    public LiveData<Search> getAurSearchLiveData(final int field, final String query) {
-        final MutableLiveData<Search> aurSearchMutableLiveData = new MutableLiveData<>();
-        Call<Search> aurSearchCall;
-        switch (field) {
-            case AurdroidConstants.SEARCH_PARAMETER_NAME_OR_DESCRIPTION:
-                aurSearchCall = aurService.searchByNameOrDescription(query);
-                break;
-            case AurdroidConstants.SEARCH_PARAMETER_NAME:
-                aurSearchCall = aurService.searchByName(query);
-                break;
-            case AurdroidConstants.SEARCH_PARAMETER_MAINTAINER:
-                aurSearchCall = aurService.searchByMaintainer(query);
-                break;
-            case AurdroidConstants.SEARCH_PARAMETER_DEPENDS:
-                aurSearchCall = aurService.searchByDepends(query);
-                break;
-            case AurdroidConstants.SEARCH_PARAMETER_MAKE_DEPENDS:
-                aurSearchCall = aurService.searchByMakeDepends(query);
-                break;
-            case AurdroidConstants.SEARCH_PARAMETER_OPT_DEPENDS:
-                aurSearchCall = aurService.searchByOptDepends(query);
-                break;
-            case AurdroidConstants.SEARCH_PARAMETER_CHECK_DEPENDS:
-                aurSearchCall = aurService.searchByCheckDepends(query);
-                break;
-            default:
-                aurSearchCall = aurService.searchByNameOrDescription(query);
-                break;
-        }
-        aurSearchCall.enqueue(new Callback<Search>() {
-            @Override
-            public void onResponse(@NonNull Call<Search> call, @NonNull Response<Search> response) {
-                if (response.isSuccessful() && response.body() != null && response.code() == 200) {
-                    aurSearchMutableLiveData.setValue(response.body());
-                } else {
-                    aurSearchMutableLiveData.setValue(null);
-                }
-            }
-
-            @Override
-            public void onFailure(@NonNull Call<Search> call, @NonNull Throwable t) {
-                aurSearchMutableLiveData.setValue(null);
-            }
-        });
-        return aurSearchMutableLiveData;
     }
 
     public LiveData<Info> getInfoLiveData(final String pkgname) {

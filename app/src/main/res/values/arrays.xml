@@ -28,7 +28,7 @@
         <item>@string/key_theme_light</item>
     </string-array>
     <!--search field preference-->
-    <string-array name="key_search_field_entries">
+    <string-array name="key_search_by_entries">
         <item>@string/name_or_description</item>
         <item>@string/name</item>
         <item>@string/maintainer</item>
@@ -37,14 +37,14 @@
         <item>@string/opt_depends</item>
         <item>@string/check_depends</item>
     </string-array>
-    <string-array name="key_search_field_entry_values">
-        <item>@string/key_search_field_name_or_description</item>
-        <item>@string/key_search_field_name</item>
-        <item>@string/key_search_field_maintainer</item>
-        <item>@string/key_search_field_depends</item>
-        <item>@string/key_search_field_make_depends</item>
-        <item>@string/key_search_field_opt_depends</item>
-        <item>@string/key_search_field_check_depends</item>
+    <string-array name="key_search_by_entry_values">
+        <item>@string/key_search_by_name_or_description</item>
+        <item>@string/key_search_by_name</item>
+        <item>@string/key_search_by_maintainer</item>
+        <item>@string/key_search_by_depends</item>
+        <item>@string/key_search_by_make_depends</item>
+        <item>@string/key_search_by_opt_depends</item>
+        <item>@string/key_search_by_check_depends</item>
     </string-array>
     <!--sort preference-->
     <string-array name="key_sort_entries">

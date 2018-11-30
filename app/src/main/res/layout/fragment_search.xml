@@ -36,8 +36,8 @@
                 android:layout_height="wrap_content" />
 
             <include
-                android:id="@+id/fragment_search_field_layout"
-                layout="@layout/search_field"
+                android:id="@+id/fragment_search_by_layout"
+                layout="@layout/search_by"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="16dp" />

@@ -38,16 +38,13 @@
     <PreferenceCategory android:title="@string/keywords">
 
         <ListPreference
-            android:defaultValue="@string/key_search_field_default_value"
-            android:entries="@array/key_search_field_entries"
-            android:entryValues="@array/key_search_field_entry_values"
-            android:key="@string/key_search_field"
+            android:defaultValue="@string/key_search_by_default_value"
+            android:entries="@array/key_search_by_entries"
+            android:entryValues="@array/key_search_by_entry_values"
+            android:key="@string/key_search_by"
             android:summary="%s"
             android:title="@string/search"
             tools:summary="@string/name_or_description" />
-    </PreferenceCategory>
-
-    <PreferenceCategory android:title="@string/sort">
 
         <ListPreference
             android:defaultValue="@string/key_sort_default_value"

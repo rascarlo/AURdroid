@@ -35,6 +35,10 @@ public class Search implements Parcelable {
     @Expose
     private String type;
 
+    @SerializedName("error")
+    @Expose
+    public String error;
+
     @SerializedName("resultcount")
     @Expose
     private String resultcount;
@@ -49,6 +53,10 @@ public class Search implements Parcelable {
 
     public String getType() {
         return type;
+    }
+
+    public String getError() {
+        return error;
     }
 
     public String getResultcount() {
@@ -68,6 +76,7 @@ public class Search implements Parcelable {
     public void writeToParcel(Parcel dest, int flags) {
         dest.writeString(this.version);
         dest.writeString(this.type);
+        dest.writeString(this.error);
         dest.writeString(this.resultcount);
         dest.writeTypedList(this.results);
     }
@@ -78,6 +87,7 @@ public class Search implements Parcelable {
     private Search(Parcel in) {
         this.version = in.readString();
         this.type = in.readString();
+        this.error = in.readString();
         this.resultcount = in.readString();
         this.results = in.createTypedArrayList(SearchResult.CREATOR);
     }

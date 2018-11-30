@@ -103,4 +103,13 @@
         <item name="android:fontFamily">monospace</item>
     </style>
 
+    <!--horizontal progress bar-->
+    <style name="AppTheme.ProgressBar" parent="Widget.AppCompat.ProgressBar">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_gravity">center_vertical|center|center_horizontal</item>
+        <item name="android:indeterminateBehavior">cycle</item>
+        <item name="android:indeterminate">true</item>
+    </style>
+
 </resources>

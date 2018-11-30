@@ -33,6 +33,8 @@ import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ProgressBar;
+import android.widget.Toast;
 
 import com.rascarlo.aurdroid.R;
 import com.rascarlo.aurdroid.adapters.SearchResultAdapter;
@@ -48,11 +50,11 @@ import java.util.List;
 
 
 public class SearchResultFragment extends Fragment {
-    private static final String BUNDLE_PARAMETER_FIELD = "bundle_field_parameter";
-    private static final String BUNDLE_PARAMETER_SORT = "bundle_sort_parameter";
-    private static final String BUNDLE_PARAMETER__QUERY = "bundle_query_parameter";
+    private static final String BUNDLE_SEARCH_BY = "bundle_search_by";
+    private static final String BUNDLE_SORT = "bundle_sort";
+    private static final String BUNDLE_QUERY = "bundle_query";
     private static final String SAVED_INSTANCE_SORT = "SAVED_INSTANCE_SORT";
-    private int bundleField;
+    private int bundleSearchBy;
     private String bundleQuery;
     private SearchResultAdapter resultAdapter;
     private SearchResultFragmentCallback searchResultFragmentCallback;
@@ -63,14 +65,14 @@ public class SearchResultFragment extends Fragment {
         // Required empty public constructor
     }
 
-    public static SearchResultFragment newInstance(int bundleFieldParameter,
-                                                   int bundleSortParameter,
+    public static SearchResultFragment newInstance(int bundleSearchBy,
+                                                   int bundleSort,
                                                    String bundleQuery) {
         SearchResultFragment fragment = new SearchResultFragment();
         Bundle args = new Bundle();
-        args.putInt(BUNDLE_PARAMETER_FIELD, bundleFieldParameter);
-        args.putInt(BUNDLE_PARAMETER_SORT, bundleSortParameter);
-        args.putString(BUNDLE_PARAMETER__QUERY, bundleQuery);
+        args.putInt(BUNDLE_SEARCH_BY, bundleSearchBy);
+        args.putInt(BUNDLE_SORT, bundleSort);
+        args.putString(BUNDLE_QUERY, bundleQuery);
         fragment.setArguments(args);
         return fragment;
     }
@@ -91,9 +93,9 @@ public class SearchResultFragment extends Fragment {
         super.onCreate(savedInstanceState);
         setHasOptionsMenu(true);
         if (getArguments() != null) {
-            bundleField = getArguments().getInt(BUNDLE_PARAMETER_FIELD);
-            int bundleSort = getArguments().getInt(BUNDLE_PARAMETER_SORT);
-            bundleQuery = getArguments().getString(BUNDLE_PARAMETER__QUERY);
+            bundleSearchBy = getArguments().getInt(BUNDLE_SEARCH_BY);
+            int bundleSort = getArguments().getInt(BUNDLE_SORT);
+            bundleQuery = getArguments().getString(BUNDLE_QUERY);
             if (savedInstanceState == null) {
                 sortOder = bundleSort;
             }
@@ -104,7 +106,9 @@ public class SearchResultFragment extends Fragment {
     public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         Context context = container.getContext();
         FragmentSearchResultBinding fragmentSearchResultBinding = FragmentSearchResultBinding.inflate(inflater, container, false);
-        SearchViewModelFactory searchViewModelFactory = new SearchViewModelFactory(bundleField, bundleQuery);
+        ProgressBar progressBar = fragmentSearchResultBinding.fragmentSearchResultProgressBar;
+        progressBar.setVisibility(View.VISIBLE);
+        SearchViewModelFactory searchViewModelFactory = new SearchViewModelFactory(bundleSearchBy, bundleQuery);
         SearchViewModel searchViewModel = ViewModelProviders.of(this, searchViewModelFactory).get(SearchViewModel.class);
         resultAdapter = new SearchResultAdapter(searchResult -> {
             if (searchResultFragmentCallback != null) {
@@ -118,11 +122,20 @@ public class SearchResultFragment extends Fragment {
         recyclerView.addItemDecoration(new DividerItemDecoration(context, DividerItemDecoration.VERTICAL));
         recyclerView.setHasFixedSize(true);
         recyclerView.setLayoutManager(linearLayoutManager);
-        searchViewModel.getFilesLiveData().observe(this, aurSearch -> {
+        searchViewModel.getSearchLiveData().observe(this, aurSearch -> {
             if (aurSearch != null) {
                 this.searchResultList = aurSearch.getResults();
                 submitSearchResultList(false);
             }
+            progressBar.setVisibility(View.GONE);
+        });
+        searchViewModel.getMessageMutableLiveData().observe(this, s -> {
+            if (s != null && !TextUtils.isEmpty(s)) {
+                Toast.makeText(context,
+                        TextUtils.equals(AurdroidConstants.RETROFIT_FAILURE, s) ? getString(R.string.retrofit_something_went_wrong) : s,
+                        Toast.LENGTH_LONG).show();
+            }
+            progressBar.setVisibility(View.GONE);
         });
         recyclerView.setAdapter(resultAdapter);
         return fragmentSearchResultBinding.getRoot();
@@ -163,19 +176,19 @@ public class SearchResultFragment extends Fragment {
         menu.findItem(R.id.menu_search_result_item_sort_by_last_updated).setVisible(listIsNotEmpty);
         menu.findItem(R.id.menu_search_result_item_sort_by_first_submitted).setVisible(listIsNotEmpty);
         switch (sortOder) {
-            case AurdroidConstants.SEARCH_RESULT_SORT_BY_PACKAGE_NAME:
+            case AurdroidConstants.SORT_BY_PACKAGE_NAME:
                 menu.findItem(R.id.menu_search_result_item_sort_by_package_name).setChecked(true);
                 break;
-            case AurdroidConstants.SEARCH_RESULT_SORT_BY_VOTES:
+            case AurdroidConstants.SORT_BY_VOTES:
                 menu.findItem(R.id.menu_search_result_item_sort_by_votes).setChecked(true);
                 break;
-            case AurdroidConstants.SEARCH_RESULT_SORT_BY_POPULARITY:
+            case AurdroidConstants.SORT_BY_POPULARITY:
                 menu.findItem(R.id.menu_search_result_item_sort_by_popularity).setChecked(true);
                 break;
-            case AurdroidConstants.SEARCH_RESULT_SORT_BY_LAST_UPDATED:
+            case AurdroidConstants.SORT_BY_LAST_UPDATED:
                 menu.findItem(R.id.menu_search_result_item_sort_by_last_updated).setChecked(true);
                 break;
-            case AurdroidConstants.SEARCH_RESULT_SORT_BY_FIRST_SUBMITTED:
+            case AurdroidConstants.SORT_BY_FIRST_SUBMITTED:
                 menu.findItem(R.id.menu_search_result_item_sort_by_first_submitted).setChecked(true);
                 break;
             default:
@@ -189,23 +202,23 @@ public class SearchResultFragment extends Fragment {
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
             case R.id.menu_search_result_item_sort_by_package_name:
-                sortOder = AurdroidConstants.SEARCH_RESULT_SORT_BY_PACKAGE_NAME;
+                sortOder = AurdroidConstants.SORT_BY_PACKAGE_NAME;
                 submitSearchResultList(true);
                 break;
             case R.id.menu_search_result_item_sort_by_votes:
-                sortOder = AurdroidConstants.SEARCH_RESULT_SORT_BY_VOTES;
+                sortOder = AurdroidConstants.SORT_BY_VOTES;
                 submitSearchResultList(true);
                 break;
             case R.id.menu_search_result_item_sort_by_popularity:
-                sortOder = AurdroidConstants.SEARCH_RESULT_SORT_BY_POPULARITY;
+                sortOder = AurdroidConstants.SORT_BY_POPULARITY;
                 submitSearchResultList(true);
                 break;
             case R.id.menu_search_result_item_sort_by_last_updated:
-                sortOder = AurdroidConstants.SEARCH_RESULT_SORT_BY_LAST_UPDATED;
+                sortOder = AurdroidConstants.SORT_BY_LAST_UPDATED;
                 submitSearchResultList(true);
                 break;
             case R.id.menu_search_result_item_sort_by_first_submitted:
-                sortOder = AurdroidConstants.SEARCH_RESULT_SORT_BY_FIRST_SUBMITTED;
+                sortOder = AurdroidConstants.SORT_BY_FIRST_SUBMITTED;
                 submitSearchResultList(true);
                 break;
         }
@@ -223,23 +236,29 @@ public class SearchResultFragment extends Fragment {
 
     private List<SearchResult> getSortedList(List<SearchResult> searchResultList) {
         switch (sortOder) {
-            case AurdroidConstants.SEARCH_RESULT_SORT_BY_PACKAGE_NAME:
-                Collections.sort(searchResultList, (o1, o2) -> o1.getName().compareToIgnoreCase(o2.getName()));
+            case AurdroidConstants.SORT_BY_PACKAGE_NAME:
+                Collections.sort(searchResultList,
+                        (o1, o2) -> o1.getName().compareToIgnoreCase(o2.getName()));
                 break;
-            case AurdroidConstants.SEARCH_RESULT_SORT_BY_VOTES:
-                Collections.sort(searchResultList, (o1, o2) -> Long.compare(Long.parseLong(o2.getNumVotes()), Long.parseLong(o1.getNumVotes())));
+            case AurdroidConstants.SORT_BY_VOTES:
+                Collections.sort(searchResultList,
+                        (o1, o2) -> Long.compare(Long.parseLong(o2.getNumVotes()), Long.parseLong(o1.getNumVotes())));
                 break;
-            case AurdroidConstants.SEARCH_RESULT_SORT_BY_POPULARITY:
-                Collections.sort(searchResultList, (o1, o2) -> Double.compare(Double.parseDouble(o2.getPopularity()), Double.parseDouble(o1.getPopularity())));
+            case AurdroidConstants.SORT_BY_POPULARITY:
+                Collections.sort(searchResultList,
+                        (o1, o2) -> Double.compare(Double.parseDouble(o2.getPopularity()), Double.parseDouble(o1.getPopularity())));
                 break;
-            case AurdroidConstants.SEARCH_RESULT_SORT_BY_LAST_UPDATED:
-                Collections.sort(searchResultList, (o1, o2) -> Long.compare(Long.parseLong(o2.getLastModified()), Long.parseLong(o1.getLastModified())));
+            case AurdroidConstants.SORT_BY_LAST_UPDATED:
+                Collections.sort(searchResultList,
+                        (o1, o2) -> Long.compare(Long.parseLong(o2.getLastModified()), Long.parseLong(o1.getLastModified())));
                 break;
-            case AurdroidConstants.SEARCH_RESULT_SORT_BY_FIRST_SUBMITTED:
-                Collections.sort(searchResultList, (o1, o2) -> Long.compare(Long.parseLong(o1.getFirstSubmitted()), Long.parseLong(o2.getFirstSubmitted())));
+            case AurdroidConstants.SORT_BY_FIRST_SUBMITTED:
+                Collections.sort(searchResultList,
+                        (o1, o2) -> Long.compare(Long.parseLong(o1.getFirstSubmitted()), Long.parseLong(o2.getFirstSubmitted())));
                 break;
             default:
-                Collections.sort(searchResultList, (o1, o2) -> o1.getName().compareToIgnoreCase(o2.getName()));
+                Collections.sort(searchResultList,
+                        (o1, o2) -> o1.getName().compareToIgnoreCase(o2.getName()));
                 break;
         }
         return searchResultList;

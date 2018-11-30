@@ -27,7 +27,7 @@ public class InfoViewModel extends ViewModel {
     private final LiveData<Info> infoLiveData;
 
     InfoViewModel(String pkgname) {
-        infoLiveData = AurRepository.getArchPackagesRepositoryInstance().getInfoLiveData(pkgname);
+        infoLiveData = AurRepository.getAurRepositoryInstance().getInfoLiveData(pkgname);
     }
 
     public LiveData<Info> getInfoLiveData() {

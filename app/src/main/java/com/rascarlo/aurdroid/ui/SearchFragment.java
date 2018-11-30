@@ -44,13 +44,13 @@ public class SearchFragment extends Fragment {
     private Context context;
     private SearchFragmentCallback searchFragmentCallback;
     // search by
-    private RadioButton radioButtonSearchNameOrDescription;
-    private RadioButton radioButtonSearchName;
-    private RadioButton radioButtonSearchMaintainer;
-    private RadioButton radioButtonSearchDepends;
-    private RadioButton radioButtonSearchMakeDepends;
-    private RadioButton radioButtonSearchOptDepends;
-    private RadioButton radioButtonSearchCheckDepends;
+    private RadioButton radioButtonSearchByNameOrDescription;
+    private RadioButton radioButtonSearchByName;
+    private RadioButton radioButtonSearchByMaintainer;
+    private RadioButton radioButtonSearchByDepends;
+    private RadioButton radioButtonSearchByMakeDepends;
+    private RadioButton radioButtonSearchByOptDepends;
+    private RadioButton radioButtonSearchByCheckDepends;
     // sort
     private RadioButton radioButtonSortPackageName;
     private RadioButton radioButtonSortVotes;
@@ -79,7 +79,7 @@ public class SearchFragment extends Fragment {
                 if (editTextView.getEditableText() != null
                         && !TextUtils.isEmpty(editTextView.getEditableText().toString().trim())) {
                     if (searchFragmentCallback != null) {
-                        searchFragmentCallback.onSearchFragmentCallbackOnFabClicked(getField(),
+                        searchFragmentCallback.onSearchFragmentCallbackOnFabClicked(getSearchBy(),
                                 getSort(),
                                 editTextView.getEditableText().toString());
                     }
@@ -92,13 +92,13 @@ public class SearchFragment extends Fragment {
             return false;
         });
         // fields
-        radioButtonSearchNameOrDescription = fragmentSearchBinding.fragmentSearchFieldLayout.searchFieldRadioButtonNameOrDescription;
-        radioButtonSearchName = fragmentSearchBinding.fragmentSearchFieldLayout.searchFieldRadioButtonName;
-        radioButtonSearchMaintainer = fragmentSearchBinding.fragmentSearchFieldLayout.searchFieldRadioButtonMaintainer;
-        radioButtonSearchDepends = fragmentSearchBinding.fragmentSearchFieldLayout.searchFieldRadioButtonDepends;
-        radioButtonSearchMakeDepends = fragmentSearchBinding.fragmentSearchFieldLayout.searchFieldRadioButtonMakeDepends;
-        radioButtonSearchOptDepends = fragmentSearchBinding.fragmentSearchFieldLayout.searchFieldRadioButtonOptDepends;
-        radioButtonSearchCheckDepends = fragmentSearchBinding.fragmentSearchFieldLayout.searchFieldRadioButtonCheckDepends;
+        radioButtonSearchByNameOrDescription = fragmentSearchBinding.fragmentSearchByLayout.searchByRadioButtonNameOrDescription;
+        radioButtonSearchByName = fragmentSearchBinding.fragmentSearchByLayout.searchByRadioButtonName;
+        radioButtonSearchByMaintainer = fragmentSearchBinding.fragmentSearchByLayout.searchByRadioButtonMaintainer;
+        radioButtonSearchByDepends = fragmentSearchBinding.fragmentSearchByLayout.searchByRadioButtonDepends;
+        radioButtonSearchByMakeDepends = fragmentSearchBinding.fragmentSearchByLayout.searchByRadioButtonMakeDepends;
+        radioButtonSearchByOptDepends = fragmentSearchBinding.fragmentSearchByLayout.searchByRadioButtonOptDepends;
+        radioButtonSearchByCheckDepends = fragmentSearchBinding.fragmentSearchByLayout.searchByRadioButtonCheckDepends;
         // sort
         radioButtonSortPackageName = fragmentSearchBinding.fragmentSearchSortLayout.searchRadioButtonPackageName;
         radioButtonSortVotes = fragmentSearchBinding.fragmentSearchSortLayout.searchRadioButtonVotes;
@@ -155,24 +155,24 @@ public class SearchFragment extends Fragment {
 
     private void bindKeyWords() {
         if (context != null) {
-            String sharedPreferenceField = AurdroidSharedPreferences.getSharedPreferenceString(context,
-                    getString(R.string.key_search_field), getString(R.string.key_search_field_default_value));
-            if (TextUtils.equals(sharedPreferenceField, getString(R.string.key_search_field_name_or_description))) {
-                radioButtonSearchNameOrDescription.setChecked(true);
-            } else if (TextUtils.equals(sharedPreferenceField, getString(R.string.key_search_field_name))) {
-                radioButtonSearchName.setChecked(true);
-            } else if (TextUtils.equals(sharedPreferenceField, getString(R.string.key_search_field_maintainer))) {
-                radioButtonSearchMaintainer.setChecked(true);
-            } else if (TextUtils.equals(sharedPreferenceField, getString(R.string.key_search_field_depends))) {
-                radioButtonSearchDepends.setChecked(true);
-            } else if (TextUtils.equals(sharedPreferenceField, getString(R.string.key_search_field_make_depends))) {
-                radioButtonSearchMakeDepends.setChecked(true);
-            } else if (TextUtils.equals(sharedPreferenceField, getString(R.string.key_search_field_opt_depends))) {
-                radioButtonSearchOptDepends.setChecked(true);
-            } else if (TextUtils.equals(sharedPreferenceField, getString(R.string.key_search_field_check_depends))) {
-                radioButtonSearchCheckDepends.setChecked(true);
+            String sharedPreferenceSearchBy = AurdroidSharedPreferences.getSharedPreferenceString(context,
+                    getString(R.string.key_search_by), getString(R.string.key_search_by_default_value));
+            if (TextUtils.equals(sharedPreferenceSearchBy, getString(R.string.key_search_by_name_or_description))) {
+                radioButtonSearchByNameOrDescription.setChecked(true);
+            } else if (TextUtils.equals(sharedPreferenceSearchBy, getString(R.string.key_search_by_name))) {
+                radioButtonSearchByName.setChecked(true);
+            } else if (TextUtils.equals(sharedPreferenceSearchBy, getString(R.string.key_search_by_maintainer))) {
+                radioButtonSearchByMaintainer.setChecked(true);
+            } else if (TextUtils.equals(sharedPreferenceSearchBy, getString(R.string.key_search_by_depends))) {
+                radioButtonSearchByDepends.setChecked(true);
+            } else if (TextUtils.equals(sharedPreferenceSearchBy, getString(R.string.key_search_by_make_depends))) {
+                radioButtonSearchByMakeDepends.setChecked(true);
+            } else if (TextUtils.equals(sharedPreferenceSearchBy, getString(R.string.key_search_by_opt_depends))) {
+                radioButtonSearchByOptDepends.setChecked(true);
+            } else if (TextUtils.equals(sharedPreferenceSearchBy, getString(R.string.key_search_by_check_depends))) {
+                radioButtonSearchByCheckDepends.setChecked(true);
             } else {
-                radioButtonSearchNameOrDescription.setChecked(true);
+                radioButtonSearchByNameOrDescription.setChecked(true);
             }
         }
     }
@@ -197,39 +197,39 @@ public class SearchFragment extends Fragment {
         }
     }
 
-    private int getField() {
-        if (radioButtonSearchNameOrDescription.isChecked()) {
-            return AurdroidConstants.SEARCH_PARAMETER_NAME_OR_DESCRIPTION;
-        } else if (radioButtonSearchName.isChecked()) {
-            return AurdroidConstants.SEARCH_PARAMETER_NAME;
-        } else if (radioButtonSearchMaintainer.isChecked()) {
-            return AurdroidConstants.SEARCH_PARAMETER_MAINTAINER;
-        } else if (radioButtonSearchDepends.isChecked()) {
-            return AurdroidConstants.SEARCH_PARAMETER_DEPENDS;
-        } else if (radioButtonSearchMakeDepends.isChecked()) {
-            return AurdroidConstants.SEARCH_PARAMETER_MAKE_DEPENDS;
-        } else if (radioButtonSearchOptDepends.isChecked()) {
-            return AurdroidConstants.SEARCH_PARAMETER_OPT_DEPENDS;
-        } else if (radioButtonSearchCheckDepends.isChecked()) {
-            return AurdroidConstants.SEARCH_PARAMETER_CHECK_DEPENDS;
+    private int getSearchBy() {
+        if (radioButtonSearchByNameOrDescription.isChecked()) {
+            return AurdroidConstants.SEARCH_BY_NAME_OR_DESCRIPTION;
+        } else if (radioButtonSearchByName.isChecked()) {
+            return AurdroidConstants.SEARCH_BY_NAME;
+        } else if (radioButtonSearchByMaintainer.isChecked()) {
+            return AurdroidConstants.SEARCH_BY_MAINTAINER;
+        } else if (radioButtonSearchByDepends.isChecked()) {
+            return AurdroidConstants.SEARCH_BY_DEPENDS;
+        } else if (radioButtonSearchByMakeDepends.isChecked()) {
+            return AurdroidConstants.SEARCH_BY_MAKE_DEPENDS;
+        } else if (radioButtonSearchByOptDepends.isChecked()) {
+            return AurdroidConstants.SEARCH_BY_OPT_DEPENDS;
+        } else if (radioButtonSearchByCheckDepends.isChecked()) {
+            return AurdroidConstants.SEARCH_BY_CHECK_DEPENDS;
         } else {
-            return AurdroidConstants.SEARCH_PARAMETER_NAME_OR_DESCRIPTION;
+            return AurdroidConstants.SEARCH_BY_NAME_OR_DESCRIPTION;
         }
     }
 
     private int getSort() {
         if (radioButtonSortPackageName.isChecked()) {
-            return AurdroidConstants.SEARCH_RESULT_SORT_BY_PACKAGE_NAME;
+            return AurdroidConstants.SORT_BY_PACKAGE_NAME;
         } else if (radioButtonSortVotes.isChecked()) {
-            return AurdroidConstants.SEARCH_RESULT_SORT_BY_VOTES;
+            return AurdroidConstants.SORT_BY_VOTES;
         } else if (radioButtonSortPopularity.isChecked()) {
-            return AurdroidConstants.SEARCH_RESULT_SORT_BY_POPULARITY;
+            return AurdroidConstants.SORT_BY_POPULARITY;
         } else if (radioButtonSortLastUpdated.isChecked()) {
-            return AurdroidConstants.SEARCH_RESULT_SORT_BY_LAST_UPDATED;
+            return AurdroidConstants.SORT_BY_LAST_UPDATED;
         } else if (radioButtonSortFirstSubmitted.isChecked()) {
-            return AurdroidConstants.SEARCH_RESULT_SORT_BY_FIRST_SUBMITTED;
+            return AurdroidConstants.SORT_BY_FIRST_SUBMITTED;
         } else {
-            return AurdroidConstants.SEARCH_RESULT_SORT_BY_PACKAGE_NAME;
+            return AurdroidConstants.SORT_BY_PACKAGE_NAME;
         }
     }
 }

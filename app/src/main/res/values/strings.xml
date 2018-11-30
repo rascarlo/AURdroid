@@ -22,6 +22,7 @@
     <string name="settings">Settings</string>
     <string name="not_available">Not available</string>
     <string name="something_went_wrong">Something went wrong. Please try again.</string>
+    <string name="retrofit_something_went_wrong">Something went wrong. Please be sure to have an active internet connection and try again.</string>
 
     <string name="keywords">Keywords</string>
     <string name="keywords_hint">The API rate is limited to a maximum of 4000 requests per day per IP.</string>
@@ -87,16 +88,16 @@
     <string name="key_theme_black">key_theme_black</string>
     <string name="key_theme_light" translatable="false">key_theme_light</string>
 
-    <!--search field keys-->
-    <string name="key_search_field" translatable="false">key_search_field</string>
-    <string name="key_search_field_default_value" translatable="false">key_search_field_name_or_description</string>
-    <string name="key_search_field_name_or_description" translatable="false">key_search_field_name_or_description</string>
-    <string name="key_search_field_name" translatable="false">key_search_field_name</string>
-    <string name="key_search_field_maintainer" translatable="false">key_search_field_maintainer</string>
-    <string name="key_search_field_depends" translatable="false">key_search_field_depends</string>
-    <string name="key_search_field_make_depends" translatable="false">key_search_field_make_depends</string>
-    <string name="key_search_field_opt_depends" translatable="false">key_search_field_opt_depends</string>
-    <string name="key_search_field_check_depends" translatable="false">key_search_field_check_depends</string>
+    <!--search by keys-->
+    <string name="key_search_by" translatable="false">key_search_by</string>
+    <string name="key_search_by_default_value" translatable="false">key_search_by_name_or_description</string>
+    <string name="key_search_by_name_or_description" translatable="false">key_search_by_name_or_description</string>
+    <string name="key_search_by_name" translatable="false">key_search_by_name</string>
+    <string name="key_search_by_maintainer" translatable="false">key_search_by_maintainer</string>
+    <string name="key_search_by_depends" translatable="false">key_search_by_depends</string>
+    <string name="key_search_by_make_depends" translatable="false">key_search_by_make_depends</string>
+    <string name="key_search_by_opt_depends" translatable="false">key_search_by_opt_depends</string>
+    <string name="key_search_by_check_depends" translatable="false">key_search_by_check_depends</string>
 
     <!--sort keys-->
     <string name="key_sort" translatable="false">key_sort</string>

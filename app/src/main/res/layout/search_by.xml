@@ -23,56 +23,56 @@
         android:orientation="vertical">
 
         <TextView
-            android:id="@+id/search_field_label_text_view"
+            android:id="@+id/search_by_label_text_view"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="@string/search"
             android:textAppearance="@style/TextAppearance.AppCompat.Title" />
 
         <RadioGroup
-            android:id="@+id/search_field_radio_group"
+            android:id="@+id/search_by_radio_group"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp">
 
             <RadioButton
-                android:id="@+id/search_field_radio_button_name_or_description"
+                android:id="@+id/search_by_radio_button_name_or_description"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="@string/name_or_description" />
 
             <RadioButton
-                android:id="@+id/search_field_radio_button_name"
+                android:id="@+id/search_by_radio_button_name"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="@string/name" />
 
             <RadioButton
-                android:id="@+id/search_field_radio_button_maintainer"
+                android:id="@+id/search_by_radio_button_maintainer"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="@string/maintainer" />
 
             <RadioButton
-                android:id="@+id/search_field_radio_button_depends"
+                android:id="@+id/search_by_radio_button_depends"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="@string/depends" />
 
             <RadioButton
-                android:id="@+id/search_field_radio_button_make_depends"
+                android:id="@+id/search_by_radio_button_make_depends"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="@string/make_depends" />
 
             <RadioButton
-                android:id="@+id/search_field_radio_button_opt_depends"
+                android:id="@+id/search_by_radio_button_opt_depends"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="@string/opt_depends" />
 
             <RadioButton
-                android:id="@+id/search_field_radio_button_check_depends"
+                android:id="@+id/search_by_radio_button_check_depends"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="@string/check_depends" />
