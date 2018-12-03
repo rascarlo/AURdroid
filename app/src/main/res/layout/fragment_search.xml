@@ -1,52 +1,63 @@
-<?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    app:layout_behavior="@string/appbar_scrolling_view_behavior"
-    tools:context="com.rascarlo.aurdroid.SearchFragment"
-    tools:showIn="@layout/activity_main">
+<!--
+  ~     Copyright (C) rascarlo  rascarlo@gmail.com
+  ~
+  ~     This program is free software: you can redistribute it and/or modify
+  ~     it under the terms of the GNU General Public License as published by
+  ~     the Free Software Foundation, either version 3 of the License, or
+  ~     (at your option) any later version.
+  ~
+  ~     This program is distributed in the hope that it will be useful,
+  ~     but WITHOUT ANY WARRANTY; without even the implied warranty of
+  ~     MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+  ~     GNU General Public License for more details.
+  ~
+  ~     You should have received a copy of the GNU General Public License
+  ~     along with this program.  If not, see <https://www.gnu.org/licenses/>.
+  -->
 
-    <RelativeLayout
+<layout xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <android.support.v4.widget.NestedScrollView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="match_parent"
+        android:background="?android:attr/windowBackground">
 
-        <TextView
-            android:id="@+id/fragment_search_footer"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_alignParentBottom="true"
-            android:layout_alignParentEnd="true"
-            android:layout_alignParentLeft="true"
-            android:layout_alignParentRight="true"
-            android:layout_alignParentStart="true"
-            android:gravity="end|right"
-            android:paddingEnd="4dp"
-            android:paddingLeft="4dp"
-            android:paddingRight="4dp"
-            android:paddingStart="4dp"
-            android:textAppearance="@style/TextAppearance.AppCompat.Caption"
-            tools:text="@string/no_packages_found" />
-
-        <android.support.v7.widget.RecyclerView
-            android:id="@+id/fragment_search_recycler_view"
+        <LinearLayout
+            android:id="@+id/fragment_search_constraint_layout"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_above="@id/fragment_search_footer" />
+            android:layout_margin="@dimen/activity_horizontal_margin"
+            android:orientation="vertical">
 
-    </RelativeLayout>
+            <include
+                android:id="@+id/fragment_search_keywords_layout"
+                layout="@layout/search_keywords"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
 
-    <ProgressBar
-        android:id="@+id/fragment_search_progress_bar"
-        android:layout_width="96dp"
-        android:layout_height="96dp"
-        android:layout_gravity="center|center_vertical|center_horizontal"
-        android:indeterminate="true"
-        android:indeterminateBehavior="cycle"
-        android:visibility="gone"
-        tools:visibility="visible" />
+            <include
+                android:id="@+id/fragment_search_by_layout"
+                layout="@layout/search_by"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp" />
 
-    <include layout="@layout/fragment_search_wiki" />
+            <View
+                android:id="@+id/fragment_search_sort_ruler_view"
+                android:layout_width="wrap_content"
+                android:layout_height="1dp"
+                android:layout_marginTop="16dp"
+                android:background="@color/ruler_divider" />
 
-</FrameLayout>
+            <include
+                android:id="@+id/fragment_search_sort_layout"
+                layout="@layout/search_sort"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp" />
+
+        </LinearLayout>
+
+    </android.support.v4.widget.NestedScrollView>
+
+</layout>

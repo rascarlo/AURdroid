@@ -1,0 +1,64 @@
+<!--
+  ~     Copyright (C) rascarlo  rascarlo@gmail.com
+  ~
+  ~     This program is free software: you can redistribute it and/or modify
+  ~     it under the terms of the GNU General Public License as published by
+  ~     the Free Software Foundation, either version 3 of the License, or
+  ~     (at your option) any later version.
+  ~
+  ~     This program is distributed in the hope that it will be useful,
+  ~     but WITHOUT ANY WARRANTY; without even the implied warranty of
+  ~     MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+  ~     GNU General Public License for more details.
+  ~
+  ~     You should have received a copy of the GNU General Public License
+  ~     along with this program.  If not, see <https://www.gnu.org/licenses/>.
+  -->
+
+<resources>
+    <!--theme list preference-->
+    <string-array name="key_theme_entries">
+        <item>@string/theme_dark</item>
+        <item>@string/theme_black</item>
+        <item>@string/theme_light</item>
+    </string-array>
+    <string-array name="key_theme_entry_values">
+        <item>@string/key_theme_dark</item>
+        <item>@string/key_theme_black</item>
+        <item>@string/key_theme_light</item>
+    </string-array>
+    <!--search field preference-->
+    <string-array name="key_search_by_entries">
+        <item>@string/name_or_description</item>
+        <item>@string/name</item>
+        <item>@string/maintainer</item>
+        <item>@string/depends</item>
+        <item>@string/make_depends</item>
+        <item>@string/opt_depends</item>
+        <item>@string/check_depends</item>
+    </string-array>
+    <string-array name="key_search_by_entry_values">
+        <item>@string/key_search_by_name_or_description</item>
+        <item>@string/key_search_by_name</item>
+        <item>@string/key_search_by_maintainer</item>
+        <item>@string/key_search_by_depends</item>
+        <item>@string/key_search_by_make_depends</item>
+        <item>@string/key_search_by_opt_depends</item>
+        <item>@string/key_search_by_check_depends</item>
+    </string-array>
+    <!--sort preference-->
+    <string-array name="key_sort_entries">
+        <item>@string/package_name</item>
+        <item>@string/votes</item>
+        <item>@string/popularity</item>
+        <item>@string/last_updated</item>
+        <item>@string/first_submitted</item>
+    </string-array>
+    <string-array name="key_sort_entry_values">
+        <item>@string/key_sort_by_package_name</item>
+        <item>@string/key_sort_by_votes</item>
+        <item>@string/key_sort_by_popularity</item>
+        <item>@string/key_sort_by_last_updated</item>
+        <item>@string/key_sort_by_first_submitted</item>
+    </string-array>
+</resources>
