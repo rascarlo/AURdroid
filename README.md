@@ -1,4 +1,4 @@
-# AURdroid
+﻿# AURdroid
 *Simple Android AUR [Arch Linux User repository] packages browser.*
 
 **Based on v5 of the RPC Interface API, as released with AUR v4.2.0 on February 15, 2016.**
@@ -14,10 +14,10 @@ ___
 
 ___
 ### Screenshots
-<img src="https://github.com/rascarlo/AURdroid/blob/master/art/000.png" width="180" height="320" /> <img src="https://github.com/rascarlo/AURdroid/blob/master/art/001.png" width="180" height="320" />
-<img src="https://github.com/rascarlo/AURdroid/blob/master/art/002.png" width="180" height="320" /> <img src="https://github.com/rascarlo/AURdroid/blob/master/art/003.png" width="180" height="320" />
-<img src="https://github.com/rascarlo/AURdroid/blob/master/art/004.png" width="180" height="320" /> <img src="https://github.com/rascarlo/AURdroid/blob/master/art/005.png" width="180" height="320" />
-<img src="https://github.com/rascarlo/AURdroid/blob/master/art/006.png" width="180" height="320" /> <img src="https://github.com/rascarlo/AURdroid/blob/master/art/007.png" width="180" height="320" />
+<img src="https://github.com/rascarlo/AURdroid/blob/master/fastlane/metadata/android/en-US/phoneScreenshots/001.png" width="180" height="320" /> <img src="https://github.com/rascarlo/AURdroid/blob/master/fastlane/metadata/android/en-US/phoneScreenshots/002.png" width="180" height="320" />
+<img src="https://github.com/rascarlo/AURdroid/blob/master/fastlane/metadata/android/en-US/phoneScreenshots/003.png" width="180" height="320" /> <img src="https://github.com/rascarlo/AURdroid/blob/master/fastlane/metadata/android/en-US/phoneScreenshots/004.png" width="180" height="320" />
+<img src="https://github.com/rascarlo/AURdroid/blob/master/fastlane/metadata/android/en-US/phoneScreenshots/005.png" width="180" height="320" /> <img src="https://github.com/rascarlo/AURdroid/blob/master/fastlane/metadata/android/en-US/phoneScreenshots/006.png" width="180" height="320" />
+<img src="https://github.com/rascarlo/AURdroid/blob/master/fastlane/metadata/android/en-US/phoneScreenshots/007.png" width="180" height="320" /> <img src="https://github.com/rascarlo/AURdroid/blob/master/fastlane/metadata/android/en-US/phoneScreenshots/008.png" width="180" height="320" />
 
 ___
 ### Libraries
