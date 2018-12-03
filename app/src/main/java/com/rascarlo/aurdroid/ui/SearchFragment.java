@@ -20,6 +20,7 @@ package com.rascarlo.aurdroid.ui;
 import android.content.Context;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
+import android.support.design.widget.TextInputEditText;
 import android.support.v4.app.Fragment;
 import android.text.TextUtils;
 import android.view.LayoutInflater;
@@ -30,7 +31,6 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.view.inputmethod.EditorInfo;
 import android.view.inputmethod.InputMethodManager;
-import android.widget.EditText;
 import android.widget.RadioButton;
 
 import com.rascarlo.aurdroid.R;
@@ -72,9 +72,9 @@ public class SearchFragment extends Fragment {
     public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         context = container.getContext();
         FragmentSearchBinding fragmentSearchBinding = FragmentSearchBinding.inflate(LayoutInflater.from(context), container, false);
-        EditText editText = fragmentSearchBinding.fragmentSearchKeywordsLayout.searchKeywordsTextInputEditText;
-        editText.setImeOptions(EditorInfo.IME_ACTION_SEARCH);
-        editText.setOnEditorActionListener((editTextView, actionId, event) -> {
+        TextInputEditText textInputEditText = fragmentSearchBinding.fragmentSearchKeywordsLayout.searchKeywordsTextInputEditText;
+        textInputEditText.setImeOptions(EditorInfo.IME_ACTION_SEARCH);
+        textInputEditText.setOnEditorActionListener((editTextView, actionId, event) -> {
             if (actionId == EditorInfo.IME_ACTION_SEARCH) {
                 if (editTextView.getEditableText() != null
                         && !TextUtils.isEmpty(editTextView.getEditableText().toString().trim())) {
@@ -91,7 +91,7 @@ public class SearchFragment extends Fragment {
             }
             return false;
         });
-        // fields
+        // search by
         radioButtonSearchByNameOrDescription = fragmentSearchBinding.fragmentSearchByLayout.searchByRadioButtonNameOrDescription;
         radioButtonSearchByName = fragmentSearchBinding.fragmentSearchByLayout.searchByRadioButtonName;
         radioButtonSearchByMaintainer = fragmentSearchBinding.fragmentSearchByLayout.searchByRadioButtonMaintainer;

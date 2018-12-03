@@ -44,7 +44,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp">
 
-            <EditText
+            <android.support.design.widget.TextInputEditText
                 android:id="@+id/search_keywords_text_input_edit_text"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
