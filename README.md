@@ -1,7 +1,7 @@
 ﻿# AURdroid
 *Simple Android AUR [Arch Linux User repository] packages browser.*
 
-**Based on v5 of the RPC Interface API, as released with AUR v4.2.0 on February 15, 2016.**
+**Based on v5 of the RPC Interface API, as updated with AUR v4.7.0 on July 7, 2018.**
 
 F-Droid wiki page: https://f-droid.org/wiki/page/com.rascarlo.aurdroid
 
