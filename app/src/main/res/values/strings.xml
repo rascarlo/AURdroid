@@ -43,6 +43,7 @@
     <string name="first_submitted">First submitted</string>
 
     <string name="formatted_version">Version: %s</string>
+    <string name="formatted_packagebase">Package base: %s</string>
     <string name="formatted_last_updated">Last updated: %s</string>
     <string name="formatted_last_update">Last updated: %s</string>
     <string name="formatted_first_submitted">First submitted: %s</string>

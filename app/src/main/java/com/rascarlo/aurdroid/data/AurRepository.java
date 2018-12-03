@@ -17,22 +17,14 @@
 
 package com.rascarlo.aurdroid.data;
 
-import android.arch.lifecycle.LiveData;
-import android.arch.lifecycle.MutableLiveData;
-import android.support.annotation.NonNull;
-
 import com.rascarlo.aurdroid.BuildConfig;
 import com.rascarlo.aurdroid.api.AurService;
-import com.rascarlo.aurdroid.api.model.Info;
 import com.rascarlo.aurdroid.util.AurdroidConstants;
 
 import java.util.concurrent.TimeUnit;
 
 import okhttp3.OkHttpClient;
 import okhttp3.logging.HttpLoggingInterceptor;
-import retrofit2.Call;
-import retrofit2.Callback;
-import retrofit2.Response;
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 
@@ -69,26 +61,5 @@ public class AurRepository {
 
     public AurService getAurService() {
         return aurService;
-    }
-
-    public LiveData<Info> getInfoLiveData(final String pkgname) {
-        final MutableLiveData<Info> infoMutableLiveData = new MutableLiveData<>();
-        Call<Info> infoCall = aurService.searchInfo(pkgname);
-        infoCall.enqueue(new Callback<Info>() {
-            @Override
-            public void onResponse(@NonNull Call<Info> call, @NonNull Response<Info> response) {
-                if (response.isSuccessful() && response.body() != null && response.code() == 200) {
-                    infoMutableLiveData.setValue(response.body());
-                } else {
-                    infoMutableLiveData.setValue(null);
-                }
-            }
-
-            @Override
-            public void onFailure(@NonNull Call<Info> call, @NonNull Throwable t) {
-                infoMutableLiveData.setValue(null);
-            }
-        });
-        return infoMutableLiveData;
     }
 }

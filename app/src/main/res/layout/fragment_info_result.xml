@@ -31,154 +31,144 @@
 
     </data>
 
-    <android.support.v4.widget.NestedScrollView
+    <FrameLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="?android:attr/windowBackground"
-        tools:context=".ui.InfoResultFragment">
+        android:background="?android:attr/windowBackground">
 
-        <LinearLayout
+        <android.support.v4.widget.NestedScrollView
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical">
+            android:layout_height="match_parent"
+            tools:context=".ui.InfoResultFragment">
 
-            <ProgressBar
-                android:id="@+id/fragment_info_result_progress_bar"
+            <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_gravity="center_horizontal"
-                android:layout_margin="16dp"
-                android:indeterminate="true"
-                android:indeterminateBehavior="cycle"
-                android:visibility="@{InfoResult.name == null ? View.VISIBLE : View.GONE}" />
+                android:orientation="vertical"
+                android:visibility="@{InfoResult.name != null ? View.VISIBLE : View.GONE}">
 
-            <include
-                android:id="@+id/fragment_info_result_header_layout"
-                layout="@layout/info_result_header"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="16dp"
-                android:layout_marginTop="16dp"
-                android:layout_marginEnd="16dp"
-                android:visibility="@{InfoResult.name != null ? View.VISIBLE : View.GONE}"
-                bind:InfoResult="@{InfoResult}" />
+                <include
+                    android:id="@+id/fragment_info_result_header_layout"
+                    layout="@layout/info_result_header"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginTop="16dp"
+                    android:layout_marginEnd="16dp"
+                    bind:InfoResult="@{InfoResult}" />
 
-            <View
-                android:id="@+id/fragment_info_result_header_ruler"
-                android:layout_width="match_parent"
-                android:layout_height="1dp"
-                android:layout_marginTop="16dp"
-                android:background="@color/ruler_divider"
-                android:visibility="@{InfoResult.name != null ? View.VISIBLE : View.GONE}" />
+                <View
+                    android:id="@+id/fragment_info_result_header_ruler"
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:layout_marginTop="16dp"
+                    android:background="@color/ruler_divider" />
 
-            <include
-                android:id="@+id/fragment_info_result_body_layout"
-                layout="@layout/info_result_body"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="16dp"
-                android:layout_marginTop="16dp"
-                android:layout_marginEnd="16dp"
-                android:visibility="@{InfoResult.name != null ? View.VISIBLE : View.GONE}"
-                bind:InfoResult="@{InfoResult}" />
+                <include
+                    android:id="@+id/fragment_info_result_body_layout"
+                    layout="@layout/info_result_body"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginTop="16dp"
+                    android:layout_marginEnd="16dp"
+                    bind:InfoResult="@{InfoResult}" />
 
-            <View
-                android:id="@+id/fragment_info_result_body_ruler"
-                android:layout_width="match_parent"
-                android:layout_height="1dp"
-                android:layout_marginTop="16dp"
-                android:background="@color/ruler_divider"
-                android:visibility="@{InfoResult.name != null ? View.VISIBLE : View.GONE}" />
+                <View
+                    android:id="@+id/fragment_info_result_body_ruler"
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:layout_marginTop="16dp"
+                    android:background="@color/ruler_divider" />
 
-            <include
-                android:id="@+id/fragment_info_result_dependencies_layout"
-                layout="@layout/info_result_dependencies"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="16dp"
-                android:layout_marginTop="16dp"
-                android:layout_marginEnd="16dp"
-                android:visibility="@{InfoResult.name != null ? View.VISIBLE : View.GONE}"
-                bind:InfoResult="@{InfoResult}" />
+                <include
+                    android:id="@+id/fragment_info_result_dependencies_layout"
+                    layout="@layout/info_result_dependencies"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginTop="16dp"
+                    android:layout_marginEnd="16dp"
+                    bind:InfoResult="@{InfoResult}" />
 
-            <View
-                android:id="@+id/fragment_info_result_make_dependencies_ruler"
-                android:layout_width="match_parent"
-                android:layout_height="1dp"
-                android:layout_marginTop="16dp"
-                android:background="@color/ruler_divider"
-                android:visibility="@{InfoResult.name != null ? View.VISIBLE : View.GONE}" />
+                <View
+                    android:id="@+id/fragment_info_result_make_dependencies_ruler"
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:layout_marginTop="16dp"
+                    android:background="@color/ruler_divider" />
 
-            <include
-                android:id="@+id/fragment_info_result_make_dependencies_layout"
-                layout="@layout/info_result_make_dependencies"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="16dp"
-                android:layout_marginTop="16dp"
-                android:layout_marginEnd="16dp"
-                android:visibility="@{InfoResult.name != null ? View.VISIBLE : View.GONE}"
-                bind:InfoResult="@{InfoResult}" />
+                <include
+                    android:id="@+id/fragment_info_result_make_dependencies_layout"
+                    layout="@layout/info_result_make_dependencies"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginTop="16dp"
+                    android:layout_marginEnd="16dp"
+                    bind:InfoResult="@{InfoResult}" />
 
-            <View
-                android:id="@+id/fragment_info_result_opt_dependencies_ruler"
-                android:layout_width="match_parent"
-                android:layout_height="1dp"
-                android:layout_marginTop="16dp"
-                android:background="@color/ruler_divider"
-                android:visibility="@{InfoResult.name != null ? View.VISIBLE : View.GONE}" />
+                <View
+                    android:id="@+id/fragment_info_result_opt_dependencies_ruler"
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:layout_marginTop="16dp"
+                    android:background="@color/ruler_divider" />
 
-            <include
-                android:id="@+id/fragment_info_result_opt_dependencies_layout"
-                layout="@layout/info_result_opt_dependencies"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="16dp"
-                android:layout_marginTop="16dp"
-                android:layout_marginEnd="16dp"
-                android:visibility="@{InfoResult.name != null ? View.VISIBLE : View.GONE}"
-                bind:InfoResult="@{InfoResult}" />
+                <include
+                    android:id="@+id/fragment_info_result_opt_dependencies_layout"
+                    layout="@layout/info_result_opt_dependencies"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginTop="16dp"
+                    android:layout_marginEnd="16dp"
+                    bind:InfoResult="@{InfoResult}" />
 
-            <View
-                android:id="@+id/fragment_info_result_conflicts_ruler"
-                android:layout_width="match_parent"
-                android:layout_height="1dp"
-                android:layout_marginTop="16dp"
-                android:background="@color/ruler_divider"
-                android:visibility="@{InfoResult.name != null ? View.VISIBLE : View.GONE}" />
+                <View
+                    android:id="@+id/fragment_info_result_conflicts_ruler"
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:layout_marginTop="16dp"
+                    android:background="@color/ruler_divider" />
 
-            <include
-                android:id="@+id/fragment_info_result_conflicts_layout"
-                layout="@layout/info_result_conflicts"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="16dp"
-                android:layout_marginTop="16dp"
-                android:layout_marginEnd="16dp"
-                android:visibility="@{InfoResult.name != null ? View.VISIBLE : View.GONE}"
-                bind:InfoResult="@{InfoResult}" />
+                <include
+                    android:id="@+id/fragment_info_result_conflicts_layout"
+                    layout="@layout/info_result_conflicts"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginTop="16dp"
+                    android:layout_marginEnd="16dp"
+                    bind:InfoResult="@{InfoResult}" />
 
-            <View
-                android:id="@+id/fragment_info_result_provides_ruler"
-                android:layout_width="match_parent"
-                android:layout_height="1dp"
-                android:layout_marginTop="16dp"
-                android:background="@color/ruler_divider"
-                android:visibility="@{InfoResult.name != null ? View.VISIBLE : View.GONE}" />
+                <View
+                    android:id="@+id/fragment_info_result_provides_ruler"
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:layout_marginTop="16dp"
+                    android:background="@color/ruler_divider" />
 
-            <include
-                android:id="@+id/fragment_info_result_provides_layout"
-                layout="@layout/info_result_provides"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="16dp"
-                android:layout_marginTop="16dp"
-                android:layout_marginEnd="16dp"
-                android:visibility="@{InfoResult.name != null ? View.VISIBLE : View.GONE}"
-                bind:InfoResult="@{InfoResult}" />
+                <include
+                    android:id="@+id/fragment_info_result_provides_layout"
+                    layout="@layout/info_result_provides"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginTop="16dp"
+                    android:layout_marginEnd="16dp"
+                    bind:InfoResult="@{InfoResult}" />
 
-        </LinearLayout>
+            </LinearLayout>
 
-    </android.support.v4.widget.NestedScrollView>
+        </android.support.v4.widget.NestedScrollView>
+
+        <ProgressBar
+            android:id="@+id/fragment_info_result_progress_bar"
+            style="@style/AppTheme.ProgressBar"
+            android:visibility="gone"
+            tools:visibility="visible" />
+
+    </FrameLayout>
 
 </layout>

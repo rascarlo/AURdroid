@@ -33,6 +33,8 @@ import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ProgressBar;
+import android.widget.Toast;
 
 import com.rascarlo.aurdroid.R;
 import com.rascarlo.aurdroid.adapters.DependencyAdapter;
@@ -85,7 +87,10 @@ public class InfoResultFragment extends Fragment {
 
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+        Context context = container.getContext();
         FragmentInfoResultBinding fragmentInfoResultBinding = FragmentInfoResultBinding.inflate(inflater, container, false);
+        ProgressBar progressBar = fragmentInfoResultBinding.fragmentInfoResultProgressBar;
+        progressBar.setVisibility(View.VISIBLE);
         InfoViewModelFactory infoViewModelFactory = new InfoViewModelFactory(bundlePkgname);
         InfoViewModel infoViewModel = ViewModelProviders.of(this, infoViewModelFactory).get(InfoViewModel.class);
         infoViewModel.getInfoLiveData().observe(this, info -> {
@@ -95,6 +100,15 @@ public class InfoResultFragment extends Fragment {
                 fragmentInfoResultBinding.executePendingBindings();
                 bindDepends(fragmentInfoResultBinding);
             }
+            progressBar.setVisibility(View.GONE);
+        });
+        infoViewModel.getMessageMutableLiveData().observe(this, s -> {
+            if (s != null && !TextUtils.isEmpty(s)) {
+                Toast.makeText(context,
+                        TextUtils.equals(AurdroidConstants.RETROFIT_FAILURE, s) ? getString(R.string.retrofit_something_went_wrong) : s,
+                        Toast.LENGTH_LONG).show();
+            }
+            progressBar.setVisibility(View.GONE);
         });
         return fragmentInfoResultBinding.getRoot();
     }

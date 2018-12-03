@@ -49,6 +49,56 @@
             tools:text="@string/formatted_version" />
 
         <TextView
+            android:id="@+id/info_result_text_view_packagebase"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/text_view_spacing_small"
+            android:text="@{@string/formatted_packagebase(InfoResult.packageBase)}"
+            android:textAppearance="@style/TextAppearance.AppCompat.Body1"
+            android:visibility="@{InfoResult.packageBase != null ? View.VISIBLE : View.GONE}"
+            tools:text="@string/formatted_packagebase" />
+
+        <TextView
+            android:id="@+id/info_result_text_view_votes"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/text_view_spacing_small"
+            android:text="@{@string/formatted_votes(InfoResult.numVotes != null ? Long.parseLong(InfoResult.numVotes) : 0)}"
+            android:textAppearance="@style/TextAppearance.AppCompat.Body1"
+            android:visibility="@{InfoResult.numVotes != null ? View.VISIBLE : View.GONE}"
+            tools:text="@string/formatted_votes" />
+
+        <TextView
+            android:id="@+id/info_result_text_view_popularity"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/text_view_spacing_small"
+            android:text="@{@string/formatted_popularity(InfoResult.popularity != null ? Double.parseDouble(InfoResult.popularity) : 0)}"
+            android:textAppearance="@style/TextAppearance.AppCompat.Body1"
+            android:visibility="@{InfoResult.popularity != null ? View.VISIBLE : View.GONE}"
+            tools:text="@string/formatted_popularity" />
+
+        <TextView
+            android:id="@+id/details_text_view_license"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/text_view_spacing_small"
+            android:text="@{InfoResult.license[0] != null ? String.format(@string/formatted_license, TextUtils.join(@string/unicode_comma_whitespace, InfoResult.license)) : null}"
+            android:textAppearance="@style/TextAppearance.AppCompat.Body1"
+            android:visibility="@{InfoResult.license[0] != null ? View.VISIBLE : View.GONE}"
+            tools:text="@string/formatted_license" />
+
+        <TextView
+            android:id="@+id/info_result_text_view_maintainer"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/text_view_spacing_small"
+            android:text="@{@string/formatted_maintainer(InfoResult.maintainer != null ? InfoResult.maintainer : @string/not_available)}"
+            android:textAppearance="@style/TextAppearance.AppCompat.Body1"
+            android:visibility="@{InfoResult.maintainer != null ? View.VISIBLE : View.GONE}"
+            tools:text="@string/formatted_maintainer" />
+
+        <TextView
             android:id="@+id/info_result_text_view_last_update"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -78,36 +128,6 @@
             android:textColor="@color/text_alert_red"
             android:visibility="@{InfoResult.outOfDate != null ? View.VISIBLE : View.GONE}"
             tools:text="@string/formatted_out_of_date" />
-
-        <TextView
-            android:id="@+id/info_result_text_view_votes"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/text_view_spacing_small"
-            android:text="@{@string/formatted_votes(InfoResult.numVotes != null ? Long.parseLong(InfoResult.numVotes) : 0)}"
-            android:textAppearance="@style/TextAppearance.AppCompat.Body1"
-            android:visibility="@{InfoResult.numVotes != null ? View.VISIBLE : View.GONE}"
-            tools:text="@string/formatted_votes" />
-
-        <TextView
-            android:id="@+id/info_result_text_view_popularity"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/text_view_spacing_small"
-            android:text="@{@string/formatted_popularity(InfoResult.popularity != null ? Double.parseDouble(InfoResult.popularity) : 0)}"
-            android:textAppearance="@style/TextAppearance.AppCompat.Body1"
-            android:visibility="@{InfoResult.popularity != null ? View.VISIBLE : View.GONE}"
-            tools:text="@string/formatted_popularity" />
-
-        <TextView
-            android:id="@+id/info_result_text_view_maintainer"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/text_view_spacing_small"
-            android:text="@{@string/formatted_maintainer(InfoResult.maintainer != null ? InfoResult.maintainer : @string/not_available)}"
-            android:textAppearance="@style/TextAppearance.AppCompat.Body1"
-            android:visibility="@{InfoResult.maintainer != null ? View.VISIBLE : View.GONE}"
-            tools:text="@string/formatted_maintainer" />
 
         <TextView
             android:id="@+id/info_result_text_view_url"
