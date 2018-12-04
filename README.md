@@ -1,7 +1,7 @@
 <img src="https://github.com/rascarlo/AURdroid/blob/master/fastlane/metadata/android-en-US/images/featureGraphic.png" width="640" height="333" />
 
 
-﻿# AURdroid
+# AURdroid
 *Simple Android AUR [Arch Linux User repository] packages browser.*
 
 **Based on v5 of the RPC Interface API, as updated with AUR v4.7.0 on July 7, 2018.**
