@@ -31,9 +31,8 @@ ___
 ___
 ### APK
 
-- **Google Play:** https://play.google.com/store/apps/details?id=com.rascarlo.aurdroid
 - **F-Droid:** https://f-droid.org/repository/browse/?fdid=com.rascarlo.aurdroid
-
+- **Google Play:** https://play.google.com/store/apps/details?id=com.rascarlo.aurdroid
 
 ___
 ### Links
