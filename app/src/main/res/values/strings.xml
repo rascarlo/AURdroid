@@ -17,7 +17,6 @@
 
 <resources>
     <string name="app_name">AURdroid</string>
-    <string name="unicode_dir">\u002F</string>
     <string name="unicode_comma_whitespace">,\u0020</string>
     <string name="settings">Settings</string>
     <string name="not_available">Not available</string>
@@ -30,7 +29,6 @@
     <string name="search">Search</string>
     <string name="name_or_description">Name or description</string>
     <string name="name">Name</string>
-    <string name="dependencies">Dependencies</string>
     <string name="depends">Depends</string>
     <string name="make_depends">Make depends</string>
     <string name="opt_depends">Opt depends</string>

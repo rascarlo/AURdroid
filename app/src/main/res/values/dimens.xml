@@ -16,7 +16,6 @@
   -->
 
 <resources>
-    <dimen name="fab_margin">16dp</dimen>
     <dimen name="text_view_spacing_small">4dp</dimen>
     <dimen name="activity_horizontal_margin">16dp</dimen>
 </resources>
