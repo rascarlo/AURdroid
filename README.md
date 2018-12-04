@@ -1,3 +1,6 @@
+<img src="https://github.com/rascarlo/AURdroid/blob/master/fastlane/metadata/android-en-US/images/featureGraphic.png" width="640" height="333" />
+
+
 ﻿# AURdroid
 *Simple Android AUR [Arch Linux User repository] packages browser.*
 
