@@ -17,6 +17,9 @@
 
 <resources>
     <!--not translatable strings-->
+    <string name="app_name" translatable="false">AURdroid</string>
+    <string name="unicode_comma_whitespace" translatable="false">,\u0020</string>
+
     <string name="source_link" translatable="false">https://github.com/rascarlo/AURdroid</string>
     <string name="api_wiki_link" translatable="false">https://wiki.archlinux.org/index.php/Aurweb_RPC_interface</string>
     <string name="api_wiki" translatable="false">API wiki</string>
@@ -29,7 +32,7 @@
     <string name="key_theme" translatable="false">key_theme</string>
     <string name="key_theme_default_value" translatable="false">@string/key_theme_dark</string>
     <string name="key_theme_dark" translatable="false">key_theme_dark</string>
-    <string name="key_theme_black">key_theme_black</string>
+    <string name="key_theme_black" translatable="false">key_theme_black</string>
     <string name="key_theme_light" translatable="false">key_theme_light</string>
 
     <!--search by keys-->

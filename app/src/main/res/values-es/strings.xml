@@ -16,8 +16,6 @@
   -->
 
 <resources>
-    <string name="app_name">AURdroid</string>
-    <string name="unicode_comma_whitespace">,\\0020</string>
     <string name="settings">Ajustes</string>
     <string name="not_available">No disponible</string>
     <string name="something_went_wrong">Algo salió mal. Por favor inténtalo de nuevo.</string>
