@@ -81,7 +81,7 @@ public class SearchFragment extends Fragment {
                     if (searchFragmentCallback != null) {
                         searchFragmentCallback.onSearchFragmentCallbackOnFabClicked(getSearchBy(),
                                 getSort(),
-                                editTextView.getEditableText().toString());
+                                editTextView.getEditableText().toString().trim());
                     }
                 }
                 InputMethodManager inputMethodManager = (InputMethodManager) editTextView.getContext().getSystemService(Context.INPUT_METHOD_SERVICE);
