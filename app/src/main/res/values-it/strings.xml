@@ -1,0 +1,73 @@
+<!--
+  ~     Copyright (C) rascarlo  rascarlo@gmail.com
+  ~
+  ~     This program is free software: you can redistribute it and/or modify
+  ~     it under the terms of the GNU General Public License as published by
+  ~     the Free Software Foundation, either version 3 of the License, or
+  ~     (at your option) any later version.
+  ~
+  ~     This program is distributed in the hope that it will be useful,
+  ~     but WITHOUT ANY WARRANTY; without even the implied warranty of
+  ~     MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+  ~     GNU General Public License for more details.
+  ~
+  ~     You should have received a copy of the GNU General Public License
+  ~     along with this program.  If not, see <https://www.gnu.org/licenses/>.
+  -->
+
+<resources>
+    <string name="settings">Impostazioni</string>
+    <string name="not_available">Non disponibile</string>
+    <string name="something_went_wrong">Qualcosa non ha funzionato. Per favore provare nuovamente.</string>
+    <string name="retrofit_something_went_wrong">Qualcosa non ha funzionato. Per favore accertarsi di avere una connessione internet attiva e provare nuovamente.</string>
+
+    <string name="keywords">Parole chiave</string>
+    <string name="keywords_hint">L\'API ha un limite di un massimo di 4000 richieste al giorno per IP.</string>
+    <string name="package_search">Cerca pacchetto</string>
+    <string name="search">Cerca</string>
+    <string name="name_or_description">Nome o descrizione</string>
+    <string name="name">Nome</string>
+    <string name="depends">Dipendenze</string>
+    <string name="make_depends">Dipendenze make</string>
+    <string name="opt_depends">Dipendenze opt</string>
+    <string name="check_depends">Dipendenze check</string>
+    <string name="sort">Ordina</string>
+    <string name="package_name">Nome pacchetto</string>
+    <string name="last_updated">Ultimo aggiornamento</string>
+    <string name="votes">Voti</string>
+    <string name="popularity">Popolarità</string>
+    <string name="first_submitted">Prima sottomissione</string>
+
+    <string name="formatted_version">Versione: %s</string>
+    <string name="formatted_packagebase">Pacchetto base: %s</string>
+    <string name="formatted_last_updated">Ultimo aggiornamento: %s</string>
+    <string name="formatted_last_update">Ultimo aggiornamento: %s</string>
+    <string name="formatted_first_submitted">Prima sottomissione: %s</string>
+    <string name="formatted_out_of_date">Segnalato come non aggiornato: %s</string>
+    <string name="formatted_votes">Voti: %d</string>
+    <string name="formatted_popularity">Popolarità: %f</string>
+    <string name="formatted_maintainer">Mantenitore: %s</string>
+    <string name="formatted_upstream_url">URL upstream: %1$s</string>
+    <string name="formatted_license">Licenza: %1$s</string>
+    <string name="formatted_dependencies">Dipendenze (%1$d)</string>
+    <string name="formatted_opt_dependencies">Dipendenze opzionali (%1$d)</string>
+    <string name="formatted_make_dependencies">Dipendenze make (%1$d)</string>
+    <string name="formatted_conflicts">Conflitti (%1$d)</string>
+    <string name="formatted_provides">Fornisce (%1$d)</string>
+
+    <string name="view_pkgbuild">Vedere PKGBUILD</string>
+    <string name="view_changes">Vedere cambiamenti</string>
+    <string name="maintainer">Mantenitore</string>
+    <string name="open_in_browser">Aprire in browser</string>
+    <string name="share">Condividere</string>
+
+    <string name="design">Design</string>
+    <string name="theme">Tema</string>
+    <string name="theme_dark">Scuro</string>
+    <string name="theme_black">Nero</string>
+    <string name="theme_light">Chiaro</string>
+
+    <string name="i_use_arch_btw">Io uso Arch comunque</string>
+    <string name="links">Collegamenti</string>
+    <string name="source">Codice sorgente</string>
+</resources>
