@@ -1,0 +1,3 @@
+- search fragment: trim search call text.
+- localisations: add italian.
+- localisations: add spanish.
