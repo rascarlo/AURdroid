@@ -103,7 +103,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/text_view_spacing_small"
-            android:text="@{@string/formatted_last_update(InfoResult.lastModified != null ? UtilStringFormatter.getConvertedUnixTimeString(Long.parseLong(InfoResult.lastModified)) : @string/not_available)}"
+            android:text="@{@string/formatted_last_updated(InfoResult.lastModified != null ? UtilStringFormatter.getConvertedUnixTimeString(Long.parseLong(InfoResult.lastModified)) : @string/not_available)}"
             android:textAppearance="@style/TextAppearance.AppCompat.Body1"
             android:visibility="@{InfoResult.lastModified != null ? View.VISIBLE : View.GONE}"
             tools:text="@string/formatted_last_updated" />

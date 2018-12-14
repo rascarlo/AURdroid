@@ -41,7 +41,6 @@
     <string name="formatted_version">Versión: %s</string>
     <string name="formatted_packagebase">Base del paquete: %s</string>
     <string name="formatted_last_updated">Última actualización: %s</string>
-    <string name="formatted_last_update">Última actualización: %s</string>
     <string name="formatted_first_submitted">Fecha de publicación: %s</string>
     <string name="formatted_out_of_date">Marcado como desactualizado: %s</string>
     <string name="formatted_votes">Votos: %d</string>
