@@ -47,6 +47,7 @@
     <string name="formatted_popularity">Popolarità: %f</string>
     <string name="formatted_maintainer">Mantenitore: %s</string>
     <string name="formatted_upstream_url">URL upstream: %1$s</string>
+    <string name="formatted_git_clone_url">URL Git clone: https://aur.archlinux.org/%1$s.git</string>
     <string name="formatted_license">Licenza: %1$s</string>
     <string name="formatted_dependencies">Dipendenze (%1$d)</string>
     <string name="formatted_opt_dependencies">Dipendenze opzionali (%1$d)</string>

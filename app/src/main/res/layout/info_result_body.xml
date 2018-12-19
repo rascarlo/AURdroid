@@ -140,6 +140,17 @@
             android:visibility="@{InfoResult.url != null ? View.VISIBLE : View.GONE}"
             tools:text="@string/formatted_upstream_url" />
 
+        <TextView
+            android:id="@+id/info_result_text_view_git_clone_url"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/text_view_spacing_small"
+            android:autoLink="all"
+            android:text="@{@string/formatted_git_clone_url(InfoResult.name)}"
+            android:textAppearance="@style/TextAppearance.AppCompat.Body1"
+            android:visibility="@{InfoResult.name != null ? View.VISIBLE : View.GONE}"
+            tools:text="@string/formatted_git_clone_url" />
+
     </LinearLayout>
 
 </layout>
