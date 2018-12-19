@@ -1,0 +1,2 @@
+- details: show git clone URL.
+- fix crash on device API <=25 when showing a toast (gotta love upstream bugs).
