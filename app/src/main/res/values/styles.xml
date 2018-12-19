@@ -32,7 +32,7 @@
         <item name="colorControlHighlight">@color/colorControlHighlight</item>
         <item name="colorControlActivated">@color/colorControlActivated</item>
         <item name="colorAccent">@color/colorAccent</item>
-        <item name="fontFamily">monospace</item>
+        <item name="fontFamily">@string/monospace</item>
         <item name="radioButtonStyle">@style/AppTheme.RadioButtonStyle</item>
         <item name="checkboxStyle">@style/AppTheme.CheckBoxStyle</item>
         <item name="preferenceTheme">@style/PreferenceThemeOverlay.v14.Material</item>
@@ -53,7 +53,7 @@
         <item name="colorControlHighlight">@color/colorControlHighlight</item>
         <item name="colorControlActivated">@color/colorControlActivated</item>
         <item name="colorAccent">@color/colorAccent</item>
-        <item name="fontFamily">monospace</item>
+        <item name="fontFamily">@string/monospace</item>
         <item name="radioButtonStyle">@style/AppTheme.RadioButtonStyle</item>
         <item name="checkboxStyle">@style/AppTheme.CheckBoxStyle</item>
     </style>
@@ -65,7 +65,7 @@
         <item name="colorControlHighlight">@color/colorControlHighlight</item>
         <item name="colorControlActivated">@color/colorControlActivated</item>
         <item name="colorAccent">@color/colorAccent</item>
-        <item name="fontFamily">monospace</item>
+        <item name="fontFamily">@string/monospace</item>
         <item name="radioButtonStyle">@style/AppTheme.RadioButtonStyle</item>
         <item name="checkboxStyle">@style/AppTheme.CheckBoxStyle</item>
     </style>
@@ -79,7 +79,7 @@
         <item name="colorAccent">@color/colorAccent</item>
         <item name="colorControlHighlight">@color/colorControlHighlight</item>
         <item name="colorControlActivated">@color/colorControlActivated</item>
-        <item name="fontFamily">monospace</item>
+        <item name="fontFamily">@string/monospace</item>
         <item name="radioButtonStyle">@style/AppTheme.RadioButtonStyle</item>
         <item name="checkboxStyle">@style/AppTheme.CheckBoxStyle</item>
         <item name="preferenceTheme">@style/PreferenceThemeOverlay.v14.Material</item>
@@ -93,14 +93,14 @@
 
     <!--radio button theme-->
     <style name="AppTheme.RadioButtonStyle" parent="Widget.AppCompat.CompoundButton.RadioButton">
-        <item name="fontFamily">monospace</item>
-        <item name="android:fontFamily">monospace</item>
+        <item name="fontFamily">@string/monospace</item>
+        <item name="android:fontFamily">@string/monospace</item>
     </style>
 
     <!--check box theme-->
     <style name="AppTheme.CheckBoxStyle" parent="Widget.AppCompat.CompoundButton.CheckBox">
-        <item name="fontFamily">monospace</item>
-        <item name="android:fontFamily">monospace</item>
+        <item name="fontFamily">@string/monospace</item>
+        <item name="android:fontFamily">@string/monospace</item>
     </style>
 
     <!--horizontal progress bar-->

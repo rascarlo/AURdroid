@@ -19,6 +19,7 @@
     <!--not translatable strings-->
     <string name="app_name" translatable="false">AURdroid</string>
     <string name="unicode_comma_whitespace" translatable="false">,\u0020</string>
+    <string name="monospace" translatable="false">monospace</string>
 
     <string name="source_link" translatable="false">https://github.com/rascarlo/AURdroid</string>
     <string name="api_wiki_link" translatable="false">https://wiki.archlinux.org/index.php/Aurweb_RPC_interface</string>
