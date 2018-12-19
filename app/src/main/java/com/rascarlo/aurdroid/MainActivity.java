@@ -154,17 +154,20 @@ public class MainActivity extends AppCompatActivity
 
     @Override
     public void onInfoResultFragmentCallbackViewPkgbuildClicked(Uri viewPkgbuildUri) {
-        if (viewPkgbuildUri != null) startIntentViewUri(viewPkgbuildUri);
+        if (viewPkgbuildUri != null && !TextUtils.isEmpty(viewPkgbuildUri.toString()))
+            startIntentViewUri(viewPkgbuildUri);
     }
 
     @Override
     public void onInfoResultFragmentCallbackViewChangesClicked(Uri viewChangesUri) {
-        if (viewChangesUri != null) startIntentViewUri(viewChangesUri);
+        if (viewChangesUri != null && !TextUtils.isEmpty(viewChangesUri.toString()))
+            startIntentViewUri(viewChangesUri);
     }
 
     @Override
     public void onInfoResultFragmentCallbackOpenInBrowserClicked(Uri infoResultUri) {
-        if (infoResultUri != null) startIntentViewUri(infoResultUri);
+        if (infoResultUri != null && !TextUtils.isEmpty(infoResultUri.toString()))
+            startIntentViewUri(infoResultUri);
     }
 
     @Override
