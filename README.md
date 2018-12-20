@@ -1,4 +1,4 @@
-<img src="https://github.com/rascarlo/AURdroid/blob/master/fastlane/metadata/android-en-US/images/featureGraphic.png" width="640" height="333" />
+<img src="https://github.com/rascarlo/AURdroid/blob/master/fastlane/metadata/android/en-US/images/featureGraphic.png" width="640" height="333" />
 
 
 # AURdroid
@@ -16,10 +16,10 @@ ___
 
 ___
 ### Screenshots
-<img src="https://github.com/rascarlo/AURdroid/blob/master/fastlane/metadata/android-en-US/phoneScreenshots/01.png" width="333" height="640" /> <img src="https://github.com/rascarlo/AURdroid/blob/master/fastlane/metadata/android-en-US/phoneScreenshots/02.png" width="333" height="640" />
-<img src="https://github.com/rascarlo/AURdroid/blob/master/fastlane/metadata/android-en-US/phoneScreenshots/03.png" width="333" height="640" /> <img src="https://github.com/rascarlo/AURdroid/blob/master/fastlane/metadata/android-en-US/phoneScreenshots/04.png" width="333" height="640" />
-<img src="https://github.com/rascarlo/AURdroid/blob/master/fastlane/metadata/android-en-US/phoneScreenshots/05.png" width="333" height="640" /> <img src="https://github.com/rascarlo/AURdroid/blob/master/fastlane/metadata/android-en-US/phoneScreenshots/06.png" width="333" height="640" />
-<img src="https://github.com/rascarlo/AURdroid/blob/master/fastlane/metadata/android-en-US/phoneScreenshots/07.png" width="333" height="640" /> <img src="https://github.com/rascarlo/AURdroid/blob/master/fastlane/metadata/android-en-US/phoneScreenshots/08.png" width="333" height="640" />
+<img src="https://github.com/rascarlo/AURdroid/blob/master/fastlane/metadata/android/en-US/phoneScreenshots/01.png" width="333" height="640" /> <img src="https://github.com/rascarlo/AURdroid/blob/master/fastlane/metadata/android/en-US/phoneScreenshots/02.png" width="333" height="640" />
+<img src="https://github.com/rascarlo/AURdroid/blob/master/fastlane/metadata/android/en-US/phoneScreenshots/03.png" width="333" height="640" /> <img src="https://github.com/rascarlo/AURdroid/blob/master/fastlane/metadata/android/en-US/phoneScreenshots/04.png" width="333" height="640" />
+<img src="https://github.com/rascarlo/AURdroid/blob/master/fastlane/metadata/android/en-US/phoneScreenshots/05.png" width="333" height="640" /> <img src="https://github.com/rascarlo/AURdroid/blob/master/fastlane/metadata/android/en-US/phoneScreenshots/06.png" width="333" height="640" />
+<img src="https://github.com/rascarlo/AURdroid/blob/master/fastlane/metadata/android/en-US/phoneScreenshots/07.png" width="333" height="640" /> <img src="https://github.com/rascarlo/AURdroid/blob/master/fastlane/metadata/android/en-US/phoneScreenshots/08.png" width="333" height="640" />
 
 ___
 ### Libraries
