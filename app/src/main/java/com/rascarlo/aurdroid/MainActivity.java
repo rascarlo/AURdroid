@@ -191,8 +191,24 @@ public class MainActivity extends AppCompatActivity
     @Override
     public void onInfoResultFragmentCallbackMaintainer(String maintainer) {
         if (maintainer != null && !TextUtils.isEmpty(maintainer.trim())) {
+            int sort;
+            String sharedPreferenceSort = AurdroidSharedPreferences.getSharedPreferenceString(MainActivity.this,
+                    getString(R.string.key_sort), getString(R.string.key_sort_default_value));
+            if (TextUtils.equals(sharedPreferenceSort, getString(R.string.key_sort_by_package_name))) {
+                sort = AurdroidConstants.SORT_BY_PACKAGE_NAME;
+            } else if (TextUtils.equals(sharedPreferenceSort, getString(R.string.key_sort_by_votes))) {
+                sort = AurdroidConstants.SORT_BY_VOTES;
+            } else if (TextUtils.equals(sharedPreferenceSort, getString(R.string.key_sort_by_popularity))) {
+                sort = AurdroidConstants.SORT_BY_POPULARITY;
+            } else if (TextUtils.equals(sharedPreferenceSort, getString(R.string.key_sort_by_last_updated))) {
+                sort = AurdroidConstants.SORT_BY_LAST_UPDATED;
+            } else if (TextUtils.equals(sharedPreferenceSort, getString(R.string.key_sort_by_first_submitted))) {
+                sort = AurdroidConstants.SORT_BY_FIRST_SUBMITTED;
+            } else {
+                sort = AurdroidConstants.SORT_BY_PACKAGE_NAME;
+            }
             SearchResultFragment searchResultFragment = SearchResultFragment.newInstance(AurdroidConstants.SEARCH_BY_MAINTAINER,
-                    AurdroidConstants.SORT_BY_PACKAGE_NAME,
+                    sort,
                     maintainer.trim());
             replaceFragment(searchResultFragment);
         } else {
