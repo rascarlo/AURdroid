@@ -21,6 +21,7 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.net.Uri;
 import android.os.Bundle;
+import android.support.design.widget.AppBarLayout;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
@@ -47,6 +48,7 @@ public class MainActivity extends AppCompatActivity
         SearchResultFragmentCallback,
         InfoResultFragmentCallback,
         SharedPreferences.OnSharedPreferenceChangeListener {
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -204,6 +206,8 @@ public class MainActivity extends AppCompatActivity
         fragmentTransaction.replace(R.id.content_main_frame_container, fragment);
         fragmentTransaction.addToBackStack(null);
         fragmentTransaction.commit();
+        AppBarLayout appBarLayout = findViewById(R.id.activity_main_appbar_layout);
+        if (appBarLayout != null) appBarLayout.setExpanded(true, true);
     }
 
     private void startIntentViewUri(Uri uri) {
