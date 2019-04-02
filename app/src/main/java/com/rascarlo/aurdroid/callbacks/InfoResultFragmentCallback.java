@@ -28,4 +28,6 @@ public interface InfoResultFragmentCallback {
     void onInfoResultFragmentCallbackOpenInBrowserClicked(Uri infoResultUri);
 
     void onInfoResultFragmentCallbackShareClicked(Uri infoResultUri);
+
+    void onInfoResultFragmentCallbackMaintainer(String maintainer);
 }

@@ -141,7 +141,12 @@ public class InfoResultFragment extends Fragment {
                     infoResultFragmentCallback.onInfoResultFragmentCallbackViewChangesClicked(getViewChangesUri());
                 }
                 break;
-            case R.id.menu_info_result_open_in_browser:
+            case R.id.menu_info_result_maintainer:
+                if (infoResultFragmentCallback != null && getMaintainer()!=null) {
+                    infoResultFragmentCallback.onInfoResultFragmentCallbackMaintainer(getMaintainer());
+                }
+                break;
+                    case R.id.menu_info_result_open_in_browser:
                 if (infoResultFragmentCallback != null && infoResult != null && getInfoResultUri() != null) {
                     infoResultFragmentCallback.onInfoResultFragmentCallbackOpenInBrowserClicked(getInfoResultUri());
                 }
@@ -227,5 +232,9 @@ public class InfoResultFragment extends Fragment {
                 .buildUpon()
                 .appendQueryParameter("h", infoResult.getPackageBase())
                 .build() : null;
+    }
+
+    private String getMaintainer() {
+        return infoResult != null && infoResult.getMaintainer() != null && !TextUtils.isEmpty(infoResult.getMaintainer().trim()) ? infoResult.getMaintainer().trim() : null;
     }
 }

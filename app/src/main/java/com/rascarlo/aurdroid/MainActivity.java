@@ -39,6 +39,7 @@ import com.rascarlo.aurdroid.ui.InfoResultFragment;
 import com.rascarlo.aurdroid.ui.SearchFragment;
 import com.rascarlo.aurdroid.ui.SearchResultFragment;
 import com.rascarlo.aurdroid.ui.SettingsFragment;
+import com.rascarlo.aurdroid.util.AurdroidConstants;
 import com.rascarlo.aurdroid.util.AurdroidSharedPreferences;
 
 public class MainActivity extends AppCompatActivity
@@ -182,6 +183,18 @@ public class MainActivity extends AppCompatActivity
             } catch (Exception e) {
                 Toast.makeText(MainActivity.this, getString(R.string.something_went_wrong), Toast.LENGTH_SHORT).show();
             }
+        }
+    }
+
+    @Override
+    public void onInfoResultFragmentCallbackMaintainer(String maintainer) {
+        if (maintainer != null && !TextUtils.isEmpty(maintainer.trim())) {
+            SearchResultFragment searchResultFragment = SearchResultFragment.newInstance(AurdroidConstants.SEARCH_BY_MAINTAINER,
+                    AurdroidConstants.SORT_BY_PACKAGE_NAME,
+                    maintainer.trim());
+            replaceFragment(searchResultFragment);
+        } else {
+            Toast.makeText(MainActivity.this, getString(R.string.something_went_wrong), Toast.LENGTH_SHORT).show();
         }
     }
 
