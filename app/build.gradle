@@ -23,8 +23,8 @@ android {
         applicationId "com.rascarlo.aurdroid"
         minSdkVersion 16
         targetSdkVersion 28
-        versionCode 13
-        versionName "4.1.8"
+        versionCode 14
+        versionName "4.1.9"
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
         resConfigs "en", "es", "it"
         vectorDrawables.useSupportLibrary = true
