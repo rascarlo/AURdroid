@@ -19,6 +19,7 @@ package com.rascarlo.aurdroid.api.model;
 
 import android.os.Parcel;
 import android.os.Parcelable;
+import android.text.TextUtils;
 
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
@@ -178,6 +179,27 @@ public class SearchResult implements Parcelable {
         this.firstSubmitted = in.readString();
         this.lastModified = in.readString();
         this.uRLPath = in.readString();
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof SearchResult)) return false;
+        SearchResult that = (SearchResult) o;
+        return TextUtils.equals(getiD(), (that.getiD())) &&
+                TextUtils.equals(getName(), (that.getName())) &&
+                TextUtils.equals(getPackageBaseID(), (that.getPackageBaseID())) &&
+                TextUtils.equals(getPackageBase(), (that.getPackageBase())) &&
+                TextUtils.equals(getVersion(), (that.getVersion())) &&
+                TextUtils.equals(getDescription(), (that.getDescription())) &&
+                TextUtils.equals(getuRL(), (that.getuRL())) &&
+                TextUtils.equals(getNumVotes(), (that.getNumVotes())) &&
+                TextUtils.equals(getPopularity(), (that.getPopularity())) &&
+                TextUtils.equals(getOutOfDate(), (that.getOutOfDate())) &&
+                TextUtils.equals(getMaintainer(), (that.getMaintainer())) &&
+                TextUtils.equals(getFirstSubmitted(), (that.getFirstSubmitted())) &&
+                TextUtils.equals(getLastModified(), (that.getLastModified())) &&
+                TextUtils.equals(getuRLPath(), (that.getuRLPath()));
     }
 
     public static final Creator<SearchResult> CREATOR = new Creator<SearchResult>() {
