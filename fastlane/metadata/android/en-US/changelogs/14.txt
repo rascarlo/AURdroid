@@ -1,0 +1,5 @@
+versionCode: 14
+versionName: 4.1.9
+- gradle: update retrofit to 2.6.0
+- search result: implement equals boolean for isContentTheSame
+- gradle: update to 3.4.1
