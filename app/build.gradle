@@ -25,7 +25,6 @@ android {
         targetSdkVersion 29
         versionCode 14
         versionName "4.1.9"
-        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
         resConfigs "en", "es", "it"
         vectorDrawables.useSupportLibrary = true
     }
@@ -48,9 +47,6 @@ android {
 
 dependencies {
     implementation fileTree(include: ['*.jar'], dir: 'libs')
-    androidTestImplementation 'androidx.test.ext:junit:1.1.1'
-    androidTestImplementation 'androidx.test.espresso:espresso-core:3.2.0'
-    testImplementation 'junit:junit:4.13'
     implementation 'androidx.appcompat:appcompat:1.1.0'
     // constraint layout
     implementation 'androidx.constraintlayout:constraintlayout:1.1.3'
