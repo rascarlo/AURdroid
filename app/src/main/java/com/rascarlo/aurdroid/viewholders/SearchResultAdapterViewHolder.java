@@ -17,7 +17,7 @@
 
 package com.rascarlo.aurdroid.viewholders;
 
-import android.support.v7.widget.RecyclerView;
+import androidx.recyclerview.widget.RecyclerView;
 
 import com.rascarlo.aurdroid.api.model.SearchResult;
 import com.rascarlo.aurdroid.databinding.SearchResultItemBinding;

@@ -19,9 +19,9 @@ package com.rascarlo.aurdroid.ui;
 
 import android.content.Context;
 import android.os.Bundle;
-import android.support.annotation.NonNull;
-import android.support.design.widget.TextInputEditText;
-import android.support.v4.app.Fragment;
+import androidx.annotation.NonNull;
+import com.google.android.material.textfield.TextInputEditText;
+import androidx.fragment.app.Fragment;
 import android.text.TextUtils;
 import android.view.LayoutInflater;
 import android.view.Menu;
@@ -139,11 +139,10 @@ public class SearchFragment extends Fragment {
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-        switch (item.getItemId()) {
-            case R.id.menu_search_settings:
-                if (searchFragmentCallback != null) {
-                    searchFragmentCallback.onSearchFragmentCallbackOnMenuSettingsClicked();
-                }
+        if (item.getItemId() == R.id.menu_search_settings) {
+            if (searchFragmentCallback != null) {
+                searchFragmentCallback.onSearchFragmentCallbackOnMenuSettingsClicked();
+            }
         }
         return super.onOptionsItemSelected(item);
     }

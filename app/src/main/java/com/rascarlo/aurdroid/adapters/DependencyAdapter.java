@@ -17,9 +17,9 @@
 
 package com.rascarlo.aurdroid.adapters;
 
-import android.support.annotation.NonNull;
-import android.support.v7.recyclerview.extensions.ListAdapter;
-import android.support.v7.util.DiffUtil;
+import androidx.annotation.NonNull;
+import androidx.recyclerview.widget.ListAdapter;
+import androidx.recyclerview.widget.DiffUtil;
 import android.text.TextUtils;
 import android.view.LayoutInflater;
 import android.view.ViewGroup;

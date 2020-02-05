@@ -36,7 +36,7 @@
         android:layout_height="match_parent"
         android:background="?android:attr/windowBackground">
 
-        <android.support.v4.widget.NestedScrollView
+        <androidx.core.widget.NestedScrollView
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             tools:context=".ui.InfoResultFragment">
@@ -161,7 +161,7 @@
 
             </LinearLayout>
 
-        </android.support.v4.widget.NestedScrollView>
+        </androidx.core.widget.NestedScrollView>
 
         <ProgressBar
             android:id="@+id/fragment_info_result_progress_bar"
