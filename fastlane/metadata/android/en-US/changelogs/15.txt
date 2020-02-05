@@ -1,0 +1,5 @@
+versionCode: 15
+versionName: 4.2.0
+- target api 29
+- migrate to androidx
+- update libraries
