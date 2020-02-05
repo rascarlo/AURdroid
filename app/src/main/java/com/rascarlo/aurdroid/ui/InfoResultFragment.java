@@ -17,15 +17,9 @@
 
 package com.rascarlo.aurdroid.ui;
 
-import androidx.lifecycle.ViewModelProviders;
 import android.content.Context;
 import android.net.Uri;
 import android.os.Bundle;
-import androidx.annotation.NonNull;
-import androidx.fragment.app.Fragment;
-import androidx.recyclerview.widget.DividerItemDecoration;
-import androidx.recyclerview.widget.LinearLayoutManager;
-import androidx.recyclerview.widget.RecyclerView;
 import android.text.TextUtils;
 import android.view.LayoutInflater;
 import android.view.Menu;
@@ -35,6 +29,13 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ProgressBar;
 import android.widget.Toast;
+
+import androidx.annotation.NonNull;
+import androidx.fragment.app.Fragment;
+import androidx.lifecycle.ViewModelProvider;
+import androidx.recyclerview.widget.DividerItemDecoration;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import com.rascarlo.aurdroid.R;
 import com.rascarlo.aurdroid.adapters.DependencyAdapter;
@@ -66,7 +67,7 @@ public class InfoResultFragment extends Fragment {
     }
 
     @Override
-    public void onAttach(Context context) {
+    public void onAttach(@NonNull Context context) {
         super.onAttach(context);
         if (context instanceof InfoResultFragmentCallback) {
             infoResultFragmentCallback = (InfoResultFragmentCallback) context;
@@ -92,8 +93,8 @@ public class InfoResultFragment extends Fragment {
         ProgressBar progressBar = fragmentInfoResultBinding.fragmentInfoResultProgressBar;
         progressBar.setVisibility(View.VISIBLE);
         InfoViewModelFactory infoViewModelFactory = new InfoViewModelFactory(bundlePkgname);
-        InfoViewModel infoViewModel = ViewModelProviders.of(this, infoViewModelFactory).get(InfoViewModel.class);
-        infoViewModel.getInfoLiveData().observe(this, info -> {
+        InfoViewModel infoViewModel = new ViewModelProvider(this, infoViewModelFactory).get(InfoViewModel.class);
+        infoViewModel.getInfoLiveData().observe(getViewLifecycleOwner(), info -> {
             if (info != null && info.getInfoResultList().get(0) != null) {
                 this.infoResult = info.getInfoResultList().get(0);
                 fragmentInfoResultBinding.setInfoResult(infoResult);
@@ -102,7 +103,7 @@ public class InfoResultFragment extends Fragment {
             }
             progressBar.setVisibility(View.GONE);
         });
-        infoViewModel.getMessageMutableLiveData().observe(this, s -> {
+        infoViewModel.getMessageMutableLiveData().observe(getViewLifecycleOwner(), s -> {
             if (s != null && !TextUtils.isEmpty(s)) {
                 Toast.makeText(context,
                         TextUtils.equals(AurdroidConstants.RETROFIT_FAILURE, s) ? getString(R.string.retrofit_something_went_wrong) : s,
@@ -124,7 +125,7 @@ public class InfoResultFragment extends Fragment {
     }
 
     @Override
-    public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
+    public void onCreateOptionsMenu(@NonNull Menu menu, MenuInflater inflater) {
         inflater.inflate(R.menu.menu_info_result, menu);
     }
 
@@ -142,11 +143,11 @@ public class InfoResultFragment extends Fragment {
                 }
                 break;
             case R.id.menu_info_result_maintainer:
-                if (infoResultFragmentCallback != null && getMaintainer()!=null) {
+                if (infoResultFragmentCallback != null && getMaintainer() != null) {
                     infoResultFragmentCallback.onInfoResultFragmentCallbackMaintainer(getMaintainer());
                 }
                 break;
-                    case R.id.menu_info_result_open_in_browser:
+            case R.id.menu_info_result_open_in_browser:
                 if (infoResultFragmentCallback != null && infoResult != null && getInfoResultUri() != null) {
                     infoResultFragmentCallback.onInfoResultFragmentCallbackOpenInBrowserClicked(getInfoResultUri());
                 }

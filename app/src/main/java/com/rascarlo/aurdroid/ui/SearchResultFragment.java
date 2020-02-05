@@ -17,15 +17,8 @@
 
 package com.rascarlo.aurdroid.ui;
 
-import androidx.lifecycle.ViewModelProviders;
 import android.content.Context;
 import android.os.Bundle;
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import androidx.fragment.app.Fragment;
-import androidx.recyclerview.widget.DividerItemDecoration;
-import androidx.recyclerview.widget.LinearLayoutManager;
-import androidx.recyclerview.widget.RecyclerView;
 import android.text.TextUtils;
 import android.view.LayoutInflater;
 import android.view.Menu;
@@ -35,6 +28,14 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ProgressBar;
 import android.widget.Toast;
+
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.fragment.app.Fragment;
+import androidx.lifecycle.ViewModelProvider;
+import androidx.recyclerview.widget.DividerItemDecoration;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import com.rascarlo.aurdroid.R;
 import com.rascarlo.aurdroid.adapters.SearchResultAdapter;
@@ -78,7 +79,7 @@ public class SearchResultFragment extends Fragment {
     }
 
     @Override
-    public void onAttach(Context context) {
+    public void onAttach(@NonNull Context context) {
         super.onAttach(context);
         if (context instanceof SearchResultFragmentCallback) {
             searchResultFragmentCallback = (SearchResultFragmentCallback) context;
@@ -109,7 +110,7 @@ public class SearchResultFragment extends Fragment {
         ProgressBar progressBar = fragmentSearchResultBinding.fragmentSearchResultProgressBar;
         progressBar.setVisibility(View.VISIBLE);
         SearchViewModelFactory searchViewModelFactory = new SearchViewModelFactory(bundleSearchBy, bundleQuery);
-        SearchViewModel searchViewModel = ViewModelProviders.of(this, searchViewModelFactory).get(SearchViewModel.class);
+        SearchViewModel searchViewModel = new ViewModelProvider(this, searchViewModelFactory).get(SearchViewModel.class);
         resultAdapter = new SearchResultAdapter(searchResult -> {
             if (searchResultFragmentCallback != null) {
                 if (searchResult != null && searchResult.getName() != null && !TextUtils.isEmpty(searchResult.getName())) {
@@ -122,14 +123,14 @@ public class SearchResultFragment extends Fragment {
         recyclerView.addItemDecoration(new DividerItemDecoration(context, DividerItemDecoration.VERTICAL));
         recyclerView.setHasFixedSize(true);
         recyclerView.setLayoutManager(linearLayoutManager);
-        searchViewModel.getSearchLiveData().observe(this, aurSearch -> {
+        searchViewModel.getSearchLiveData().observe(getViewLifecycleOwner(), aurSearch -> {
             if (aurSearch != null) {
                 this.searchResultList = aurSearch.getResults();
                 submitSearchResultList(false);
             }
             progressBar.setVisibility(View.GONE);
         });
-        searchViewModel.getMessageMutableLiveData().observe(this, s -> {
+        searchViewModel.getMessageMutableLiveData().observe(getViewLifecycleOwner(), s -> {
             if (s != null && !TextUtils.isEmpty(s)) {
                 Toast.makeText(context,
                         TextUtils.equals(AurdroidConstants.RETROFIT_FAILURE, s) ? getString(R.string.retrofit_something_went_wrong) : s,
@@ -162,7 +163,7 @@ public class SearchResultFragment extends Fragment {
     }
 
     @Override
-    public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
+    public void onCreateOptionsMenu(@NonNull Menu menu, MenuInflater inflater) {
         inflater.inflate(R.menu.menu_search_result, menu);
     }
 
