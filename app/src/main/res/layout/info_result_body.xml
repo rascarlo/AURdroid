@@ -1,156 +1,154 @@
-<!--
-  ~     Copyright (C) rascarlo  rascarlo@gmail.com
-  ~
-  ~     This program is free software: you can redistribute it and/or modify
-  ~     it under the terms of the GNU General Public License as published by
-  ~     the Free Software Foundation, either version 3 of the License, or
-  ~     (at your option) any later version.
-  ~
-  ~     This program is distributed in the hope that it will be useful,
-  ~     but WITHOUT ANY WARRANTY; without even the implied warranty of
-  ~     MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-  ~     GNU General Public License for more details.
-  ~
-  ~     You should have received a copy of the GNU General Public License
-  ~     along with this program.  If not, see <https://www.gnu.org/licenses/>.
-  -->
-
+<?xml version="1.0" encoding="utf-8"?>
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools">
 
     <data>
 
-        <import type="android.view.View" />
-
-        <import type="android.text.TextUtils" />
-
-        <import type="java.util.List" />
-
-        <import type="com.rascarlo.aurdroid.util.UtilStringFormatter" />
-
         <variable
-            name="InfoResult"
-            type="com.rascarlo.aurdroid.api.model.InfoResult" />
+            name="infoResult"
+            type="com.rascarlo.aurdroid.network.InfoResult" />
     </data>
 
-    <LinearLayout
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="vertical">
+        android:layout_height="wrap_content">
 
-        <TextView
+        <com.google.android.material.textview.MaterialTextView
             android:id="@+id/info_result_text_view_version"
-            android:layout_width="match_parent"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/text_view_spacing_small"
-            android:text="@{@string/formatted_version(InfoResult.version)}"
-            android:textAppearance="@style/TextAppearance.AppCompat.Body1"
-            android:visibility="@{InfoResult.version != null ? View.VISIBLE : View.GONE}"
+            android:textAppearance="@style/TextAppearance.MaterialComponents.Body1"
+            app:bindVersion="@{infoResult.version}"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
             tools:text="@string/formatted_version" />
 
-        <TextView
+        <com.google.android.material.textview.MaterialTextView
             android:id="@+id/info_result_text_view_packagebase"
-            android:layout_width="match_parent"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/text_view_spacing_small"
-            android:text="@{@string/formatted_packagebase(InfoResult.packageBase)}"
-            android:textAppearance="@style/TextAppearance.AppCompat.Body1"
-            android:visibility="@{InfoResult.packageBase != null ? View.VISIBLE : View.GONE}"
+            android:textAppearance="@style/TextAppearance.MaterialComponents.Body1"
+            app:bindPackageBase="@{infoResult.packageBase}"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/info_result_text_view_version"
             tools:text="@string/formatted_packagebase" />
 
-        <TextView
-            android:id="@+id/info_result_text_view_votes"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/text_view_spacing_small"
-            android:text="@{@string/formatted_votes(InfoResult.numVotes != null ? Long.parseLong(InfoResult.numVotes) : 0)}"
-            android:textAppearance="@style/TextAppearance.AppCompat.Body1"
-            android:visibility="@{InfoResult.numVotes != null ? View.VISIBLE : View.GONE}"
-            tools:text="@string/formatted_votes" />
-
-        <TextView
-            android:id="@+id/info_result_text_view_popularity"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/text_view_spacing_small"
-            android:text="@{@string/formatted_popularity(InfoResult.popularity != null ? Double.parseDouble(InfoResult.popularity) : 0)}"
-            android:textAppearance="@style/TextAppearance.AppCompat.Body1"
-            android:visibility="@{InfoResult.popularity != null ? View.VISIBLE : View.GONE}"
-            tools:text="@string/formatted_popularity" />
-
-        <TextView
-            android:id="@+id/details_text_view_license"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/text_view_spacing_small"
-            android:text="@{InfoResult.license[0] != null ? String.format(@string/formatted_license, TextUtils.join(@string/unicode_comma_whitespace, InfoResult.license)) : null}"
-            android:textAppearance="@style/TextAppearance.AppCompat.Body1"
-            android:visibility="@{InfoResult.license[0] != null ? View.VISIBLE : View.GONE}"
-            tools:text="@string/formatted_license" />
-
-        <TextView
-            android:id="@+id/info_result_text_view_maintainer"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/text_view_spacing_small"
-            android:text="@{@string/formatted_maintainer(InfoResult.maintainer != null ? InfoResult.maintainer : @string/not_available)}"
-            android:textAppearance="@style/TextAppearance.AppCompat.Body1"
-            android:visibility="@{InfoResult.maintainer != null ? View.VISIBLE : View.GONE}"
-            tools:text="@string/formatted_maintainer" />
-
-        <TextView
+        <com.google.android.material.textview.MaterialTextView
             android:id="@+id/info_result_text_view_last_update"
-            android:layout_width="match_parent"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/text_view_spacing_small"
-            android:text="@{@string/formatted_last_updated(InfoResult.lastModified != null ? UtilStringFormatter.getConvertedUnixTimeString(Long.parseLong(InfoResult.lastModified)) : @string/not_available)}"
-            android:textAppearance="@style/TextAppearance.AppCompat.Body1"
-            android:visibility="@{InfoResult.lastModified != null ? View.VISIBLE : View.GONE}"
+            android:textAppearance="@style/TextAppearance.MaterialComponents.Body1"
+            app:bindLastUpdate="@{infoResult.lastModified}"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/info_result_text_view_packagebase"
             tools:text="@string/formatted_last_updated" />
 
-        <TextView
+        <com.google.android.material.textview.MaterialTextView
             android:id="@+id/info_result_text_view_first_submitted"
-            android:layout_width="match_parent"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/text_view_spacing_small"
-            android:text="@{@string/formatted_first_submitted(InfoResult.firstSubmitted != null ? UtilStringFormatter.getConvertedUnixTimeString(Long.parseLong(InfoResult.firstSubmitted)) : @string/not_available)}"
-            android:textAppearance="@style/TextAppearance.AppCompat.Body1"
-            android:visibility="@{InfoResult.firstSubmitted != null ? View.VISIBLE : View.GONE}"
+            android:textAppearance="@style/TextAppearance.MaterialComponents.Body1"
+            app:bindFirstSubmitted="@{infoResult.firstSubmitted}"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/info_result_text_view_last_update"
             tools:text="@string/formatted_first_submitted" />
 
-        <TextView
+        <com.google.android.material.textview.MaterialTextView
             android:id="@+id/info_result_text_view_flag_update"
-            android:layout_width="match_parent"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/text_view_spacing_small"
-            android:text="@{@string/formatted_out_of_date(InfoResult.outOfDate != null ? UtilStringFormatter.getConvertedUnixTimeString(Long.parseLong(InfoResult.outOfDate)) : @string/not_available)}"
-            android:textAppearance="@style/TextAppearance.AppCompat.Body1"
+            android:textAppearance="@style/TextAppearance.MaterialComponents.Body1"
             android:textColor="@color/text_alert_red"
-            android:visibility="@{InfoResult.outOfDate != null ? View.VISIBLE : View.GONE}"
+            app:bindOutOfDate="@{infoResult.outOfDate}"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/info_result_text_view_first_submitted"
             tools:text="@string/formatted_out_of_date" />
 
-        <TextView
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/info_result_text_view_votes"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/text_view_spacing_small"
+            android:textAppearance="@style/TextAppearance.MaterialComponents.Body1"
+            app:bindVotes="@{infoResult.numVotes}"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/info_result_text_view_flag_update"
+            tools:text="@string/formatted_votes" />
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/info_result_text_view_popularity"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/text_view_spacing_small"
+            android:textAppearance="@style/TextAppearance.MaterialComponents.Body1"
+            app:bindPopularity="@{infoResult.popularity}"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/info_result_text_view_votes"
+            tools:text="@string/formatted_popularity" />
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/details_text_view_license"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/text_view_spacing_small"
+            android:textAppearance="@style/TextAppearance.MaterialComponents.Body1"
+            app:bindLicense="@{infoResult.license}"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/info_result_text_view_popularity"
+            tools:text="@string/formatted_license" />
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/info_result_text_view_maintainer"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/text_view_spacing_small"
+            android:textAppearance="@style/TextAppearance.MaterialComponents.Body1"
+            app:bindMaintainer="@{infoResult.maintainer}"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/details_text_view_license"
+            tools:text="@string/formatted_maintainer" />
+
+        <com.google.android.material.textview.MaterialTextView
             android:id="@+id/info_result_text_view_url"
-            android:layout_width="match_parent"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/text_view_spacing_small"
             android:autoLink="all"
-            android:text="@{@string/formatted_upstream_url(InfoResult.url)}"
-            android:textAppearance="@style/TextAppearance.AppCompat.Body1"
-            android:visibility="@{InfoResult.url != null ? View.VISIBLE : View.GONE}"
+            android:textAppearance="@style/TextAppearance.MaterialComponents.Body1"
+            app:bindUpstreamUrl="@{infoResult.url}"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/info_result_text_view_maintainer"
             tools:text="@string/formatted_upstream_url" />
 
-        <TextView
+        <com.google.android.material.textview.MaterialTextView
             android:id="@+id/info_result_text_view_git_clone_url"
-            android:layout_width="match_parent"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/text_view_spacing_small"
             android:autoLink="all"
-            android:text="@{@string/formatted_git_clone_url(InfoResult.name)}"
-            android:textAppearance="@style/TextAppearance.AppCompat.Body1"
-            android:visibility="@{InfoResult.name != null ? View.VISIBLE : View.GONE}"
+            android:textAppearance="@style/TextAppearance.MaterialComponents.Body1"
+            app:bindGitCloneUrl="@{infoResult.name}"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/info_result_text_view_url"
             tools:text="@string/formatted_git_clone_url" />
 
-    </LinearLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
 </layout>

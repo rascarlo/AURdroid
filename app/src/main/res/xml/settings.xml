@@ -1,89 +1,74 @@
-<?xml version="1.0" encoding="utf-8"?><!--
-  ~     Copyright (C) rascarlo  rascarlo@gmail.com
-  ~
-  ~     This program is free software: you can redistribute it and/or modify
-  ~     it under the terms of the GNU General Public License as published by
-  ~     the Free Software Foundation, either version 3 of the License, or
-  ~     (at your option) any later version.
-  ~
-  ~     This program is distributed in the hope that it will be useful,
-  ~     but WITHOUT ANY WARRANTY; without even the implied warranty of
-  ~     MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-  ~     GNU General Public License for more details.
-  ~
-  ~     You should have received a copy of the GNU General Public License
-  ~     along with this program.  If not, see <https://www.gnu.org/licenses/>.
-  -->
-
+<?xml version="1.0" encoding="utf-8"?>
 <PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools">
 
     <Preference
-        android:icon="@mipmap/ic_launcher"
-        android:selectable="false"
-        android:title="@string/i_use_arch_btw" />
+        app:icon="@mipmap/ic_launcher"
+        app:selectable="false"
+        app:title="@string/i_use_arch_btw" />
 
-    <PreferenceCategory android:title="@string/design">
+    <PreferenceCategory app:title="@string/design">
 
         <ListPreference
-            android:defaultValue="@string/key_theme_default_value"
-            android:entries="@array/key_theme_entries"
-            android:entryValues="@array/key_theme_entry_values"
-            android:key="@string/key_theme"
-            android:summary="%s"
-            android:title="@string/theme"
-            tools:summary="@string/theme_dark" />
+            app:defaultValue="@string/key_theme_default_value"
+            app:entries="@array/key_theme_entries"
+            app:entryValues="@array/key_theme_entry_values"
+            app:key="@string/key_theme"
+            app:summary="%s"
+            app:title="@string/theme"
+            tools:summary="@string/theme_night" />
     </PreferenceCategory>
 
-    <PreferenceCategory android:title="@string/keywords">
+    <PreferenceCategory app:title="@string/keywords">
 
         <ListPreference
-            android:defaultValue="@string/key_search_by_default_value"
-            android:entries="@array/key_search_by_entries"
-            android:entryValues="@array/key_search_by_entry_values"
-            android:key="@string/key_search_by"
-            android:summary="%s"
-            android:title="@string/search"
+            app:defaultValue="@string/key_field_default_value"
+            app:entries="@array/key_search_by_entries"
+            app:entryValues="@array/key_search_by_entry_values"
+            app:key="@string/key_field"
+            app:title="@string/search"
+            app:useSimpleSummaryProvider="true"
             tools:summary="@string/name_or_description" />
 
         <ListPreference
-            android:defaultValue="@string/key_sort_default_value"
-            android:entries="@array/key_sort_entries"
-            android:entryValues="@array/key_sort_entry_values"
-            android:key="@string/key_sort"
-            android:summary="%s"
-            android:title="@string/sort"
+            app:defaultValue="@string/key_sort_default_value"
+            app:entries="@array/key_sort_entries"
+            app:entryValues="@array/key_sort_entry_values"
+            app:key="@string/key_sort"
+            app:summary="%s"
+            app:title="@string/sort"
             tools:summary="@string/package_name" />
     </PreferenceCategory>
 
-    <PreferenceCategory android:title="@string/links">
+    <PreferenceCategory app:title="@string/links">
         <Preference
-            android:summary="@string/source_link"
-            android:title="@string/source">
+            app:summary="@string/source_link"
+            app:title="@string/source">
             <intent
                 android:action="android.intent.action.VIEW"
                 android:data="@string/source_link" />
         </Preference>
 
         <Preference
-            android:summary="@string/api_wiki_link"
-            android:title="@string/api_wiki">
+            app:summary="@string/api_wiki_link"
+            app:title="@string/api_wiki">
             <intent
                 android:action="android.intent.action.VIEW"
                 android:data="@string/api_wiki_link" />
         </Preference>
 
         <Preference
-            android:summary="@string/arch_linux_link"
-            android:title="@string/arch_linux">
+            app:summary="@string/arch_linux_link"
+            app:title="@string/arch_linux">
             <intent
                 android:action="android.intent.action.VIEW"
                 android:data="@string/arch_linux_link" />
         </Preference>
 
         <Preference
-            android:summary="@string/aur_link"
-            android:title="@string/aur">
+            app:summary="@string/aur_link"
+            app:title="@string/aur">
             <intent
                 android:action="android.intent.action.VIEW"
                 android:data="@string/aur_link" />

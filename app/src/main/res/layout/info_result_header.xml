@@ -1,66 +1,54 @@
-<!--
-  ~     Copyright (C) rascarlo  rascarlo@gmail.com
-  ~
-  ~     This program is free software: you can redistribute it and/or modify
-  ~     it under the terms of the GNU General Public License as published by
-  ~     the Free Software Foundation, either version 3 of the License, or
-  ~     (at your option) any later version.
-  ~
-  ~     This program is distributed in the hope that it will be useful,
-  ~     but WITHOUT ANY WARRANTY; without even the implied warranty of
-  ~     MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-  ~     GNU General Public License for more details.
-  ~
-  ~     You should have received a copy of the GNU General Public License
-  ~     along with this program.  If not, see <https://www.gnu.org/licenses/>.
-  -->
-
+<?xml version="1.0" encoding="utf-8"?>
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools">
 
     <data>
 
-        <import type="android.view.View" />
-
         <variable
-            name="InfoResult"
-            type="com.rascarlo.aurdroid.api.model.InfoResult" />
+            name="infoResult"
+            type="com.rascarlo.aurdroid.network.InfoResult" />
     </data>
 
-    <LinearLayout
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="vertical">
+        android:layout_height="wrap_content">
 
-        <TextView
+        <com.google.android.material.textview.MaterialTextView
             android:id="@+id/info_result_text_view_pkgname"
-            android:layout_width="match_parent"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:text="@{InfoResult.name}"
-            android:textAppearance="@style/TextAppearance.AppCompat.Headline"
+            android:textAppearance="@style/TextAppearance.MaterialComponents.Headline5"
             android:textColor="?attr/colorAccent"
             android:textStyle="bold"
-            android:visibility="@{InfoResult.name != null ? View.VISIBLE : View.GONE}"
+            app:bindName="@{infoResult.name}"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
             tools:text="Pkgname" />
 
         <View
             android:id="@+id/info_result_ruler_pkgname"
-            android:layout_width="match_parent"
+            android:layout_width="0dp"
             android:layout_height="1dp"
             android:layout_marginTop="8dp"
             android:background="?attr/colorAccent"
-            android:visibility="@{InfoResult.name != null ? View.VISIBLE : View.GONE}" />
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/info_result_text_view_pkgname" />
 
-        <TextView
+        <com.google.android.material.textview.MaterialTextView
             android:id="@+id/info_result_text_view_description"
-            android:layout_width="match_parent"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
-            android:text="@{InfoResult.description}"
-            android:textAppearance="@style/TextAppearance.AppCompat.Subhead"
-            android:visibility="@{InfoResult.description != null ? View.VISIBLE : View.GONE}"
-            tools:text="@string/app_name" />
+            android:textAppearance="@style/TextAppearance.MaterialComponents.Headline6"
+            app:bindDescription="@{infoResult.description}"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/info_result_ruler_pkgname"
+            tools:text="Description" />
 
-    </LinearLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
 </layout>

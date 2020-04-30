@@ -1,152 +1,157 @@
-<!--
-  ~     Copyright (C) rascarlo  rascarlo@gmail.com
-  ~
-  ~     This program is free software: you can redistribute it and/or modify
-  ~     it under the terms of the GNU General Public License as published by
-  ~     the Free Software Foundation, either version 3 of the License, or
-  ~     (at your option) any later version.
-  ~
-  ~     This program is distributed in the hope that it will be useful,
-  ~     but WITHOUT ANY WARRANTY; without even the implied warranty of
-  ~     MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-  ~     GNU General Public License for more details.
-  ~
-  ~     You should have received a copy of the GNU General Public License
-  ~     along with this program.  If not, see <https://www.gnu.org/licenses/>.
-  -->
-
+<?xml version="1.0" encoding="utf-8"?>
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools">
 
     <data>
 
-        <import type="android.view.View" />
-
-        <import type="android.text.TextUtils" />
-
-        <import type="com.rascarlo.aurdroid.util.UtilStringFormatter" />
-
         <variable
-            name="SearchResult"
-            type="com.rascarlo.aurdroid.api.model.SearchResult" />
-
-        <variable
-            name="SearchResultAdapterCallback"
-            type="com.rascarlo.aurdroid.callbacks.SearchResultAdapterCallback" />
+            name="searchResult"
+            type="com.rascarlo.aurdroid.network.SearchResult" />
 
     </data>
 
-    <LinearLayout
-        android:id="@+id/result_item_coordinator_layout"
+    <com.google.android.material.card.MaterialCardView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="?attr/selectableItemBackground"
         android:clickable="true"
         android:focusable="true"
-        android:onClick="@{() -> SearchResultAdapterCallback.onSearchResultAdapterCallbackOnResultClicked(SearchResult)}"
-        android:orientation="vertical"
-        android:padding="16dp">
+        app:cardCornerRadius="4dp"
+        app:cardElevation="4dp"
+        app:cardMaxElevation="4dp"
+        app:cardUseCompatPadding="true">
 
-        <TextView
-            android:id="@+id/result_item_text_view_pkgname"
+        <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@{SearchResult.name}"
-            android:textAppearance="@style/TextAppearance.AppCompat.SearchResult.Title"
-            android:textColor="?attr/colorAccent"
-            android:textStyle="bold"
-            android:visibility="@{SearchResult.name != null ? View.VISIBLE : View.GONE}"
-            tools:text="@string/app_name" />
+            android:background="?attr/selectableItemBackground"
+            android:padding="@dimen/activity_horizontal_margin">
 
-        <View
-            android:id="@+id/result_item_ruler"
-            android:layout_width="match_parent"
-            android:layout_height="1dp"
-            android:layout_marginTop="4dp"
-            android:background="?attr/colorAccent"
-            android:visibility="@{SearchResult.name != null ? View.VISIBLE : View.GONE}" />
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/search_result_item_text_view_name"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="8dp"
+                android:textAppearance="@style/TextAppearance.MaterialComponents.Headline5"
+                android:textColor="?attr/colorAccent"
+                android:textStyle="bold"
+                app:bindName="@{searchResult.name}"
+                app:layout_constraintBottom_toTopOf="@+id/search_result_item_text_view_description"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:text="@string/app_name" />
 
-        <TextView
-            android:id="@+id/result_item_text_view_pkgdescr"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="4dp"
-            android:text="@{SearchResult.description}"
-            android:textAppearance="@style/TextAppearance.AppCompat.SearchResult.Subtitle"
-            android:visibility="@{SearchResult.description != null ? View.VISIBLE : View.GONE}"
-            tools:text="@string/app_name" />
+            <View
+                android:id="@+id/search_result_item_ruler"
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_marginTop="4dp"
+                android:background="?attr/colorAccent"
+                app:layout_constraintBottom_toTopOf="@+id/search_result_item_text_view_description"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/search_result_item_text_view_name" />
 
-        <TextView
-            android:id="@+id/result_item_text_view_pkgversion"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/text_view_spacing_small"
-            android:text="@{@string/formatted_version(SearchResult.version != null ? SearchResult.version : @string/not_available)}"
-            android:textAppearance="@style/TextAppearance.AppCompat.Caption"
-            android:visibility="@{SearchResult.version != null ? View.VISIBLE : View.GONE}"
-            tools:text="@string/formatted_version" />
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/search_result_item_text_view_description"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="4dp"
+                android:textAppearance="@style/TextAppearance.MaterialComponents.Headline6"
+                app:bindDescription="@{searchResult.description}"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/search_result_item_ruler"
+                tools:text="@string/app_name" />
 
-        <TextView
-            android:id="@+id/result_item_text_view_last_update"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/text_view_spacing_small"
-            android:text="@{@string/formatted_last_updated(SearchResult.lastModified != null ? UtilStringFormatter.getConvertedUnixTimeString(Long.parseLong(SearchResult.lastModified)) : @string/not_available)}"
-            android:textAppearance="@style/TextAppearance.AppCompat.Caption"
-            android:visibility="@{SearchResult.lastModified != null ? View.VISIBLE : View.GONE}"
-            tools:text="@string/formatted_last_updated" />
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/search_result_item_text_view_version"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:textAppearance="@style/TextAppearance.MaterialComponents.Body1"
+                app:bindVersion="@{searchResult.version}"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/search_result_item_text_view_description"
+                tools:text="@string/formatted_version" />
 
-        <TextView
-            android:id="@+id/result_item_text_view_first_submitted"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/text_view_spacing_small"
-            android:text="@{@string/formatted_first_submitted(SearchResult.firstSubmitted != null ? UtilStringFormatter.getConvertedUnixTimeString(Long.parseLong(SearchResult.firstSubmitted)) : @string/not_available)}"
-            android:textAppearance="@style/TextAppearance.AppCompat.Caption"
-            android:visibility="@{SearchResult.firstSubmitted != null ? View.VISIBLE : View.GONE}"
-            tools:text="@string/formatted_first_submitted" />
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/search_result_item_text_view_last_update"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/text_view_spacing_small"
+                android:textAppearance="@style/TextAppearance.MaterialComponents.Body1"
+                app:bindLastUpdate="@{searchResult.lastModified}"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/search_result_item_text_view_version"
+                tools:text="@string/formatted_last_updated" />
 
-        <TextView
-            android:id="@+id/result_item_text_view_flag_date"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/text_view_spacing_small"
-            android:text="@{@string/formatted_out_of_date(SearchResult.outOfDate != null ? UtilStringFormatter.getConvertedUnixTimeString(Long.parseLong(SearchResult.outOfDate)) : @string/not_available)}"
-            android:textAppearance="@style/TextAppearance.AppCompat.Caption"
-            android:textColor="@color/text_alert_red"
-            android:visibility="@{SearchResult.outOfDate != null ? View.VISIBLE : View.GONE}"
-            tools:text="@string/formatted_out_of_date" />
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/search_result_item_text_view_first_submitted"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/text_view_spacing_small"
+                android:textAppearance="@style/TextAppearance.MaterialComponents.Body1"
+                app:bindFirstSubmitted="@{searchResult.firstSubmitted}"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/search_result_item_text_view_last_update"
+                tools:text="@string/formatted_first_submitted" />
 
-        <TextView
-            android:id="@+id/result_item_text_view_votes"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/text_view_spacing_small"
-            android:text="@{@string/formatted_votes(SearchResult.numVotes != null ? Long.parseLong(SearchResult.numVotes) : 0)}"
-            android:textAppearance="@style/TextAppearance.AppCompat.Caption"
-            android:visibility="@{SearchResult.numVotes != null ? View.VISIBLE : View.GONE}"
-            tools:text="@string/formatted_votes" />
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/search_result_item_text_view_flag_date"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/text_view_spacing_small"
+                android:textAppearance="@style/TextAppearance.MaterialComponents.Body1"
+                android:textColor="@color/text_alert_red"
+                app:bindOutOfDate="@{searchResult.outOfDate}"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/search_result_item_text_view_first_submitted"
+                tools:text="@string/formatted_out_of_date" />
 
-        <TextView
-            android:id="@+id/result_item_text_view_popularity"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/text_view_spacing_small"
-            android:text="@{@string/formatted_popularity(SearchResult.popularity != null ? Double.parseDouble(SearchResult.popularity) : 0)}"
-            android:textAppearance="@style/TextAppearance.AppCompat.Caption"
-            android:visibility="@{SearchResult.popularity != null ? View.VISIBLE : View.GONE}"
-            tools:text="@string/formatted_popularity" />
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/search_result_item_text_view_votes"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/text_view_spacing_small"
+                android:textAppearance="@style/TextAppearance.MaterialComponents.Body1"
+                app:bindVotes="@{searchResult.numVotes}"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/search_result_item_text_view_flag_date"
+                tools:text="@string/formatted_votes" />
 
-        <TextView
-            android:id="@+id/result_item_text_view_maintainer"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/text_view_spacing_small"
-            android:text="@{@string/formatted_maintainer(SearchResult.maintainer != null ? SearchResult.maintainer : @string/not_available)}"
-            android:textAppearance="@style/TextAppearance.AppCompat.Caption"
-            android:visibility="@{SearchResult.maintainer != null ? View.VISIBLE : View.GONE}"
-            tools:text="@string/formatted_maintainer" />
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/search_result_item_text_view_popularity"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/text_view_spacing_small"
+                android:textAppearance="@style/TextAppearance.MaterialComponents.Body1"
+                app:bindPopularity="@{searchResult.popularity}"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/search_result_item_text_view_votes"
+                tools:text="@string/formatted_popularity" />
 
-    </LinearLayout>
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/search_result_item_text_view_maintainer"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/text_view_spacing_small"
+                android:textAppearance="@style/TextAppearance.MaterialComponents.Body1"
+                app:bindMaintainer="@{searchResult.maintainer}"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/search_result_item_text_view_popularity"
+                tools:text="@string/formatted_maintainer" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </com.google.android.material.card.MaterialCardView>
 
 </layout>

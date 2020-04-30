@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="day_night_text_color">@android:color/primary_text_light</color>
+</resources>

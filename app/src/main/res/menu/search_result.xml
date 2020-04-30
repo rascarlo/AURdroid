@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/menu_search_result_item_sort"
+        android:title="@string/sort"
+        android:visible="false">
+        <menu>
+
+            <group android:checkableBehavior="single">
+                <item
+                    android:id="@+id/menu_sort_by_package_name"
+                    android:title="@string/package_name" />
+                <item
+                    android:id="@+id/menu_sort_by_votes"
+                    android:title="@string/votes" />
+                <item
+                    android:id="@+id/menu_sort_by_popularity"
+                    android:title="@string/popularity" />
+                <item
+                    android:id="@+id/menu_sort_by_last_update"
+                    android:title="@string/last_updated" />
+                <item
+                    android:id="@+id/menu_sort_by_first_submitted"
+                    android:title="@string/first_submitted" />
+            </group>
+
+        </menu>
+
+    </item>
+
+</menu>

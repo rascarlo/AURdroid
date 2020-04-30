@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/field_label_text_view"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="@string/search"
+            android:textAppearance="@style/TextAppearance.MaterialComponents.Headline6"
+            android:textColor="@color/colorSecondary"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <RadioGroup
+            android:id="@+id/field_radio_group"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:orientation="vertical"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/field_label_text_view">
+
+            <com.google.android.material.radiobutton.MaterialRadioButton
+                android:id="@+id/field_radio_button_name_or_description"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/name_or_description" />
+
+            <com.google.android.material.radiobutton.MaterialRadioButton
+                android:id="@+id/field_radio_button_name"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/name" />
+
+            <com.google.android.material.radiobutton.MaterialRadioButton
+                android:id="@+id/field_radio_button_maintainer"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/maintainer" />
+
+            <com.google.android.material.radiobutton.MaterialRadioButton
+                android:id="@+id/field_radio_button_depends"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/depends" />
+
+            <com.google.android.material.radiobutton.MaterialRadioButton
+                android:id="@+id/field_radio_button_make_depends"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/make_depends" />
+
+            <com.google.android.material.radiobutton.MaterialRadioButton
+                android:id="@+id/field_radio_button_opt_depends"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/opt_depends" />
+
+            <com.google.android.material.radiobutton.MaterialRadioButton
+                android:id="@+id/field_radio_button_check_depends"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/check_depends" />
+
+        </RadioGroup>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</layout>

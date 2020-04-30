@@ -1,25 +1,8 @@
-<!--
-  ~     Copyright (C) rascarlo  rascarlo@gmail.com
-  ~
-  ~     This program is free software: you can redistribute it and/or modify
-  ~     it under the terms of the GNU General Public License as published by
-  ~     the Free Software Foundation, either version 3 of the License, or
-  ~     (at your option) any later version.
-  ~
-  ~     This program is distributed in the hope that it will be useful,
-  ~     but WITHOUT ANY WARRANTY; without even the implied warranty of
-  ~     MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-  ~     GNU General Public License for more details.
-  ~
-  ~     You should have received a copy of the GNU General Public License
-  ~     along with this program.  If not, see <https://www.gnu.org/licenses/>.
-  -->
-
+<?xml version="1.0" encoding="utf-8"?>
 <resources>
     <!--not translatable strings-->
     <string name="app_name" translatable="false">AURdroid</string>
     <string name="unicode_comma_whitespace" translatable="false">,\u0020</string>
-    <string name="monospace" translatable="false">monospace</string>
 
     <string name="source_link" translatable="false">https://github.com/rascarlo/AURdroid</string>
     <string name="api_wiki_link" translatable="false">https://wiki.archlinux.org/index.php/Aurweb_RPC_interface</string>
@@ -31,21 +14,21 @@
 
     <!--theme keys-->
     <string name="key_theme" translatable="false">key_theme</string>
-    <string name="key_theme_default_value" translatable="false">@string/key_theme_dark</string>
-    <string name="key_theme_dark" translatable="false">key_theme_dark</string>
-    <string name="key_theme_black" translatable="false">key_theme_black</string>
-    <string name="key_theme_light" translatable="false">key_theme_light</string>
+    <string name="key_theme_default_value" translatable="false">@string/key_theme_night</string>
+    <string name="key_theme_night" translatable="false">key_theme_night</string>
+    <string name="key_theme_day" translatable="false">key_theme_day</string>
+    <string name="key_theme_follow_system" translatable="false">key_theme_follow_system</string>
 
     <!--search by keys-->
-    <string name="key_search_by" translatable="false">key_search_by</string>
-    <string name="key_search_by_default_value" translatable="false">key_search_by_name_or_description</string>
-    <string name="key_search_by_name_or_description" translatable="false">key_search_by_name_or_description</string>
-    <string name="key_search_by_name" translatable="false">key_search_by_name</string>
-    <string name="key_search_by_maintainer" translatable="false">key_search_by_maintainer</string>
-    <string name="key_search_by_depends" translatable="false">key_search_by_depends</string>
-    <string name="key_search_by_make_depends" translatable="false">key_search_by_make_depends</string>
-    <string name="key_search_by_opt_depends" translatable="false">key_search_by_opt_depends</string>
-    <string name="key_search_by_check_depends" translatable="false">key_search_by_check_depends</string>
+    <string name="key_field" translatable="false">key_field</string>
+    <string name="key_field_default_value" translatable="false">key_field_name_or_description</string>
+    <string name="key_field_name_or_description" translatable="false">key_field_name_or_description</string>
+    <string name="key_field_name" translatable="false">key_field_name</string>
+    <string name="key_field_maintainer" translatable="false">key_field_maintainer</string>
+    <string name="key_field_depends" translatable="false">key_field_depends</string>
+    <string name="key_field_make_depends" translatable="false">key_field_make_depends</string>
+    <string name="key_field_opt_depends" translatable="false">key_field_opt_depends</string>
+    <string name="key_field_check_depends" translatable="false">key_field_check_depends</string>
 
     <!--sort keys-->
     <string name="key_sort" translatable="false">key_sort</string>

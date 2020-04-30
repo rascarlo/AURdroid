@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="infoResult"
+            type="com.rascarlo.aurdroid.network.InfoResult" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/info_result_text_view_depends_label"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="@{@string/formatted_depends(infoResult.depends.size())}"
+            android:textAppearance="@style/TextAppearance.MaterialComponents.Headline6"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:text="@string/formatted_depends" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/info_result_depends_recycler_view"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/text_view_spacing_small"
+            android:clipToPadding="false"
+            app:bindRecyclerView="@{infoResult.depends}"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/info_result_text_view_depends_label"
+            tools:listitem="@layout/dependency_item" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</layout>

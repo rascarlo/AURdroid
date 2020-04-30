@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <item
+        android:orderInCategory="0"
+        android:title="@string/theme"
+        app:showAsAction="never">
+
+        <menu>
+
+            <group android:checkableBehavior="single">
+
+                <item
+                    android:id="@+id/menu_main_theme_night"
+                    android:title="@string/theme_night" />
+
+                <item
+                    android:id="@+id/menu_main_theme_day"
+                    android:title="@string/theme_day" />
+
+                <item
+                    android:id="@+id/menu_main_theme_follow_system"
+                    android:title="@string/theme_follow_system" />
+
+            </group>
+
+        </menu>
+
+    </item>
+</menu>

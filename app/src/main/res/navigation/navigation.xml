@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/navigation"
+    app:startDestination="@id/searchFragment"
+    tools:context=".MainActivity">
+
+    <!--search fragment-->
+    <fragment
+        android:id="@+id/searchFragment"
+        android:name="com.rascarlo.aurdroid.search.SearchFragment"
+        android:label="SearchFragment"
+        tools:layout="@layout/fragment_search">
+        <action
+            android:id="@+id/action_searchFragment_to_searchResultFragment"
+            app:destination="@id/searchResultFragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right" />
+    </fragment>
+
+    <!--search result fragment-->
+    <fragment
+        android:id="@+id/searchResultFragment"
+        android:name="com.rascarlo.aurdroid.searchResult.SearchResultFragment"
+        android:label="SearchResultFragment"
+        tools:layout="@layout/fragment_search_result">
+        <argument
+            android:name="keyword"
+            app:argType="string" />
+        <argument
+            android:name="field"
+            app:argType="string" />
+        <argument
+            android:name="sort"
+            app:argType="integer" />
+        <action
+            android:id="@+id/action_searchResultFragment_to_searchFragment"
+            app:destination="@id/searchFragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right" />
+        <action
+            android:id="@+id/action_searchResultFragment_to_infoResultFragment"
+            app:destination="@id/infoResultFragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right" />
+    </fragment>
+
+    <!-- info result fragment -->
+    <fragment
+        android:id="@+id/infoResultFragment"
+        android:name="com.rascarlo.aurdroid.infoResult.InfoResultFragment"
+        android:label="InfoResultFragment"
+        tools:layout="@layout/fragment_info_result">
+        <argument
+            android:name="name"
+            app:argType="string" />
+        <action
+            android:id="@+id/action_infoResultFragment_to_searchResultFragment"
+            app:destination="@id/searchResultFragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right" />
+    </fragment>
+    <fragment
+        android:id="@+id/settings"
+        android:name="com.rascarlo.aurdroid.settings.Settings"
+        android:label="Settings" />
+    <!-- global action settings fragment-->
+    <action
+        android:id="@+id/action_global_settings"
+        app:destination="@id/settings"
+        app:enterAnim="@anim/slide_in_right"
+        app:exitAnim="@anim/slide_out_left"
+        app:popEnterAnim="@anim/slide_in_left"
+        app:popExitAnim="@anim/slide_out_right" />
+
+</navigation>

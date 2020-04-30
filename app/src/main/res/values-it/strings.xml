@@ -1,28 +1,14 @@
-<!--
-  ~     Copyright (C) rascarlo  rascarlo@gmail.com
-  ~
-  ~     This program is free software: you can redistribute it and/or modify
-  ~     it under the terms of the GNU General Public License as published by
-  ~     the Free Software Foundation, either version 3 of the License, or
-  ~     (at your option) any later version.
-  ~
-  ~     This program is distributed in the hope that it will be useful,
-  ~     but WITHOUT ANY WARRANTY; without even the implied warranty of
-  ~     MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-  ~     GNU General Public License for more details.
-  ~
-  ~     You should have received a copy of the GNU General Public License
-  ~     along with this program.  If not, see <https://www.gnu.org/licenses/>.
-  -->
-
+<?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="settings">Impostazioni</string>
     <string name="not_available">Non disponibile</string>
     <string name="something_went_wrong">Qualcosa non ha funzionato. Per favore provare nuovamente.</string>
     <string name="retrofit_something_went_wrong">Qualcosa non ha funzionato. Per favore accertarsi di avere una connessione internet attiva e provare nuovamente.</string>
-
     <string name="keywords">Parole chiave</string>
-    <string name="keywords_hint">L\'API ha un limite di un massimo di 4000 richieste al giorno per IP.</string>
+    <string name="keywords_hint">Le query di ricerca devono contenere almeno due caratteri.
+        \nLe ricerche falliranno se contengono 5000 o più risultati.
+        \nL\'API ha un limite di un massimo di 4000 richieste al giorno per IP.
+    </string>
     <string name="package_search">Cerca pacchetto</string>
     <string name="search">Cerca</string>
     <string name="name_or_description">Nome o descrizione</string>
@@ -37,7 +23,6 @@
     <string name="votes">Voti</string>
     <string name="popularity">Popolarità</string>
     <string name="first_submitted">Prima sottomissione</string>
-
     <string name="formatted_version">Versione: %s</string>
     <string name="formatted_packagebase">Pacchetto base: %s</string>
     <string name="formatted_last_updated">Ultimo aggiornamento: %s</string>
@@ -49,25 +34,39 @@
     <string name="formatted_upstream_url">URL upstream: %1$s</string>
     <string name="formatted_git_clone_url">URL Git clone: https://aur.archlinux.org/%1$s.git</string>
     <string name="formatted_license">Licenza: %1$s</string>
-    <string name="formatted_dependencies">Dipendenze (%1$d)</string>
-    <string name="formatted_opt_dependencies">Dipendenze opzionali (%1$d)</string>
-    <string name="formatted_make_dependencies">Dipendenze make (%1$d)</string>
+    <string name="formatted_depends">Dipendenze (%1$d)</string>
+    <string name="formatted_opt_depends">Dipendenze opzionali (%1$d)</string>
+    <string name="formatted_make_depends">Dipendenze make (%1$d)</string>
+    <string name="formatted_check_depends">Dipendenze check (%1$d)</string>
     <string name="formatted_conflicts">Conflitti (%1$d)</string>
     <string name="formatted_provides">Fornisce (%1$d)</string>
-
+    <string name="formatted_replaces">Sostituisce (%1$d)</string>
+    <string name="formatted_groups">Gruppi (%1$d)</string>
+    <string name="formatted_keywords">Parole chiave (%1$d)</string>
     <string name="view_pkgbuild">Vedere PKGBUILD</string>
     <string name="view_changes">Vedere cambiamenti</string>
     <string name="maintainer">Mantenitore</string>
     <string name="open_in_browser">Aprire in browser</string>
     <string name="share">Condividere</string>
-
     <string name="design">Design</string>
     <string name="theme">Tema</string>
-    <string name="theme_dark">Scuro</string>
-    <string name="theme_black">Nero</string>
-    <string name="theme_light">Chiaro</string>
-
+    <string name="theme_night">Notte</string>
+    <string name="theme_follow_system">Default sistema</string>
+    <string name="theme_day">Giorno</string>
     <string name="i_use_arch_btw">Io uso Arch comunque</string>
     <string name="links">Collegamenti</string>
     <string name="source">Codice sorgente</string>
+    <string name="orphan">Orfano</string>
+    <string name="no_package_found">Nessun pacchetto trovato</string>
+    <string name="pkgbuild">PKGBUILD</string>
+    <string name="changes">Cambiamenti</string>
+    <string name="aur_package">Pacchetto AUR</string>
+    <string name="upstream_url">URL upstream</string>
+    <string name="git_clone_url">URL Git clone</string>
+    <string name="snapshot">Snapshot</string>
+    <string name="download_snapshot">Scarica snapshot</string>
+    <plurals name="plurals_formatted_package_found">
+        <item quantity="one">%d pacchetto trovato per %s</item>
+        <item quantity="other">%d pacchetti trovati per %s</item>
+    </plurals>
 </resources>

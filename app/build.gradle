@@ -1,24 +1,12 @@
-/*
- *     Copyright (C) rascarlo  rascarlo@gmail.com
- *
- *     This program is free software: you can redistribute it and/or modify
- *     it under the terms of the GNU General Public License as published by
- *     the Free Software Foundation, either version 3 of the License, or
- *     (at your option) any later version.
- *
- *     This program is distributed in the hope that it will be useful,
- *     but WITHOUT ANY WARRANTY; without even the implied warranty of
- *     MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
- *     GNU General Public License for more details.
- *
- *     You should have received a copy of the GNU General Public License
- *     along with this program.  If not, see <https://www.gnu.org/licenses/>.
- */
-
 apply plugin: 'com.android.application'
+apply plugin: 'kotlin-android'
+apply plugin: 'kotlin-android-extensions'
+apply plugin: 'kotlin-kapt'
+apply plugin: "androidx.navigation.safeargs.kotlin"
 
 android {
     compileSdkVersion 29
+    buildToolsVersion "29.0.3"
     defaultConfig {
         applicationId "com.rascarlo.aurdroid"
         minSdkVersion 16
@@ -26,47 +14,72 @@ android {
         versionCode 15
         versionName "4.2.0"
         resConfigs "en", "es", "it"
+        multiDexEnabled true
         vectorDrawables.useSupportLibrary = true
     }
     buildTypes {
         release {
             minifyEnabled false
-            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+        debug {
+            minifyEnabled false
         }
     }
-    buildToolsVersion '29.0.2'
-    // data binding
     dataBinding {
         enabled = true
     }
     compileOptions {
-        sourceCompatibility JavaVersion.VERSION_1_8
-        targetCompatibility JavaVersion.VERSION_1_8
+        sourceCompatibility = 1.8
+        targetCompatibility = 1.8
+    }
+    kotlinOptions {
+        jvmTarget = JavaVersion.VERSION_1_8.toString()
+    }
+    androidExtensions {
+        experimental = true
     }
 }
 
 dependencies {
-    implementation fileTree(include: ['*.jar'], dir: 'libs')
-    implementation 'androidx.appcompat:appcompat:1.1.0'
-    // constraint layout
-    implementation 'androidx.constraintlayout:constraintlayout:1.1.3'
-    // design
-    implementation 'com.google.android.material:material:1.1.0'
-    // preference
-    implementation 'androidx.preference:preference:1.1.0'
-    implementation 'androidx.legacy:legacy-preference-v14:1.0.0'
-    // lifecycle
-    implementation 'androidx.lifecycle:lifecycle-extensions:2.2.0'
-    // room
-    implementation 'androidx.room:room-runtime:2.2.3'
-    annotationProcessor 'androidx.room:room-compiler:2.2.3'
-    // retrofit
-    implementation 'com.squareup.retrofit2:retrofit:2.7.1'
-    implementation 'com.squareup.retrofit2:retrofit-converters:2.7.1'
-    implementation 'com.squareup.retrofit2:converter-gson:2.7.1'
-    // gson
-    implementation 'com.google.code.gson:gson:2.8.6'
+    // multidex
+    implementation "androidx.multidex:multidex:$version_multidex"
+    // material
+    implementation "com.google.android.material:material:$version_material"
+    // Kotlin
+    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$version_kotlin"
+    // Constraint Layout
+    implementation "androidx.constraintlayout:constraintlayout:$version_constraint_layout"
+    // ViewModel and LiveData
+    implementation "androidx.lifecycle:lifecycle-extensions:$version_lifecycle_extensions"
+    implementation "androidx.lifecycle:lifecycle-viewmodel-ktx:$version_lifecycle_extensions"
+    // Navigation
+    implementation "android.arch.navigation:navigation-fragment-ktx:$version_navigation"
+    implementation "android.arch.navigation:navigation-ui-ktx:$version_navigation"
+    // Core with Ktx
+    implementation "androidx.core:core-ktx:$version_core"
     // okhttp
-    implementation 'com.squareup.okhttp3:okhttp:4.3.1'
-    implementation 'com.squareup.okhttp3:logging-interceptor:4.3.1'
+    implementation "com.squareup.okhttp3:okhttp:$version_okhttp"
+    implementation "com.squareup.okhttp3:logging-interceptor:$version_okhttp"
+    // retrofit
+    implementation "com.squareup.retrofit2:retrofit:$version_retrofit"
+    // moshi
+    implementation "com.squareup.moshi:moshi:$version_moshi"
+    implementation "com.squareup.moshi:moshi-kotlin:$version_moshi"
+    // moshi converter
+    implementation "com.squareup.retrofit2:converter-moshi:$version_retrofit"
+    // coroutines
+    implementation "org.jetbrains.kotlinx:kotlinx-coroutines-core:$version_kotlin_coroutines"
+    implementation "org.jetbrains.kotlinx:kotlinx-coroutines-android:$version_kotlin_coroutines"
+    // retrofit coroutines
+    implementation "com.jakewharton.retrofit:retrofit2-kotlin-coroutines-adapter:$version_retrofit_coroutines_adapter"
+    // glide
+    implementation "com.github.bumptech.glide:glide:$version_glide"
+    // recycler view
+    implementation "androidx.recyclerview:recyclerview:$version_recyclerview"
+    // preference
+    implementation "androidx.preference:preference:$version_preference"
+    // timber
+    implementation "com.jakewharton.timber:timber:$version_timber"
+    implementation 'androidx.legacy:legacy-support-v4:1.0.0'
 }

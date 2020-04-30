@@ -18,14 +18,14 @@
 <resources>
     <!--theme list preference-->
     <string-array name="key_theme_entries">
-        <item>@string/theme_dark</item>
-        <item>@string/theme_black</item>
-        <item>@string/theme_light</item>
+        <item>@string/theme_night</item>
+        <item>@string/theme_day</item>
+        <item>@string/theme_follow_system</item>
     </string-array>
     <string-array name="key_theme_entry_values">
-        <item>@string/key_theme_dark</item>
-        <item>@string/key_theme_black</item>
-        <item>@string/key_theme_light</item>
+        <item>@string/key_theme_night</item>
+        <item>@string/key_theme_day</item>
+        <item>@string/key_theme_follow_system</item>
     </string-array>
     <!--search field preference-->
     <string-array name="key_search_by_entries">
@@ -38,13 +38,13 @@
         <item>@string/check_depends</item>
     </string-array>
     <string-array name="key_search_by_entry_values">
-        <item>@string/key_search_by_name_or_description</item>
-        <item>@string/key_search_by_name</item>
-        <item>@string/key_search_by_maintainer</item>
-        <item>@string/key_search_by_depends</item>
-        <item>@string/key_search_by_make_depends</item>
-        <item>@string/key_search_by_opt_depends</item>
-        <item>@string/key_search_by_check_depends</item>
+        <item>@string/key_field_name_or_description</item>
+        <item>@string/key_field_name</item>
+        <item>@string/key_field_maintainer</item>
+        <item>@string/key_field_depends</item>
+        <item>@string/key_field_make_depends</item>
+        <item>@string/key_field_opt_depends</item>
+        <item>@string/key_field_check_depends</item>
     </string-array>
     <!--sort preference-->
     <string-array name="key_sort_entries">

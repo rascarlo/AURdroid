@@ -1,115 +1,15 @@
-<!--
-  ~     Copyright (C) rascarlo  rascarlo@gmail.com
-  ~
-  ~     This program is free software: you can redistribute it and/or modify
-  ~     it under the terms of the GNU General Public License as published by
-  ~     the Free Software Foundation, either version 3 of the License, or
-  ~     (at your option) any later version.
-  ~
-  ~     This program is distributed in the hope that it will be useful,
-  ~     but WITHOUT ANY WARRANTY; without even the implied warranty of
-  ~     MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-  ~     GNU General Public License for more details.
-  ~
-  ~     You should have received a copy of the GNU General Public License
-  ~     along with this program.  If not, see <https://www.gnu.org/licenses/>.
-  -->
-
+<?xml version="1.0" encoding="utf-8"?>
 <resources>
-
-    <style name="AppThemeDark.LauncherTheme">
-        <item name="android:windowBackground">@drawable/launcher_screen</item>
-        <item name="windowActionBar">false</item>
-        <item name="windowNoTitle">true</item>
-    </style>
-
-    <!-- dark application theme. -->
-    <style name="AppThemeDark" parent="Theme.AppCompat">
-        <item name="windowActionBar">false</item>
-        <item name="windowNoTitle">true</item>
+    <!-- Base application theme. -->
+    <style name="AppTheme" parent="Theme.MaterialComponents.DayNight.DarkActionBar">
+        <!-- Customize your theme here. -->
         <item name="colorPrimary">@color/colorPrimary</item>
-        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
-        <item name="colorControlHighlight">@color/colorControlHighlight</item>
-        <item name="colorControlActivated">@color/colorControlActivated</item>
-        <item name="colorAccent">@color/colorAccent</item>
-        <item name="fontFamily">@string/monospace</item>
-        <item name="radioButtonStyle">@style/AppTheme.RadioButtonStyle</item>
-        <item name="checkboxStyle">@style/AppTheme.CheckBoxStyle</item>
-        <item name="preferenceTheme">@style/PreferenceThemeOverlay.v14.Material</item>
-    </style>
-
-    <!-- black application theme. -->
-    <style name="AppThemeBlack" parent="AppThemeDark">
-        <item name="android:windowBackground">@color/black</item>
-        <item name="dialogTheme">@style/AppThemeBlack.Dialog</item>
-        <item name="alertDialogTheme">@style/AppThemeBlack.AlertDialog</item>
-        <item name="preferenceTheme">@style/PreferenceThemeOverlay.v14.Material</item>
-    </style>
-
-    <style name="AppThemeBlack.Dialog" parent="Theme.AppCompat.Dialog">
-        <item name="android:windowBackground">@color/black</item>
-        <item name="colorPrimary">@color/colorPrimary</item>
-        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
-        <item name="colorControlHighlight">@color/colorControlHighlight</item>
-        <item name="colorControlActivated">@color/colorControlActivated</item>
-        <item name="colorAccent">@color/colorAccent</item>
-        <item name="fontFamily">@string/monospace</item>
-        <item name="radioButtonStyle">@style/AppTheme.RadioButtonStyle</item>
-        <item name="checkboxStyle">@style/AppTheme.CheckBoxStyle</item>
-    </style>
-
-    <style name="AppThemeBlack.AlertDialog" parent="Theme.AppCompat.Dialog.Alert">
-        <item name="android:windowBackground">@color/black</item>
-        <item name="colorPrimary">@color/colorPrimary</item>
-        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
-        <item name="colorControlHighlight">@color/colorControlHighlight</item>
-        <item name="colorControlActivated">@color/colorControlActivated</item>
-        <item name="colorAccent">@color/colorAccent</item>
-        <item name="fontFamily">@string/monospace</item>
-        <item name="radioButtonStyle">@style/AppTheme.RadioButtonStyle</item>
-        <item name="checkboxStyle">@style/AppTheme.CheckBoxStyle</item>
-    </style>
-
-    <!-- light application theme. -->
-    <style name="AppThemeLight" parent="Theme.AppCompat.Light">
-        <item name="windowActionBar">false</item>
-        <item name="windowNoTitle">true</item>
-        <item name="colorPrimary">@color/colorPrimary</item>
-        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
-        <item name="colorAccent">@color/colorAccent</item>
-        <item name="colorControlHighlight">@color/colorControlHighlight</item>
-        <item name="colorControlActivated">@color/colorControlActivated</item>
-        <item name="fontFamily">@string/monospace</item>
-        <item name="radioButtonStyle">@style/AppTheme.RadioButtonStyle</item>
-        <item name="checkboxStyle">@style/AppTheme.CheckBoxStyle</item>
-        <item name="preferenceTheme">@style/PreferenceThemeOverlay.v14.Material</item>
-    </style>
-
-    <!--app bar theme-->
-    <style name="AppTheme.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar">
-        <item name="android:colorBackground">@color/black</item>
-        <item name="android:textColor">@color/grey_300</item>
-    </style>
-
-    <!--radio button theme-->
-    <style name="AppTheme.RadioButtonStyle" parent="Widget.AppCompat.CompoundButton.RadioButton">
-        <item name="fontFamily">@string/monospace</item>
-        <item name="android:fontFamily">@string/monospace</item>
-    </style>
-
-    <!--check box theme-->
-    <style name="AppTheme.CheckBoxStyle" parent="Widget.AppCompat.CompoundButton.CheckBox">
-        <item name="fontFamily">@string/monospace</item>
-        <item name="android:fontFamily">@string/monospace</item>
-    </style>
-
-    <!--horizontal progress bar-->
-    <style name="AppTheme.ProgressBar" parent="Widget.AppCompat.ProgressBar">
-        <item name="android:layout_width">wrap_content</item>
-        <item name="android:layout_height">wrap_content</item>
-        <item name="android:layout_gravity">center_vertical|center|center_horizontal</item>
-        <item name="android:indeterminateBehavior">cycle</item>
-        <item name="android:indeterminate">true</item>
+        <item name="colorPrimaryVariant">@color/colorPrimaryVariant</item>
+        <item name="colorSecondary">@color/colorSecondary</item>
+        <item name="colorSecondaryVariant">@color/colorSecondaryVariant</item>
+        <item name="colorControlHighlight">@color/colorSecondaryVariant</item>
+        <item name="android:textColorHighlight">@color/colorSecondary</item>
+        <item name="fontFamily">@font/noto_sans</item>
     </style>
 
 </resources>
