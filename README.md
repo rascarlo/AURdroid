@@ -22,13 +22,6 @@ ___
 <img src="https://github.com/rascarlo/AURdroid/blob/master/fastlane/metadata/android/en-US/phoneScreenshots/07.png" width="333" height="640" /> <img src="https://github.com/rascarlo/AURdroid/blob/master/fastlane/metadata/android/en-US/phoneScreenshots/08.png" width="333" height="640" />
 
 ___
-### Libraries
-- **Retrofit:** https://github.com/square/retrofit
-
-*Type-safe HTTP client for Android and Java by Square, Inc. http://square.github.io/retrofit/*
-
-
-___
 ### APK
 
 - **F-Droid:** https://f-droid.org/repository/browse/?fdid=com.rascarlo.aurdroid
@@ -38,4 +31,4 @@ ___
 ### Links
 - **Arch Linux User repository:** https://aur.archlinux.org/
 - **AUR packages:** https://aur.archlinux.org/packages/
-- **AurJson wiki:** https://wiki.archlinux.org/index.php/AurJson
+- **Aurweb RPC interface wiki:** https://wiki.archlinux.org/index.php/Aurweb_RPC_interface
