@@ -1,6 +1,7 @@
 package com.rascarlo.aurdroid.searchResult
 
 import android.os.Bundle
+import android.os.Handler
 import android.view.*
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
@@ -17,6 +18,10 @@ class SearchResultFragment : Fragment() {
     private var sortArg: Int = Constants.SORT_BY_PACKAGE_NAME
     private lateinit var binding: FragmentSearchResultBinding
     private lateinit var adapter: SearchResultAdapter
+
+    companion object {
+        private const val OUTSTATE_SORT = "sort_outstate"
+    }
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -103,7 +108,9 @@ class SearchResultFragment : Fragment() {
     private fun submitSortedList() {
         binding.viewModel?.sortList(sortArg)
         adapter.notifyItemRangeChanged(0, adapter.itemCount)
-        binding.fragmentSearchResultRecyclerView.scrollToPosition(0)
+        Handler().postDelayed({
+            binding.fragmentSearchResultRecyclerView.scrollToPosition(0)
+        }, 500)
     }
 
     override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
@@ -145,5 +152,16 @@ class SearchResultFragment : Fragment() {
             submitSortedList()
         }
         return true
+    }
+
+    override fun onSaveInstanceState(outState: Bundle) {
+        outState.putInt(OUTSTATE_SORT, sortArg)
+        super.onSaveInstanceState(outState)
+    }
+
+    override fun onViewStateRestored(savedInstanceState: Bundle?) {
+        sortArg =
+            savedInstanceState?.getInt(OUTSTATE_SORT) ?: Constants.SORT_BY_PACKAGE_NAME
+        super.onViewStateRestored(savedInstanceState)
     }
 }
