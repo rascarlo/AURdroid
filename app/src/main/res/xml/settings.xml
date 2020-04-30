@@ -15,6 +15,7 @@
             app:entries="@array/key_theme_entries"
             app:entryValues="@array/key_theme_entry_values"
             app:key="@string/key_theme"
+            app:negativeButtonText=""
             app:summary="%s"
             app:title="@string/theme"
             tools:summary="@string/theme_night" />
@@ -27,6 +28,7 @@
             app:entries="@array/key_search_by_entries"
             app:entryValues="@array/key_search_by_entry_values"
             app:key="@string/key_field"
+            app:negativeButtonText=""
             app:title="@string/search"
             app:useSimpleSummaryProvider="true"
             tools:summary="@string/name_or_description" />
@@ -36,6 +38,7 @@
             app:entries="@array/key_sort_entries"
             app:entryValues="@array/key_sort_entry_values"
             app:key="@string/key_sort"
+            app:negativeButtonText=""
             app:summary="%s"
             app:title="@string/sort"
             tools:summary="@string/package_name" />
