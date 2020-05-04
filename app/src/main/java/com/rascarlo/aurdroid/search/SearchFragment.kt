@@ -6,7 +6,6 @@ import android.os.Bundle
 import android.view.*
 import android.view.inputmethod.EditorInfo
 import android.view.inputmethod.InputMethodManager
-import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.navigation.findNavController
 import androidx.navigation.fragment.findNavController
@@ -69,11 +68,7 @@ class SearchFragment : Fragment() {
                         )
                 } else {
                     val hint = v.context.resources.getString(R.string.keywords_hint)
-                    Toast.makeText(
-                        v.context,
-                        hint.substringBefore(delimiter = ".", missingDelimiterValue = hint),
-                        Toast.LENGTH_SHORT
-                    ).show()
+                    v.error = hint.substringBefore(delimiter = ".", missingDelimiterValue = hint)
                 }
             }
             val inputMethodManager =
