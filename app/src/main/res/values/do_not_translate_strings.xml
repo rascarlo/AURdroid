@@ -39,4 +39,8 @@
     <string name="key_sort_by_last_updated" translatable="false">key_sort_by_last_updated</string>
     <string name="key_sort_by_first_submitted" translatable="false">key_sort_by_first_submitted</string>
 
+    <!--translations links-->
+    <string name="translation_italian_link" translatable="false">https://github.com/rascarlo</string>
+    <string name="translation_spanish_link" translatable="false">https://github.com/Mauville</string>
+    <string name="translation_portuguese_link" translatable="false">https://github.com/rffontenelle</string>
 </resources>

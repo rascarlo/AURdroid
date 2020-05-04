@@ -79,4 +79,35 @@
 
     </PreferenceCategory>
 
+    <PreferenceCategory app:title="@string/translations">
+
+        <!--italian-->
+        <Preference
+            app:summary="@string/translation_italian_link"
+            app:title="@string/translation_italian">
+            <intent
+                android:action="android.intent.action.VIEW"
+                android:data="@string/translation_italian_link" />
+        </Preference>
+
+        <!--portuguese, brazil-->
+        <Preference
+            app:summary="@string/translation_portuguese_link"
+            app:title="@string/translation_portuguese">
+            <intent
+                android:action="android.intent.action.VIEW"
+                android:data="@string/translation_portuguese_link" />
+        </Preference>
+
+        <!--spanish-->
+        <Preference
+            app:summary="@string/translation_spanish_link"
+            app:title="@string/translation_spanish">
+            <intent
+                android:action="android.intent.action.VIEW"
+                android:data="@string/translation_spanish_link" />
+        </Preference>
+
+    </PreferenceCategory>
+
 </PreferenceScreen>

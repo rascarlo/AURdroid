@@ -69,4 +69,8 @@
         <item quantity="one">%d pacote encontrado para %s</item>
         <item quantity="other">%d pacotes encontrados para %s</item>
     </plurals>
+    <string name="translations">Traduções</string>
+    <string name="translation_italian">Italiano</string>
+    <string name="translation_spanish">Espanhol</string>
+    <string name="translation_portuguese">Português, Brasil</string>
 </resources>

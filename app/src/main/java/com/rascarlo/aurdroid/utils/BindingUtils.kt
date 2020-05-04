@@ -10,7 +10,6 @@ import androidx.recyclerview.widget.RecyclerView
 import com.rascarlo.aurdroid.R
 import com.rascarlo.aurdroid.infoResult.DependencyAdapter
 import com.rascarlo.aurdroid.network.AurDroidApiStatus
-import com.rascarlo.aurdroid.network.SearchResult
 import java.util.*
 
 @BindingAdapter("bindName")
