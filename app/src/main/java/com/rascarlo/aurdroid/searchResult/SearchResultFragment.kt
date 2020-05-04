@@ -1,7 +1,6 @@
 package com.rascarlo.aurdroid.searchResult
 
 import android.os.Bundle
-import android.os.Handler
 import android.view.*
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
@@ -11,6 +10,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.rascarlo.aurdroid.R
 import com.rascarlo.aurdroid.databinding.FragmentSearchResultBinding
 import com.rascarlo.aurdroid.utils.*
+import kotlinx.coroutines.*
 import timber.log.Timber
 
 class SearchResultFragment : Fragment() {
@@ -108,9 +108,12 @@ class SearchResultFragment : Fragment() {
     private fun submitSortedList() {
         binding.viewModel?.sortList(sortArg)
         adapter.notifyItemRangeChanged(0, adapter.itemCount)
-        Handler().postDelayed({
-            binding.fragmentSearchResultRecyclerView.scrollToPosition(0)
-        }, 500)
+        GlobalScope.launch {
+            withContext(Dispatchers.Main) {
+                delay(500)
+                binding.fragmentSearchResultRecyclerView.scrollToPosition(0)
+            }
+        }
     }
 
     override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
