@@ -21,4 +21,9 @@
         <item name="android:textStyle">bold</item>
     </style>
 
+    <style name="Chip" parent="Widget.MaterialComponents.Chip.Choice">
+        <item name="checkedIconVisible">true</item>
+        <item name="chipBackgroundColor">@color/selected_chip_highlight</item>
+    </style>
+
 </resources>

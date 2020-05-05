@@ -79,23 +79,23 @@ class SearchFragment : Fragment() {
     }
 
     /**
-     * init field radio group
+     * init field chip group
      */
     private fun setField() {
-        binding.fragmentSearchFieldLayout.fieldRadioGroup.apply {
+        binding.fragmentSearchFieldLayout.fieldChipGroup.apply {
             val preferenceField = sharedPreferences.getString(
                 getString(R.string.key_field),
                 getString(R.string.key_field_default_value)
             )
             when (preferenceField) {
-                getString(R.string.key_field_name_or_description) -> check(R.id.field_radio_button_name_or_description)
-                getString(R.string.key_field_name) -> check(R.id.field_radio_button_name)
-                getString(R.string.key_field_maintainer) -> check(R.id.field_radio_button_maintainer)
-                getString(R.string.key_field_depends) -> check(R.id.field_radio_button_depends)
-                getString(R.string.key_field_maintainer) -> check(R.id.field_radio_button_make_depends)
-                getString(R.string.key_field_opt_depends) -> check(R.id.field_radio_button_opt_depends)
-                getString(R.string.key_field_check_depends) -> check(R.id.field_radio_button_check_depends)
-                else -> check(R.id.field_radio_button_name_or_description)
+                getString(R.string.key_field_name_or_description) -> check(R.id.field_chip_name_or_description)
+                getString(R.string.key_field_name) -> check(R.id.field_chip_name)
+                getString(R.string.key_field_maintainer) -> check(R.id.field_chip_maintainer)
+                getString(R.string.key_field_depends) -> check(R.id.field_chip_depends)
+                getString(R.string.key_field_maintainer) -> check(R.id.field_chip_make_depends)
+                getString(R.string.key_field_opt_depends) -> check(R.id.field_chip_opt_depends)
+                getString(R.string.key_field_check_depends) -> check(R.id.field_chip_check_depends)
+                else -> check(R.id.field_chip_name_or_description)
             }
         }
     }
@@ -110,11 +110,13 @@ class SearchFragment : Fragment() {
                 getString(R.string.key_sort_default_value)
             )
             when (preferenceSort) {
-                getString(R.string.key_sort_by_package_name) -> check(R.id.sort_radio_button_package_name)
-                getString(R.string.key_sort_by_votes) -> check(R.id.sort_radio_button_votes)
-                getString(R.string.key_sort_by_popularity) -> check(R.id.sort_radio_button_popularity)
-                getString(R.string.key_sort_by_last_updated) -> check(R.id.sort_radio_button_last_updated)
-                getString(R.string.key_sort_by_first_submitted) -> check(R.id.sort_radio_button_first_submitted)
+                getString(R.string.key_field_name_or_description) -> check(R.id.field_chip_name_or_description)
+                getString(R.string.key_field_name) -> check(R.id.field_chip_name)
+                getString(R.string.key_field_maintainer) -> check(R.id.field_chip_maintainer)
+                getString(R.string.key_field_depends) -> check(R.id.field_chip_depends)
+                getString(R.string.key_field_make_depends) -> check(R.id.field_chip_make_depends)
+                getString(R.string.key_field_opt_depends) -> check(R.id.field_chip_opt_depends)
+                getString(R.string.key_field_check_depends) -> check(R.id.field_chip_check_depends)
             }
         }
     }
@@ -133,14 +135,14 @@ class SearchFragment : Fragment() {
      */
     private fun getField(): String {
         binding.apply {
-            return when (fragmentSearchFieldLayout.fieldRadioGroup.checkedRadioButtonId) {
-                R.id.field_radio_button_name_or_description -> Constants.SEARCH_FIELD_NAME_OR_DESCRIPTION
-                R.id.field_radio_button_name -> Constants.SEARCH_FIELD_NAME
-                R.id.field_radio_button_maintainer -> Constants.SEARCH_FIELD_MAINTAINER
-                R.id.field_radio_button_depends -> Constants.SEARCH_FIELD_DEPENDS
-                R.id.field_radio_button_make_depends -> Constants.SEARCH_FIELD_MAKE_DEPENDS
-                R.id.field_radio_button_opt_depends -> Constants.SEARCH_FIELD_OPT_DEPENDS
-                R.id.field_radio_button_check_depends -> Constants.SEARCH_FIELD_CHECK_DEPENDS
+            return when (fragmentSearchFieldLayout.fieldChipGroup.checkedChipId) {
+                R.id.field_chip_name_or_description -> Constants.SEARCH_FIELD_NAME_OR_DESCRIPTION
+                R.id.field_chip_name -> Constants.SEARCH_FIELD_NAME
+                R.id.field_chip_maintainer -> Constants.SEARCH_FIELD_MAINTAINER
+                R.id.field_chip_depends -> Constants.SEARCH_FIELD_DEPENDS
+                R.id.field_chip_make_depends -> Constants.SEARCH_FIELD_MAKE_DEPENDS
+                R.id.field_chip_opt_depends -> Constants.SEARCH_FIELD_OPT_DEPENDS
+                R.id.field_chip_check_depends -> Constants.SEARCH_FIELD_CHECK_DEPENDS
                 else -> Constants.SEARCH_FIELD_NAME_OR_DESCRIPTION
             }
         }

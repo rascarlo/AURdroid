@@ -16,59 +16,67 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
-        <RadioGroup
-            android:id="@+id/field_radio_group"
+        <com.google.android.material.chip.ChipGroup
+            android:id="@+id/field_chip_group"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
-            android:orientation="vertical"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/field_label_text_view">
+            app:layout_constraintTop_toBottomOf="@id/field_label_text_view"
+            app:singleLine="false"
+            app:singleSelection="true">
 
-            <com.google.android.material.radiobutton.MaterialRadioButton
-                android:id="@+id/field_radio_button_name_or_description"
-                android:layout_width="match_parent"
+            <com.google.android.material.chip.Chip
+                android:id="@+id/field_chip_name_or_description"
+                style="@style/Chip"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/name_or_description" />
 
-            <com.google.android.material.radiobutton.MaterialRadioButton
-                android:id="@+id/field_radio_button_name"
-                android:layout_width="match_parent"
+            <com.google.android.material.chip.Chip
+                android:id="@+id/field_chip_name"
+                style="@style/Chip"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/name" />
 
-            <com.google.android.material.radiobutton.MaterialRadioButton
-                android:id="@+id/field_radio_button_maintainer"
-                android:layout_width="match_parent"
+            <com.google.android.material.chip.Chip
+                android:id="@+id/field_chip_maintainer"
+                style="@style/Chip"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/maintainer" />
 
-            <com.google.android.material.radiobutton.MaterialRadioButton
-                android:id="@+id/field_radio_button_depends"
-                android:layout_width="match_parent"
+            <com.google.android.material.chip.Chip
+                android:id="@+id/field_chip_depends"
+                style="@style/Chip"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/depends" />
 
-            <com.google.android.material.radiobutton.MaterialRadioButton
-                android:id="@+id/field_radio_button_make_depends"
-                android:layout_width="match_parent"
+            <com.google.android.material.chip.Chip
+                android:id="@+id/field_chip_make_depends"
+                style="@style/Chip"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/make_depends" />
 
-            <com.google.android.material.radiobutton.MaterialRadioButton
-                android:id="@+id/field_radio_button_opt_depends"
-                android:layout_width="match_parent"
+            <com.google.android.material.chip.Chip
+                android:id="@+id/field_chip_opt_depends"
+                style="@style/Chip"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/opt_depends" />
 
-            <com.google.android.material.radiobutton.MaterialRadioButton
-                android:id="@+id/field_radio_button_check_depends"
-                android:layout_width="match_parent"
+            <com.google.android.material.chip.Chip
+                android:id="@+id/field_chip_check_depends"
+                style="@style/Chip"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/check_depends" />
 
-        </RadioGroup>
+        </com.google.android.material.chip.ChipGroup>
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
