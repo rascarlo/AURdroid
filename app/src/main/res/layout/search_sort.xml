@@ -16,8 +16,8 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
-        <RadioGroup
-            android:id="@+id/search_sort_radio_group"
+        <com.google.android.material.chip.ChipGroup
+            android:id="@+id/search_sort_chip_group"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
@@ -25,37 +25,42 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/search_sort_label_text_view">
 
-            <com.google.android.material.radiobutton.MaterialRadioButton
-                android:id="@+id/sort_radio_button_package_name"
-                android:layout_width="match_parent"
+            <com.google.android.material.chip.Chip
+                android:id="@+id/sort_chip_package_name"
+                style="@style/Chip"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/package_name" />
 
-            <com.google.android.material.radiobutton.MaterialRadioButton
-                android:id="@+id/sort_radio_button_votes"
-                android:layout_width="match_parent"
+            <com.google.android.material.chip.Chip
+                android:id="@+id/sort_chip_votes"
+                style="@style/Chip"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/votes" />
 
-            <com.google.android.material.radiobutton.MaterialRadioButton
-                android:id="@+id/sort_radio_button_popularity"
-                android:layout_width="match_parent"
+            <com.google.android.material.chip.Chip
+                android:id="@+id/sort_chip_popularity"
+                style="@style/Chip"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/popularity" />
 
-            <com.google.android.material.radiobutton.MaterialRadioButton
-                android:id="@+id/sort_radio_button_last_updated"
-                android:layout_width="match_parent"
+            <com.google.android.material.chip.Chip
+                android:id="@+id/sort_chip_last_updated"
+                style="@style/Chip"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/last_updated" />
 
-            <com.google.android.material.radiobutton.MaterialRadioButton
-                android:id="@+id/sort_radio_button_first_submitted"
-                android:layout_width="match_parent"
+            <com.google.android.material.chip.Chip
+                android:id="@+id/sort_chip_first_submitted"
+                style="@style/Chip"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/first_submitted" />
 
-        </RadioGroup>
+        </com.google.android.material.chip.ChipGroup>
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

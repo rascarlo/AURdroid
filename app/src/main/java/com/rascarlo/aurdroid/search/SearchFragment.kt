@@ -101,22 +101,21 @@ class SearchFragment : Fragment() {
     }
 
     /**
-     * init sort radio group
+     * init sort chip group
      */
     private fun setSort() {
-        binding.fragmentSearchSortLayout.searchSortRadioGroup.apply {
+        binding.fragmentSearchSortLayout.searchSortChipGroup.apply {
             val preferenceSort = sharedPreferences.getString(
                 getString(R.string.key_sort),
                 getString(R.string.key_sort_default_value)
             )
             when (preferenceSort) {
-                getString(R.string.key_field_name_or_description) -> check(R.id.field_chip_name_or_description)
-                getString(R.string.key_field_name) -> check(R.id.field_chip_name)
-                getString(R.string.key_field_maintainer) -> check(R.id.field_chip_maintainer)
-                getString(R.string.key_field_depends) -> check(R.id.field_chip_depends)
-                getString(R.string.key_field_make_depends) -> check(R.id.field_chip_make_depends)
-                getString(R.string.key_field_opt_depends) -> check(R.id.field_chip_opt_depends)
-                getString(R.string.key_field_check_depends) -> check(R.id.field_chip_check_depends)
+                getString(R.string.key_sort_by_package_name) -> check(R.id.sort_chip_package_name)
+                getString(R.string.key_sort_by_votes) -> check(R.id.sort_chip_votes)
+                getString(R.string.key_sort_by_popularity) -> check(R.id.sort_chip_popularity)
+                getString(R.string.key_sort_by_last_updated) -> check(R.id.sort_chip_last_updated)
+                getString(R.string.key_sort_by_first_submitted) -> check(R.id.sort_chip_first_submitted)
+                else -> check(R.id.sort_chip_package_name)
             }
         }
     }
@@ -160,12 +159,12 @@ class SearchFragment : Fragment() {
      */
     private fun getSort(): Int {
         binding.apply {
-            return when (fragmentSearchSortLayout.searchSortRadioGroup.checkedRadioButtonId) {
-                R.id.sort_radio_button_package_name -> Constants.SORT_BY_PACKAGE_NAME
-                R.id.sort_radio_button_votes -> Constants.SORT_BY_VOTES
-                R.id.sort_radio_button_popularity -> Constants.SORT_BY_POPULARITY
-                R.id.sort_radio_button_last_updated -> Constants.SORT_BY_LAST_UPDATED
-                R.id.sort_radio_button_first_submitted -> Constants.SORT_BY_FIRST_SUBMITTED
+            return when (fragmentSearchSortLayout.searchSortChipGroup.checkedChipId) {
+                R.id.sort_chip_package_name -> Constants.SORT_BY_PACKAGE_NAME
+                R.id.sort_chip_votes -> Constants.SORT_BY_VOTES
+                R.id.sort_chip_popularity -> Constants.SORT_BY_POPULARITY
+                R.id.sort_chip_last_updated -> Constants.SORT_BY_LAST_UPDATED
+                R.id.sort_chip_first_submitted -> Constants.SORT_BY_FIRST_SUBMITTED
                 else -> Constants.SORT_BY_PACKAGE_NAME
             }
         }
