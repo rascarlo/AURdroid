@@ -126,7 +126,7 @@ fun TextView.bindPopularity(double: Double?) = double.let {
 @BindingAdapter("bindMaintainer")
 fun TextView.bindMaintainer(string: String?) = when (string) {
     null -> {
-        setTextColor(ContextCompat.getColor(context, R.color.text_alert_red))
+        setTextColor(ContextCompat.getColor(context, R.color.red_alert))
         text = resources.getString(
             R.string.formatted_maintainer,
             (resources.getString(R.string.orphan).toLowerCase(
@@ -135,7 +135,7 @@ fun TextView.bindMaintainer(string: String?) = when (string) {
         )
     }
     else -> {
-        setTextColor(ContextCompat.getColor(context, R.color.day_night_text_color))
+        setTextColor(ContextCompat.getColor(context, R.color.primaryTextColor))
         string.let {
             text =
                 resources.getString(
@@ -156,7 +156,7 @@ fun bindAurDroidApiStatusImageView(imageView: ImageView, status: AurDroidApiStat
     when (status) {
         AurDroidApiStatus.ERROR -> {
             imageView.visibility = View.VISIBLE
-            imageView.setImageResource(R.drawable.ic_error_outline_red_24dp)
+            imageView.setImageResource(R.drawable.ic_error_outline_red_alert_24dp)
         }
         AurDroidApiStatus.LOADING -> {
             imageView.visibility = View.GONE
@@ -166,11 +166,11 @@ fun bindAurDroidApiStatusImageView(imageView: ImageView, status: AurDroidApiStat
         }
         AurDroidApiStatus.NO_PACKAGE_FOUND -> {
             imageView.visibility = View.VISIBLE
-            imageView.setImageResource(R.drawable.ic_sentiment_very_dissatisfied_red_24dp)
+            imageView.setImageResource(R.drawable.ic_sentiment_very_dissatisfied_red_alert_24dp)
         }
         AurDroidApiStatus.RETURN_TYPE_ERROR -> {
             imageView.visibility = View.VISIBLE
-            imageView.setImageResource(R.drawable.ic_sentiment_very_dissatisfied_red_24dp)
+            imageView.setImageResource(R.drawable.ic_sentiment_very_dissatisfied_red_alert_24dp)
         }
     }
 }

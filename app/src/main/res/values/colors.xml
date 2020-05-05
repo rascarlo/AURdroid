@@ -1,22 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <!-- grey -->
-    <color name="grey_300">#E0E0E0</color>
-    <color name="grey_500">#9E9E9E</color>
-    <color name="grey_900">#212121</color>
-    <!-- blue -->
-    <color name="blue_A200">#448AFF</color>
-    <color name="blue_A400">#2979FF</color>
-    <color name="blue_A700">#2962FF</color>
-    <!--red-->
-    <color name="red_500">#F44336</color>
-    <!--reference-->
-    <color name="text_alert_red">@color/red_500</color>
-    <color name="ruler_divider">@color/grey_500</color>
-    <!--attr-->
-    <color name="colorPrimary">@color/grey_900</color>
-    <color name="colorPrimaryVariant">@android:color/black</color>
-    <color name="colorSecondary">@color/blue_A200</color>
-    <color name="colorSecondaryVariant">@color/blue_A400</color>
-    <color name="day_night_text_color">@android:color/primary_text_dark</color>
+    <color name="primaryColor">#212121</color>
+    <color name="primaryLightColor">#484848</color>
+    <color name="primaryDarkColor">#000000</color>
+    <color name="secondaryColor">#448aff</color>
+    <color name="secondaryLightColor">#83b9ff</color>
+    <color name="secondaryDarkColor">#005ecb</color>
+    <color name="primaryTextColor">#ffffff</color>
+    <color name="secondaryTextColor">#000000</color>
+    <color name="red_alert">#d32f2f</color>
+    <color name="ruler_divider">#9e9e9e</color>
 </resources>

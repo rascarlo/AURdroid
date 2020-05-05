@@ -12,7 +12,7 @@
             android:layout_height="wrap_content"
             android:text="@string/sort"
             android:textAppearance="@style/TextAppearance.MaterialComponents.Headline6"
-            android:textColor="@color/colorSecondary"
+            android:textColor="?colorSecondary"
             android:textStyle="bold"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"

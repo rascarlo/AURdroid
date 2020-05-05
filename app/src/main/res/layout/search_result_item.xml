@@ -107,7 +107,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/text_view_spacing_small"
                 android:textAppearance="@style/TextAppearance.MaterialComponents.Body1"
-                android:textColor="@color/text_alert_red"
+                android:textColor="@color/red_alert"
                 app:bindOutOfDate="@{searchResult.outOfDate}"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
