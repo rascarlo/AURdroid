@@ -5,9 +5,9 @@
     <string name="something_went_wrong">Algo salió mal. Por favor inténtalo de nuevo.</string>
     <string name="retrofit_something_went_wrong">Algo salió mal. Asegúrate de tener una conexión a Internet e inténtalo de nuevo.</string>
     <string name="keywords">Palabras clave</string>
-    <string name="keywords_hint">Search queries must be at least two characters long.
-        \nSearches will fail if they contain 5000 or more results.
-        \nThe API rate is limited to a maximum of 4000 requests per day per IP.
+    <string name="keywords_hint">La búsqueda debe de tener por lo menos dos caracteres.
+        \nLas búsquedas fallarán si arrojan mas de 5000 resultados.
+        \nLa cuota diaria del API está limitada a 4000 requests por IP.
     </string>
     <string name="package_search">Búsqueda de paquetes</string>
     <string name="search">Buscar</string>
@@ -50,24 +50,24 @@
     <string name="share">Compartir</string>
     <string name="design">Diseño</string>
     <string name="theme">Tema</string>
-    <string name="theme_night">Night</string>
-    <string name="theme_follow_system">System default</string>
-    <string name="theme_day">Day</string>
+    <string name="theme_night">Noche</string>
+    <string name="theme_follow_system">Default</string>
+    <string name="theme_day">Dia</string>
     <string name="i_use_arch_btw">Por cierto, uso Arch</string>
     <string name="links">Links</string>
     <string name="source">Fuente</string>
-    <string name="orphan">Orphan</string>
-    <string name="no_package_found">No package found</string>
+    <string name="orphan">Huérfano</string>
+    <string name="no_package_found">No se encontró el paquete</string>
     <string name="pkgbuild">PKGBUILD</string>
     <string name="changes">Cambios</string>
     <string name="aur_package">Paquete AUR</string>
     <string name="upstream_url">Upstream URL</string>
     <string name="git_clone_url">Git Clone URL</string>
     <string name="snapshot">Snapshot</string>
-    <string name="download_snapshot">Download snapshot</string>
+    <string name="download_snapshot">Descargar snapshot</string>
     <plurals name="plurals_formatted_package_found">
-        <item quantity="one">%d package found for %s</item>
-        <item quantity="other">%d packages found for %s</item>
+        <item quantity="one">Se encontraron %d paquetes para %d</item>
+        <item quantity="other">Se encontraron %d paquetes para %d</item>
     </plurals>
     <string name="translations">Traducciones</string>
     <string name="translation_italian">Italiano</string>
