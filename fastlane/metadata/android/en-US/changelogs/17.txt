@@ -1,0 +1,4 @@
+versionCode: 17
+versionName: 5.0.1
+- UI/UX edits
+- add Portuguese, Brazil translation
