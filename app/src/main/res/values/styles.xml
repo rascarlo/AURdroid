@@ -10,10 +10,15 @@
         <item name="colorSecondary">@color/secondaryColor</item>
         <item name="colorSecondaryVariant">@color/secondaryDarkColor</item>
         <item name="colorOnSecondary">@color/secondaryTextColor</item>
-        <item name="colorControlActivated">@color/secondaryLightColor</item>
         <item name="colorControlHighlight">@color/secondaryLightColor</item>
         <item name="fontFamily">@font/noto_sans</item>
         <item name="android:fontFamily">@font/noto_sans</item>
+    </style>
+
+    <style name="TextAppearanceHeadline6">
+        <item name="android:textAppearance">?textAppearanceHeadline6</item>
+        <item name="android:textColor">?colorSecondary</item>
+        <item name="android:textStyle">bold</item>
     </style>
 
 </resources>

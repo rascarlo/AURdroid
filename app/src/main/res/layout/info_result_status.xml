@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools">
 
     <data>
+
         <variable
             name="viewModel"
             type="com.rascarlo.aurdroid.infoResult.InfoResultViewModel" />
@@ -16,10 +17,10 @@
 
         <TextView
             android:id="@+id/fragment_info_result_status_text"
+            style="@style/TextAppearanceHeadline6"
             android:layout_width="0dp"
             android:layout_height="0dp"
             android:gravity="bottom|center_horizontal"
-            android:textAppearance="@style/TextAppearance.MaterialComponents.Headline6"
             app:bindAurDroidApiStatusTextView="@{viewModel.status}"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
@@ -29,10 +30,10 @@
 
         <TextView
             android:id="@+id/fragment_info_result_error_text"
+            style="@style/TextAppearanceHeadline6"
             android:layout_width="0dp"
             android:layout_height="0dp"
             android:gravity="bottom|center_horizontal"
-            android:textAppearance="@style/TextAppearance.MaterialComponents.Headline6"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
