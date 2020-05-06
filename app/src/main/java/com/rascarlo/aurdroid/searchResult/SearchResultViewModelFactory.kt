@@ -6,7 +6,7 @@ import androidx.lifecycle.ViewModelProvider
 class SearchResultViewModelFactory(
     private val keyword: String,
     private val field: String,
-    private val sort: Int
+    private val sort: String
 ) :
     ViewModelProvider.Factory {
     override fun <T : ViewModel?> create(modelClass: Class<T>): T {

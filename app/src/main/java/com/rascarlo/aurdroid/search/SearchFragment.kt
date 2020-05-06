@@ -13,7 +13,8 @@ import androidx.preference.PreferenceManager
 import com.rascarlo.aurdroid.R
 import com.rascarlo.aurdroid.databinding.FragmentSearchBinding
 import com.rascarlo.aurdroid.searchResult.SearchResultFragment
-import com.rascarlo.aurdroid.utils.Constants
+import com.rascarlo.aurdroid.utils.FieldEnum
+import com.rascarlo.aurdroid.utils.SortEnum
 import timber.log.Timber
 
 class SearchFragment : Fragment() {
@@ -122,50 +123,51 @@ class SearchFragment : Fragment() {
 
     /**
      * @return any from
-     * [Constants.SEARCH_FIELD_NAME_OR_DESCRIPTION]
-     * [Constants.SEARCH_FIELD_NAME]
-     * [Constants.SEARCH_FIELD_MAINTAINER]
-     * [Constants.SEARCH_FIELD_DEPENDS]
-     * [Constants.SEARCH_FIELD_MAKE_DEPENDS]
-     * [Constants.SEARCH_FIELD_OPT_DEPENDS]
-     * [Constants.SEARCH_FIELD_CHECK_DEPENDS]
+     * [FieldEnum.NAME_OR_DESCRIPTION]
+     * [FieldEnum.NAME]
+     * [FieldEnum.MAINTAINER]
+     * [FieldEnum.DEPENDS]
+     * [FieldEnum.MAKE_DEPENDS]
+     * [FieldEnum.OPT_DEPENDS]
+     * [FieldEnum.CHECK_DEPENDS]
      *
-     * default to [Constants.SEARCH_FIELD_NAME_OR_DESCRIPTION]
+     * default to [FieldEnum.NAME_OR_DESCRIPTION]
      */
     private fun getField(): String {
         binding.apply {
             return when (fragmentSearchFieldLayout.fieldChipGroup.checkedChipId) {
-                R.id.field_chip_name_or_description -> Constants.SEARCH_FIELD_NAME_OR_DESCRIPTION
-                R.id.field_chip_name -> Constants.SEARCH_FIELD_NAME
-                R.id.field_chip_maintainer -> Constants.SEARCH_FIELD_MAINTAINER
-                R.id.field_chip_depends -> Constants.SEARCH_FIELD_DEPENDS
-                R.id.field_chip_make_depends -> Constants.SEARCH_FIELD_MAKE_DEPENDS
-                R.id.field_chip_opt_depends -> Constants.SEARCH_FIELD_OPT_DEPENDS
-                R.id.field_chip_check_depends -> Constants.SEARCH_FIELD_CHECK_DEPENDS
-                else -> Constants.SEARCH_FIELD_NAME_OR_DESCRIPTION
+                R.id.field_chip_name_or_description -> FieldEnum.NAME_OR_DESCRIPTION.toString()
+                R.id.field_chip_name -> FieldEnum.NAME.toString()
+                R.id.field_chip_maintainer -> FieldEnum.MAINTAINER.toString()
+                R.id.field_chip_depends -> FieldEnum.DEPENDS.toString()
+                R.id.field_chip_make_depends -> FieldEnum.MAKE_DEPENDS.toString()
+                R.id.field_chip_opt_depends -> FieldEnum.OPT_DEPENDS.toString()
+                R.id.field_chip_check_depends -> FieldEnum.CHECK_DEPENDS.toString()
+                else -> FieldEnum.NAME_OR_DESCRIPTION.toString()
             }
         }
     }
 
     /**
      * @return any from
-     * [Constants.SORT_BY_PACKAGE_NAME]
-     * [Constants.SORT_BY_VOTES]
-     * [Constants.SORT_BY_POPULARITY]
-     * [Constants.SORT_BY_LAST_UPDATED]
-     * [Constants.SORT_BY_FIRST_SUBMITTED]
+     * [SortEnum.PACKAGE_NAME]
+     * [SortEnum.VOTES]
+     * [SortEnum.POPULARITY]
+     * [SortEnum.LAST_UPDATED]
+     * [SortEnum.FIRST_SUBMITTED]
+     * [SortEnum.PACKAGE_NAME]
      *
-     * default to [Constants.SORT_BY_PACKAGE_NAME]
+     * default to [SortEnum.PACKAGE_NAME]
      */
-    private fun getSort(): Int {
+    private fun getSort(): String {
         binding.apply {
             return when (fragmentSearchSortLayout.searchSortChipGroup.checkedChipId) {
-                R.id.sort_chip_package_name -> Constants.SORT_BY_PACKAGE_NAME
-                R.id.sort_chip_votes -> Constants.SORT_BY_VOTES
-                R.id.sort_chip_popularity -> Constants.SORT_BY_POPULARITY
-                R.id.sort_chip_last_updated -> Constants.SORT_BY_LAST_UPDATED
-                R.id.sort_chip_first_submitted -> Constants.SORT_BY_FIRST_SUBMITTED
-                else -> Constants.SORT_BY_PACKAGE_NAME
+                R.id.sort_chip_package_name -> SortEnum.PACKAGE_NAME.toString()
+                R.id.sort_chip_votes -> SortEnum.VOTES.toString()
+                R.id.sort_chip_popularity -> SortEnum.POPULARITY.toString()
+                R.id.sort_chip_last_updated -> SortEnum.LAST_UPDATED.toString()
+                R.id.sort_chip_first_submitted -> SortEnum.FIRST_SUBMITTED.toString()
+                else -> SortEnum.PACKAGE_NAME.toString()
             }
         }
     }

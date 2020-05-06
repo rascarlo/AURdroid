@@ -7,13 +7,13 @@ import androidx.lifecycle.viewModelScope
 import com.rascarlo.aurdroid.network.AurDroidApiStatus
 import com.rascarlo.aurdroid.network.AurWebApi
 import com.rascarlo.aurdroid.network.SearchResult
-import com.rascarlo.aurdroid.utils.Constants
+import com.rascarlo.aurdroid.utils.ReturnTypeEnum
 import com.rascarlo.aurdroid.utils.sortSearchResultList
 import kotlinx.coroutines.cancel
 import kotlinx.coroutines.launch
 import timber.log.Timber
 
-class SearchResultViewModel(field: String, keyword: String, sort: Int) : ViewModel() {
+class SearchResultViewModel(field: String, keyword: String, sort: String) : ViewModel() {
 
     // internal mutable LiveData for the error of the most recent request
     private val _error = MutableLiveData<String>()
@@ -47,7 +47,7 @@ class SearchResultViewModel(field: String, keyword: String, sort: Int) : ViewMod
         getPackages(field, keyword, sort)
     }
 
-    private fun getPackages(field: String, keyword: String, sort: Int) {
+    private fun getPackages(field: String, keyword: String, sort: String) {
         viewModelScope.launch {
             val response = AurWebApi.retrofitService.getPackages(
                 field = field,
@@ -57,7 +57,7 @@ class SearchResultViewModel(field: String, keyword: String, sort: Int) : ViewMod
                 _status.value = AurDroidApiStatus.LOADING
                 when (response.type) {
                     // response successful, type search
-                    Constants.RETURN_TYPE_SEARCH -> {
+                    ReturnTypeEnum.SEARCH.toString() -> {
                         if (response.resultCount != null && response.resultCount > 0
                             && response.results != null && response.results.isNotEmpty()
                         ) {
@@ -71,7 +71,7 @@ class SearchResultViewModel(field: String, keyword: String, sort: Int) : ViewMod
                         }
                     }
                     // response successful, type error
-                    Constants.RETURN_TYPE_ERROR -> {
+                    ReturnTypeEnum.ERROR.toString() -> {
                         _searchResultList.value = null
                         _status.value = AurDroidApiStatus.RETURN_TYPE_ERROR
                         _error.value = response.error
@@ -91,7 +91,7 @@ class SearchResultViewModel(field: String, keyword: String, sort: Int) : ViewMod
         }
     }
 
-    fun sortList(sort: Int) {
+    fun sortList(sort: String) {
         _searchResultList.value = (_searchResultList.value?.let { sortSearchResultList(it, sort) })
     }
 

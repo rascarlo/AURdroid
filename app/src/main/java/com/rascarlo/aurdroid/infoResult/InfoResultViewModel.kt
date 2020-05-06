@@ -7,7 +7,7 @@ import androidx.lifecycle.viewModelScope
 import com.rascarlo.aurdroid.network.AurDroidApiStatus
 import com.rascarlo.aurdroid.network.AurWebApi
 import com.rascarlo.aurdroid.network.InfoResult
-import com.rascarlo.aurdroid.utils.Constants
+import com.rascarlo.aurdroid.utils.ReturnTypeEnum
 import kotlinx.coroutines.cancel
 import kotlinx.coroutines.launch
 import timber.log.Timber
@@ -46,7 +46,7 @@ class InfoResultViewModel(name: String) : ViewModel() {
                 _status.value = AurDroidApiStatus.LOADING
                 when (response.type) {
                     // response successful, type multiinfo
-                    Constants.RETURN_TYPE_MULTIINFO -> {
+                    ReturnTypeEnum.MULTIINFO.toString() -> {
                         if (null != response.resultCount && response.resultCount >= 1
                             && null != response.results && response.results.isNotEmpty()
                         ) {
@@ -60,7 +60,7 @@ class InfoResultViewModel(name: String) : ViewModel() {
                         }
                     }
                     // response successful, type error
-                    Constants.RETURN_TYPE_ERROR -> {
+                    ReturnTypeEnum.ERROR.toString() -> {
                         _infoResult.value = null
                         _status.value = AurDroidApiStatus.ERROR
                         _error.value = response.error

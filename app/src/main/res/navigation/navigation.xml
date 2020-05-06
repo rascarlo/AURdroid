@@ -35,7 +35,7 @@
             app:argType="string" />
         <argument
             android:name="sort"
-            app:argType="integer" />
+            app:argType="string" />
         <action
             android:id="@+id/action_searchResultFragment_to_searchFragment"
             app:destination="@id/searchFragment"

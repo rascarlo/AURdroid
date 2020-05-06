@@ -179,7 +179,7 @@ class InfoResultFragment : Fragment() {
 
     private fun getViewPkgbuildUri(): Uri? = when {
         binding.infoResult?.packageBase != null
-        -> Uri.parse(Constants.AUR_PACKAGE_PKGBUILD_BASE_URL)
+        -> Uri.parse(Constants.PKGBUILD_BASE_URL)
             .buildUpon()
             .appendQueryParameter("h", binding.infoResult!!.packageBase)
             .build()
@@ -189,7 +189,7 @@ class InfoResultFragment : Fragment() {
     private fun getViewChangesUri(): Uri? {
         return when {
             binding.infoResult?.packageBase != null
-            -> Uri.parse(Constants.AUR_PACKAGE_LOG_BASE_URL)
+            -> Uri.parse(Constants.PACKAGE_LOG_BASE_URL)
                 .buildUpon()
                 .appendQueryParameter("h", binding.infoResult!!.packageBase)
                 .build()
@@ -203,7 +203,7 @@ class InfoResultFragment : Fragment() {
 
     private fun getUri(): Uri? = when {
         binding.infoResult?.name != null
-        -> Uri.parse(Constants.AUR_PACKAGES_BASE_URL)
+        -> Uri.parse(Constants.PACKAGES_BASE_URL)
             .buildUpon()
             .appendPath(binding.infoResult!!.name)
             .build()
@@ -212,7 +212,7 @@ class InfoResultFragment : Fragment() {
 
     private fun getSnapshotUri(): Uri? = when {
         binding.infoResult?.name != null
-        -> Uri.parse(Constants.AUR_PACKAGE_SNAPSHOT_BASE_URL)
+        -> Uri.parse(Constants.PACKAGE_SNAPSHOT_BASE_URL)
             .buildUpon()
             .appendPath(binding.infoResult!!.urlPath)
             .build()
@@ -225,7 +225,7 @@ class InfoResultFragment : Fragment() {
 
     private fun getGitCloneUrl(): Uri? = when {
         binding.infoResult?.name != null
-        -> Uri.parse(Constants.AUR_PACKAGES_GIT_CLONE_BASE_URL)
+        -> Uri.parse(Constants.PACKAGES_GIT_CLONE_BASE_URL)
             .buildUpon()
             .appendPath(binding.infoResult!!.name + ".git")
             .build()
@@ -259,8 +259,8 @@ class InfoResultFragment : Fragment() {
             InfoResultFragmentDirections
                 .actionInfoResultFragmentToSearchResultFragment(
                     getMaintainer()!!,
-                    Constants.SEARCH_FIELD_MAINTAINER,
-                    Constants.SORT_BY_PACKAGE_NAME
+                    FieldEnum.MAINTAINER.toString(),
+                    SortEnum.PACKAGE_NAME.toString()
                 )
         )
 

@@ -15,7 +15,7 @@ import timber.log.Timber
 
 class SearchResultFragment : Fragment() {
 
-    private var sortArg: Int = Constants.SORT_BY_PACKAGE_NAME
+    private var sortArg: String = SortEnum.PACKAGE_NAME.toString()
     private lateinit var binding: FragmentSearchResultBinding
     private lateinit var adapter: SearchResultAdapter
 
@@ -126,15 +126,15 @@ class SearchResultFragment : Fragment() {
             binding.viewModel?.searchResultList?.value != null
         menu.apply {
             when (sortArg) {
-                Constants.SORT_BY_PACKAGE_NAME
+                SortEnum.PACKAGE_NAME.toString()
                 -> findItem(R.id.menu_sort_by_package_name).isChecked = true
-                Constants.SORT_BY_VOTES
+                SortEnum.VOTES.toString()
                 -> findItem(R.id.menu_sort_by_votes).isChecked = true
-                Constants.SORT_BY_POPULARITY
+                SortEnum.POPULARITY.toString()
                 -> findItem(R.id.menu_sort_by_popularity).isChecked = true
-                Constants.SORT_BY_LAST_UPDATED
+                SortEnum.FIRST_SUBMITTED.toString()
                 -> findItem(R.id.menu_sort_by_last_update).isChecked = true
-                Constants.SORT_BY_FIRST_SUBMITTED
+                SortEnum.FIRST_SUBMITTED.toString()
                 -> findItem(R.id.menu_sort_by_first_submitted).isChecked = true
             }
         }
@@ -143,11 +143,11 @@ class SearchResultFragment : Fragment() {
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         val newSort = when (item.itemId) {
-            R.id.menu_sort_by_package_name -> Constants.SORT_BY_PACKAGE_NAME
-            R.id.menu_sort_by_votes -> Constants.SORT_BY_VOTES
-            R.id.menu_sort_by_popularity -> Constants.SORT_BY_POPULARITY
-            R.id.menu_sort_by_last_update -> Constants.SORT_BY_LAST_UPDATED
-            R.id.menu_sort_by_first_submitted -> Constants.SORT_BY_FIRST_SUBMITTED
+            R.id.menu_sort_by_package_name -> SortEnum.PACKAGE_NAME.toString()
+            R.id.menu_sort_by_votes -> SortEnum.VOTES.toString()
+            R.id.menu_sort_by_popularity -> SortEnum.POPULARITY.toString()
+            R.id.menu_sort_by_last_update -> SortEnum.LAST_UPDATED.toString()
+            R.id.menu_sort_by_first_submitted -> SortEnum.FIRST_SUBMITTED.toString()
             else -> sortArg
         }
         if (newSort != sortArg) {
@@ -158,13 +158,13 @@ class SearchResultFragment : Fragment() {
     }
 
     override fun onSaveInstanceState(outState: Bundle) {
-        outState.putInt(OUTSTATE_SORT, sortArg)
+        outState.putString(OUTSTATE_SORT, sortArg)
         super.onSaveInstanceState(outState)
     }
 
     override fun onViewStateRestored(savedInstanceState: Bundle?) {
         sortArg =
-            savedInstanceState?.getInt(OUTSTATE_SORT) ?: Constants.SORT_BY_PACKAGE_NAME
+            savedInstanceState?.getString(OUTSTATE_SORT) ?: SortEnum.PACKAGE_NAME.toString()
         super.onViewStateRestored(savedInstanceState)
     }
 }
