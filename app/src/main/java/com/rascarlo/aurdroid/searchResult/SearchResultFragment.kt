@@ -6,6 +6,7 @@ import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
+import androidx.navigation.fragment.navArgs
 import androidx.recyclerview.widget.RecyclerView
 import com.rascarlo.aurdroid.R
 import com.rascarlo.aurdroid.databinding.FragmentSearchResultBinding
@@ -15,6 +16,7 @@ import timber.log.Timber
 
 class SearchResultFragment : Fragment() {
 
+    private val args: SearchResultFragmentArgs by navArgs()
     private var sortArg: String = SortEnum.PACKAGE_NAME.toString()
     private lateinit var binding: FragmentSearchResultBinding
     private lateinit var adapter: SearchResultAdapter
@@ -28,9 +30,9 @@ class SearchResultFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         binding = FragmentSearchResultBinding.inflate(inflater)
-        val keywordArg: String = SearchResultFragmentArgs.fromBundle(requireArguments()).keyword
-        val fieldArg: String = SearchResultFragmentArgs.fromBundle(requireArguments()).field
-        sortArg = SearchResultFragmentArgs.fromBundle(requireArguments()).sort
+        val keywordArg: String = args.keyword
+        val fieldArg: String = args.field
+        sortArg = args.sort
         Timber.d("Keyword $keywordArg")
         Timber.d("Field $fieldArg")
         Timber.d("Sort $sortArg")

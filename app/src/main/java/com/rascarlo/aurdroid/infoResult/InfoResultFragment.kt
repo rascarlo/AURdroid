@@ -9,6 +9,7 @@ import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
+import androidx.navigation.fragment.navArgs
 import com.rascarlo.aurdroid.R
 import com.rascarlo.aurdroid.databinding.FragmentInfoResultBinding
 import com.rascarlo.aurdroid.utils.*
@@ -16,6 +17,7 @@ import timber.log.Timber
 
 class InfoResultFragment : Fragment() {
 
+    private val args: InfoResultFragmentArgs by navArgs()
     private lateinit var binding: FragmentInfoResultBinding
 
     override fun onCreateView(
@@ -25,7 +27,7 @@ class InfoResultFragment : Fragment() {
         // binding
         binding = FragmentInfoResultBinding.inflate(inflater)
         // arg
-        val nameArg: String = InfoResultFragmentArgs.fromBundle(requireArguments()).name
+        val nameArg: String = args.name
         Timber.d("name: $nameArg")
         // view model factory
         val viewModelFactory = InfoResultViewModelFactory(nameArg)
