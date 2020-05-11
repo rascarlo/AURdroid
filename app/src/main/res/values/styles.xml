@@ -24,6 +24,12 @@
     <style name="Chip" parent="Widget.MaterialComponents.Chip.Choice">
         <item name="checkedIconVisible">true</item>
         <item name="chipBackgroundColor">@color/selected_chip_highlight</item>
+        <item name="android:textAppearance">@style/ChipTextAppearance</item>
+    </style>
+
+    <style name="ChipTextAppearance" parent="TextAppearance.MaterialComponents.Chip">
+        <item name="fontFamily">@font/noto_sans</item>
+        <item name="android:fontFamily">@font/noto_sans</item>
     </style>
 
 </resources>
