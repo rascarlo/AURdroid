@@ -49,8 +49,10 @@ fun TextView.bindUpstreamUrl(string: String?) {
             R.string.formatted_upstream_url,
             string
         )
-        else -> resources.getString(R.string.not_available)
-            .toLowerCase(Locale.getDefault())
+        else -> resources.getString(
+            R.string.formatted_upstream_url,
+            resources.getString(R.string.not_available).toLowerCase(Locale.getDefault())
+        )
     }
 }
 
