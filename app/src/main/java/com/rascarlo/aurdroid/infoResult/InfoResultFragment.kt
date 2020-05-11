@@ -20,6 +20,11 @@ class InfoResultFragment : Fragment() {
     private val args: InfoResultFragmentArgs by navArgs()
     private lateinit var binding: FragmentInfoResultBinding
 
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        setHasOptionsMenu(true)
+    }
+
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -46,6 +51,8 @@ class InfoResultFragment : Fragment() {
                 assignAdapters()
                 // execute bindings
                 binding.executePendingBindings()
+                // invalidate options meu
+                activity?.invalidateOptionsMenu()
             } else {
                 binding.infoResult = null
             }
@@ -72,8 +79,6 @@ class InfoResultFragment : Fragment() {
                 it
             )
         })
-        // options menu
-        setHasOptionsMenu(true)
         // Inflate the layout for this fragment
         return binding.root
     }
@@ -117,14 +122,8 @@ class InfoResultFragment : Fragment() {
 
     override fun onPrepareOptionsMenu(menu: Menu) {
         menu.apply {
-            setGroupVisible(
-                R.id.menu_info_result_share,
-                null != binding.infoResult
-            )
-            setGroupVisible(
-                R.id.menu_info_result_main,
-                null != binding.infoResult
-            )
+            findItem(R.id.menu_info_result_share).isVisible = null != binding.infoResult
+            findItem(R.id.menu_info_result_main).isVisible = null != binding.infoResult
             // view pkgbuild
             findItem(R.id.menu_info_result_view_pkgbuild).isEnabled = null != getViewPkgbuildUri()
             // view changes

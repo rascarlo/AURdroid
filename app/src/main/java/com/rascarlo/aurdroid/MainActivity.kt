@@ -8,6 +8,7 @@ import android.view.MenuItem
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.app.AppCompatDelegate
 import androidx.preference.PreferenceManager
+import com.google.android.material.bottomappbar.BottomAppBar
 
 private lateinit var sharedPreferences: SharedPreferences
 
@@ -17,6 +18,8 @@ class MainActivity : AppCompatActivity(), SharedPreferences.OnSharedPreferenceCh
         sharedPreferences = PreferenceManager.getDefaultSharedPreferences(this)
         setAppTheme(false)
         setContentView(R.layout.activity_main)
+        val bottomAppBar = findViewById<BottomAppBar>(R.id.bottom_app_bar)
+        setSupportActionBar(bottomAppBar)
     }
 
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {

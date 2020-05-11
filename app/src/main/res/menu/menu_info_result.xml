@@ -1,8 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
-<menu xmlns:android="http://schemas.android.com/apk/res/android">
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
 
-    <item android:id="@+id/menu_info_result_share"
-        android:title="@string/share">
+    <item
+        android:id="@+id/menu_info_result_share"
+        android:icon="@drawable/ic_share_24dp"
+        android:title="@string/share"
+        app:showAsAction="ifRoom">
         <menu>
             <item
                 android:id="@+id/menu_info_result_share_pkgbuild"
@@ -26,24 +30,28 @@
 
     </item>
 
-    <group android:id="@+id/menu_info_result_main">
-
-        <item
-            android:id="@+id/menu_info_result_view_pkgbuild"
-            android:title="@string/view_pkgbuild" />
-        <item
-            android:id="@+id/menu_info_result_view_changes"
-            android:title="@string/view_changes" />
-        <item
-            android:id="@+id/menu_info_result_maintainer"
-            android:title="@string/maintainer" />
-        <item
-            android:id="@+id/menu_info_result_open_in_browser"
-            android:title="@string/open_in_browser" />
-        <item
-            android:id="@+id/menu_info_result_download_snapshot"
-            android:title="@string/download_snapshot" />
-
-    </group>
+    <item
+        android:id="@+id/menu_info_result_main"
+        android:icon="@drawable/ic_more_24dp"
+        android:title="@string/other_actions"
+        app:showAsAction="ifRoom">
+        <menu>
+            <item
+                android:id="@+id/menu_info_result_view_pkgbuild"
+                android:title="@string/view_pkgbuild" />
+            <item
+                android:id="@+id/menu_info_result_view_changes"
+                android:title="@string/view_changes" />
+            <item
+                android:id="@+id/menu_info_result_maintainer"
+                android:title="@string/maintainer" />
+            <item
+                android:id="@+id/menu_info_result_open_in_browser"
+                android:title="@string/open_in_browser" />
+            <item
+                android:id="@+id/menu_info_result_download_snapshot"
+                android:title="@string/download_snapshot" />
+        </menu>
+    </item>
 
 </menu>

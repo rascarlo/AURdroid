@@ -25,6 +25,11 @@ class SearchResultFragment : Fragment() {
         private const val OUTSTATE_SORT = "sort_outstate"
     }
 
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        setHasOptionsMenu(true)
+    }
+
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -56,6 +61,7 @@ class SearchResultFragment : Fragment() {
         // observe search result list view model
         viewModel.searchResultList.observe(viewLifecycleOwner, Observer {
             if (null != it) {
+                activity?.invalidateOptionsMenu()
                 adapter.submitList(it)
                 binding.fragmentSearchResultInfoTextView.text =
                     String.format(
@@ -101,8 +107,6 @@ class SearchResultFragment : Fragment() {
                 viewModel.displaySelectedPackageComplete()
             }
         })
-        // add options menu
-        setHasOptionsMenu(true)
         // inflate layout
         return binding.root
     }

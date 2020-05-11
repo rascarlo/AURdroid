@@ -1,9 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
-<menu xmlns:android="http://schemas.android.com/apk/res/android">
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
     <item
         android:id="@+id/menu_search_result_item_sort"
         android:title="@string/sort"
-        android:visible="false">
+        android:icon="@drawable/ic_sort_24dp"
+        android:visible="false"
+        app:showAsAction="ifRoom">
         <menu>
 
             <group android:checkableBehavior="single">
