@@ -1,0 +1,5 @@
+versionCode: 18
+versionName: 5.0.2
+- use bottom app bar
+- update libraries
+- update spanish translation
