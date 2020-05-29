@@ -138,7 +138,7 @@ class SearchResultFragment : Fragment() {
                 -> findItem(R.id.menu_sort_by_votes).isChecked = true
                 SortEnum.POPULARITY.toString()
                 -> findItem(R.id.menu_sort_by_popularity).isChecked = true
-                SortEnum.FIRST_SUBMITTED.toString()
+                SortEnum.LAST_UPDATED.toString()
                 -> findItem(R.id.menu_sort_by_last_update).isChecked = true
                 SortEnum.FIRST_SUBMITTED.toString()
                 -> findItem(R.id.menu_sort_by_first_submitted).isChecked = true
