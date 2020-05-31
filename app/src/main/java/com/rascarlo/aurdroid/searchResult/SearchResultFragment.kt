@@ -17,7 +17,7 @@ import timber.log.Timber
 class SearchResultFragment : Fragment() {
 
     private val args: SearchResultFragmentArgs by navArgs()
-    private var sortArg: String = SortEnum.PACKAGE_NAME.toString()
+    private lateinit var sortArg: String
     private lateinit var binding: FragmentSearchResultBinding
     private lateinit var adapter: SearchResultAdapter
 

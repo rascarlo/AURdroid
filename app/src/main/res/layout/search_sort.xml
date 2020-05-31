@@ -23,7 +23,8 @@
             android:layout_marginTop="8dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/search_sort_label_text_view">
+            app:layout_constraintTop_toBottomOf="@id/search_sort_label_text_view"
+            app:singleSelection="true">
 
             <com.google.android.material.chip.Chip
                 android:id="@+id/sort_chip_package_name"
