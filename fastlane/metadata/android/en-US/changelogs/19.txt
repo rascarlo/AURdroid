@@ -1,0 +1,5 @@
+versionCode: 19
+versionName: 5.0.3
+- search result: fix last update sort
+- search: fix sort chip group single selection
+- update libraries
