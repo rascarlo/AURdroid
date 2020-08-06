@@ -28,7 +28,7 @@
     <string name="formatted_last_updated">Last updated: %s</string>
     <string name="formatted_first_submitted">First submitted: %s</string>
     <string name="formatted_out_of_date">Flagged-out-of-date: %s</string>
-    <string name="formatted_votes">Votes: %d</string>
+    <string name="formatted_votes">Votes: %s</string>
     <string name="formatted_popularity">Popularity: %f</string>
     <string name="formatted_maintainer">Maintainer: %s</string>
     <string name="formatted_upstream_url">Upstream URL: %1$s</string>
