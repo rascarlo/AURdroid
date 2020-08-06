@@ -1,0 +1,5 @@
+versionCode: 20
+versionName: 5.0.4
+- resources: fix string formatting for formatted_votes
+- resources: fix spanish theme_day
+- update libraries
