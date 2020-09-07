@@ -13,7 +13,7 @@ buildscript {
         version_moshi = '1.10.0'
         version_multidex = "2.0.1"
         version_navigation = '2.2.2'
-        version_okhttp = '4.7.2'
+        version_okhttp = '4.8.1'
         version_preference = '1.1.1'
         version_recyclerview = '1.1.0'
         version_retrofit = '2.9.0'
