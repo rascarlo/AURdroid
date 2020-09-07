@@ -14,6 +14,7 @@ import retrofit2.http.Query
 import timber.log.Timber
 import java.io.IOException
 import java.util.concurrent.TimeUnit
+import kotlin.jvm.Throws
 
 // okhttp logging interceptor
 private val httpLoggingInterceptor = HttpLoggingInterceptor()
@@ -36,7 +37,6 @@ private val okHttpClient = OkHttpClient.Builder()
     .addNetworkInterceptor(object : Interceptor {
         @Throws(IOException::class)
         override fun intercept(chain: Interceptor.Chain): Response {
-            // add api key, api secret and json format
             val httpUrl: HttpUrl = chain.request().url
                 .newBuilder()
                 .build()
@@ -77,7 +77,7 @@ interface AurWebApiService {
      * get packages
      * @param field: search by
      * @param keyword: package to search
-     * @return [SearchResponse]]
+     * @return [SearchResponse]
      */
     @GET(value = "rpc/?v=5&type=search")
     suspend fun getPackages(
@@ -88,7 +88,7 @@ interface AurWebApiService {
     /**
      * get info
      * @param name: package name
-     * @return [InfoResponse]]
+     * @return [InfoResponse]
      */
     @GET(value = "rpc/?v=5&type=info")
     suspend fun getInfo(
