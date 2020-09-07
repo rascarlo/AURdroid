@@ -3,7 +3,6 @@ package com.rascarlo.aurdroid.searchResult
 import android.os.Bundle
 import android.view.*
 import androidx.fragment.app.Fragment
-import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
@@ -59,7 +58,7 @@ class SearchResultFragment : Fragment() {
         recyclerView.setHasFixedSize(true)
         recyclerView.adapter = adapter
         // observe search result list view model
-        viewModel.searchResultList.observe(viewLifecycleOwner, Observer {
+        viewModel.searchResultList.observe(viewLifecycleOwner, {
             if (null != it) {
                 activity?.invalidateOptionsMenu()
                 adapter.submitList(it)
@@ -75,7 +74,7 @@ class SearchResultFragment : Fragment() {
             }
         })
         // observe search result status view model
-        viewModel.status.observe(viewLifecycleOwner, Observer {
+        viewModel.status.observe(viewLifecycleOwner, {
             bindAurDroidApiStatusImageView(
                 binding.fragmentSearchResultStatusInclude.apiStatusImage,
                 it
@@ -90,14 +89,14 @@ class SearchResultFragment : Fragment() {
             )
         })
         // observe search result error view model
-        viewModel.error.observe(viewLifecycleOwner, Observer {
+        viewModel.error.observe(viewLifecycleOwner, {
             bindAurDroidApiErrorTextView(
                 binding.fragmentSearchResultStatusInclude.apiErrorText,
                 it
             )
         })
         // observe navigation
-        viewModel.displayPackage.observe(viewLifecycleOwner, Observer {
+        viewModel.displayPackage.observe(viewLifecycleOwner, {
             if (it?.name != null && it.name.isNotEmpty()) {
                 this.findNavController()
                     .navigate(

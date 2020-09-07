@@ -6,7 +6,6 @@ import android.os.Bundle
 import android.view.*
 import android.widget.Toast
 import androidx.fragment.app.Fragment
-import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
@@ -44,7 +43,7 @@ class InfoResultFragment : Fragment() {
         // assign view model
         binding.viewModel = viewModel
         // observe live data
-        viewModel.infoResult.observe(viewLifecycleOwner, Observer {
+        viewModel.infoResult.observe(viewLifecycleOwner, {
             if (null != it) {
                 binding.infoResult = it
                 // assign adapters
@@ -58,7 +57,7 @@ class InfoResultFragment : Fragment() {
             }
         })
         // observe search result status view model
-        viewModel.status.observe(viewLifecycleOwner, Observer {
+        viewModel.status.observe(viewLifecycleOwner, {
             bindAurDroidApiStatusImageView(
                 binding.fragmentInfoResultStatusInclude.apiStatusImage,
                 it
@@ -73,7 +72,7 @@ class InfoResultFragment : Fragment() {
             )
         })
         // observe search result error view model
-        viewModel.error.observe(viewLifecycleOwner, Observer {
+        viewModel.error.observe(viewLifecycleOwner, {
             bindAurDroidApiErrorTextView(
                 binding.fragmentInfoResultStatusInclude.apiErrorText,
                 it
