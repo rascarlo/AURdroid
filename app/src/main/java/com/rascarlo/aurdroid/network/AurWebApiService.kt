@@ -34,19 +34,16 @@ private val okHttpClient = OkHttpClient.Builder()
     .connectTimeout(30, TimeUnit.SECONDS)
     .readTimeout(30, TimeUnit.SECONDS)
     .addInterceptor(httpLoggingInterceptor)
-    .addNetworkInterceptor(object : Interceptor {
-        @Throws(IOException::class)
-        override fun intercept(chain: Interceptor.Chain): Response {
-            val httpUrl: HttpUrl = chain.request().url
-                .newBuilder()
-                .build()
-            // construct the new request
-            val request: Request = chain.request().newBuilder().url(httpUrl).build()
-            // log the request
-            Timber.d(request.toString())
-            // return the new request
-            return chain.proceed(request)
-        }
+    .addNetworkInterceptor(Interceptor { chain ->
+        val httpUrl: HttpUrl = chain.request().url
+            .newBuilder()
+            .build()
+        // construct the new request
+        val request: Request = chain.request().newBuilder().url(httpUrl).build()
+        // log the request
+        Timber.d(request.toString())
+        // return the new request
+        chain.proceed(request)
     })
     .build()
 

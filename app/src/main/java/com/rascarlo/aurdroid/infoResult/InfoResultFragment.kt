@@ -220,7 +220,7 @@ class InfoResultFragment : Fragment() {
     }
 
     private fun getUpstreamUrl(): String? {
-        return binding.infoResult?.url ?: return null
+        return binding.infoResult?.url
     }
 
     private fun getGitCloneUrl(): Uri? = when {
