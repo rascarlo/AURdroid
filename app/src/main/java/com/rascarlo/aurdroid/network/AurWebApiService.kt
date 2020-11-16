@@ -5,16 +5,17 @@ import com.rascarlo.aurdroid.BuildConfig
 import com.rascarlo.aurdroid.utils.Constants
 import com.squareup.moshi.Moshi
 import com.squareup.moshi.kotlin.reflect.KotlinJsonAdapterFactory
-import okhttp3.*
+import okhttp3.HttpUrl
+import okhttp3.Interceptor
+import okhttp3.OkHttpClient
+import okhttp3.Request
 import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Retrofit
 import retrofit2.converter.moshi.MoshiConverterFactory
 import retrofit2.http.GET
 import retrofit2.http.Query
 import timber.log.Timber
-import java.io.IOException
 import java.util.concurrent.TimeUnit
-import kotlin.jvm.Throws
 
 // okhttp logging interceptor
 private val httpLoggingInterceptor = HttpLoggingInterceptor()
