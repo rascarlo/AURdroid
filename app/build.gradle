@@ -11,8 +11,8 @@ android {
         applicationId "com.rascarlo.aurdroid"
         minSdkVersion 16
         targetSdkVersion 30
-        versionCode 20
-        versionName "5.0.4"
+        versionCode 21
+        versionName "5.0.5"
         resConfigs "en", "es", "it", "pt-rBR"
         multiDexEnabled true
         vectorDrawables.useSupportLibrary = true
