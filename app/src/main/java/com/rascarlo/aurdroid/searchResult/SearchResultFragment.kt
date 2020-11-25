@@ -32,7 +32,7 @@ class SearchResultFragment : Fragment() {
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View {
         binding = FragmentSearchResultBinding.inflate(inflater)
         val keywordArg: String = args.keyword
         val fieldArg: String = args.field
@@ -163,7 +163,7 @@ class SearchResultFragment : Fragment() {
     }
 
     override fun onSaveInstanceState(outState: Bundle) {
-        outState.putString(OUTSTATE_SORT, sortArg)
+        if (::sortArg.isInitialized) outState.putString(OUTSTATE_SORT, sortArg)
         super.onSaveInstanceState(outState)
     }
 
