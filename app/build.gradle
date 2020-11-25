@@ -11,8 +11,8 @@ android {
         applicationId "com.rascarlo.aurdroid"
         minSdkVersion 16
         targetSdkVersion 30
-        versionCode 21
-        versionName "5.0.5"
+        versionCode 22
+        versionName "5.0.6"
         resConfigs "en", "es", "it", "pt-rBR"
         multiDexEnabled true
         vectorDrawables.useSupportLibrary = true
@@ -78,7 +78,7 @@ dependencies {
     // recycler view
     implementation "androidx.recyclerview:recyclerview:$version_recyclerview"
     // preference
-    implementation "androidx.preference:preference:$version_preference"
+    implementation "androidx.preference:preference-ktx:$version_preference"
     // timber
     implementation "com.jakewharton.timber:timber:$version_timber"
     implementation 'androidx.legacy:legacy-support-v4:1.0.0'
