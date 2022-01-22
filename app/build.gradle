@@ -13,7 +13,7 @@ android {
         targetSdkVersion 30
         versionCode 22
         versionName "5.0.6"
-        resConfigs "en", "es", "it", "pt-rBR"
+        resConfigs "en", "es", "it", "pt-rBR", "fr"
         multiDexEnabled true
         vectorDrawables.useSupportLibrary = true
     }

@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="settings">Paramètres</string>
+    <string name="not_available">Non disponible</string>
+    <string name="something_went_wrong">Un problème est survenu, veuillez réessayer</string>
+    <string name="retrofit_something_went_wrong">Un problème est survenu. Assurez-vous d'avoir une connexion internet active et réessayez.</string>
+    <string name="keywords">Mots-clés</string>
+    <string name="keywords_hint">Les requêtes de recherche doivent comporter au moins deux caractères.
+        \nLes recherches échoueront si elles contiennent 5000 résultats ou plus.
+        \nL'API est limitée à un maximum de 4000 requêtes par jour par IP.
+    </string>
+    <string name="package_search">Recherche d'un paquet</string>
+    <string name="search">Rechercher</string>
+    <string name="name_or_description">Nom ou description</string>
+    <string name="name">Nom</string>
+    <string name="depends">Dépendances</string>
+    <string name="make_depends">Dépendances de compil.</string>
+    <string name="opt_depends">Dépendances opt.</string>
+    <string name="check_depends">Dépendances de vérif.</string>
+    <string name="sort">Trier</string>
+    <string name="package_name">Package name</string>
+    <string name="last_updated">Dernière mise à jour</string>
+    <string name="votes">Votes</string>
+    <string name="popularity">Popularité</string>
+    <string name="first_submitted">Première soumission</string>
+    <string name="formatted_version">Version : %s</string>
+    <string name="formatted_packagebase">Paquet de base : %s</string>
+    <string name="formatted_last_updated">Dernière mise à jour : %s</string>
+    <string name="formatted_first_submitted">Première soumission : %s</string>
+    <string name="formatted_out_of_date">Marqué comme périmé : %s</string>
+    <string name="formatted_votes">Votes : %d</string>
+    <string name="formatted_popularity">Popularité : %f</string>
+    <string name="formatted_maintainer">Mainteneur : %s</string>
+    <string name="formatted_upstream_url">URL upstream : %1$s</string>
+    <string name="formatted_git_clone_url">URL de clone Git : https://aur.archlinux.org/%1$s.git</string>
+    <string name="formatted_license">Licence : %1$s</string>
+    <string name="formatted_depends">Dépendances (%1$d)</string>
+    <string name="formatted_opt_depends">Dépendances optionnelles (%1$d)</string>
+    <string name="formatted_make_depends">Dépendances de compilation (%1$d)</string>
+    <string name="formatted_check_depends">Dépendances de vérification (%1$d)</string>
+    <string name="formatted_conflicts">Conflits (%1$d)</string>
+    <string name="formatted_provides">Fournit (%1$d)</string>
+    <string name="formatted_replaces">Remplace (%1$d)</string>
+    <string name="formatted_groups">Groupes (%1$d)</string>
+    <string name="formatted_keywords">Mots-clés (%1$d)</string>
+    <string name="view_pkgbuild">Voir le PKGBUILD</string>
+    <string name="view_changes">Voir les changements</string>
+    <string name="maintainer">Mainteneur</string>
+    <string name="open_in_browser">Ouvrir dans le navigateur</string>
+    <string name="share">Partager</string>
+    <string name="design">Design</string>
+    <string name="theme">Thème</string>
+    <string name="theme_night">Sombre</string>
+    <string name="theme_follow_system">Paramètre par défaut du système</string>
+    <string name="theme_day">Clair</string>
+    <string name="i_use_arch_btw">I use Arch BTW</string>
+    <string name="links">Liens</string>
+    <string name="source">Source</string>
+    <string name="orphan">Orphelin</string>
+    <string name="no_package_found">Aucun paquet trouvé</string>
+    <string name="pkgbuild">PKGBUILD</string>
+    <string name="changes">Changements</string>
+    <string name="aur_package">Paquet AUR</string>
+    <string name="upstream_url">URL upstream</string>
+    <string name="git_clone_url">URL Git clone</string>
+    <string name="snapshot">Instantané</string>
+    <string name="download_snapshot">Télécharger un instantané</string>
+    <plurals name="plurals_formatted_package_found">
+        <item quantity="one">%d paquet trouvé pour %s</item>
+        <item quantity="other">%d paquets trouvés pour %s</item>
+    </plurals>
+    <string name="translations">Traductions</string>
+    <string name="translation_italian">Italien</string>
+    <string name="translation_spanish">Espagnol</string>
+    <string name="translation_portuguese">Portugais, Brésil</string>
+    <string name="translation_french">Français</string>
+    <string name="other_actions">Autres actions</string>
+</resources>

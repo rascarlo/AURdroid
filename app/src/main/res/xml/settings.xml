@@ -116,6 +116,16 @@
                 android:data="@string/translation_spanish_link" />
         </Preference>
 
+        <!--french-->
+        <Preference
+            android:summary="@string/translation_french_link"
+            android:title="@string/translation_french"
+            app:enableCopying="true">
+            <intent
+                android:action="android.intent.action.VIEW"
+                android:data="@string/translation_french_link" />
+        </Preference>
+
     </PreferenceCategory>
 
 </PreferenceScreen>
