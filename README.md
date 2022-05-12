@@ -18,13 +18,12 @@ ___
 
 ## Screenshots
 
-| <img src="fastlane/metadata/android/en-US/phoneScreenshots/01.png" alt="Screenshot-1" /> | <img src="fastlane/metadata/android/en-US/phoneScreenshots/02.png" alt="Screenshot-2"/> |
-| --- | --- |
-| <img src="fastlane/metadata/android/en-US/phoneScreenshots/03.png" alt="Screenshot-3"/> |<img src="fastlane/metadata/android/en-US/phoneScreenshots/04.png" alt="Screenshot-4"/> |
+| <img src="fastlane/metadata/android/en-US/phoneScreenshots/01.png" alt="Screenshot-1" /> | <img src="fastlane/metadata/android/en-US/phoneScreenshots/02.png" alt="Screenshot-2"/> | <img src="fastlane/metadata/android/en-US/phoneScreenshots/03.png" alt="Screenshot-3"/> |<img src="fastlane/metadata/android/en-US/phoneScreenshots/04.png" alt="Screenshot-4"/> |
+| --- | --- | --- | --- |
 
-| <img src="fastlane/metadata/android/en-US/phoneScreenshots/05.png" alt="Screenshot-5" /> | <img src="fastlane/metadata/android/en-US/phoneScreenshots/06.png" alt="Screenshot-6"/> |
-| --- | --- |
-| <img src="fastlane/metadata/android/en-US/phoneScreenshots/07.png" alt="Screenshot-7"/> |<img src="fastlane/metadata/android/en-US/phoneScreenshots/08.png" alt="Screenshot-8"/> |
+| <img src="fastlane/metadata/android/en-US/phoneScreenshots/05.png" alt="Screenshot-5" /> | <img src="fastlane/metadata/android/en-US/phoneScreenshots/06.png" alt="Screenshot-6"/> | <img src="fastlane/metadata/android/en-US/phoneScreenshots/07.png" alt="Screenshot-7"/> |<img src="fastlane/metadata/android/en-US/phoneScreenshots/08.png" alt="Screenshot-8"/> |
+| --- | --- | --- | --- |
+
 
 ___
 
